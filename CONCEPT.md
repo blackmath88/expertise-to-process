@@ -66,19 +66,34 @@ Drei Eigenschaften bleiben bewusst getrennt, damit ein Beispiel nicht versehentl
 - Vereinfachte Ablaufkarten, kein formales BPMN 2.0.
 
 
-## Organisatorische Vision: entdecken, verbinden, verbessern
+## Organisatorische Vision: entdecken, teilen, institutionalisieren
 
-**Von individueller Expertise zu einer gemeinsam lernenden Organisation.**
+**Abläufe verstehen. Gute Lösungen teilen. Verbesserungen dauerhaft verankern.**
 
-Zuerst machen wir sichtbar, wie Arbeit gelingt. Dann verbinden wir Erfahrungen und verstehen Gemeinsamkeiten und Unterschiede. Auf dieser Grundlage verbessern wir gezielt: mit passenden Werkzeugen, übertragbaren Lösungen und gemeinsamen Standards dort, wo sie nachweislich helfen. Verantwortung und fachlicher Kontext bleiben sichtbar.
+Zuerst machen wir sichtbar, wie Arbeit tatsächlich gelingt. Dann lernen Teams voneinander und verstehen Gemeinsamkeiten und begründete Unterschiede. Schliesslich verankern wir nützliche Verbesserungen im Alltag: mit klarer Zuständigkeit, gepflegtem Wissen, passenden Arbeitsabläufen, Prüfzyklen und messbaren Ergebnissen. Verbessert wird in jeder Phase; was wächst, ist die Reichweite.
 
-| Phase | Schwerpunkt | Ergebnis und nächste Entscheidung |
-| --- | --- | --- |
-| **1 · Entdecken und verstehen** | Prozessdenken lernen, eine gemeinsame Sprache entwickeln und den Bestand erkunden: Welche Abläufe, Werkzeuge, Dokumentationen und Ansprechstellen gibt es bereits? | Ein erster Überblick und nachvollziehbare Beschreibungen. Beteiligte prüfen Verständlichkeit und wählen nützliche Fälle für die gemeinsame Bibliothek. |
-| **2 · Teilen und verbinden** | Eine kuratierte Bibliothek aufbauen; lokale Varianten, Unterschiede und gemeinsame Muster verstehen; hilfreiches Wissen übernehmen und anpassen. | Prozessfamilien mit verantwortlichen Teams und nachvollziehbarer Herkunft. Wiederverwendung wird praktisch erprobt. |
-| **3 · Gezielt verbessern** | Passende Werkzeuge auswählen, unnötigen Aufwand reduzieren und prüfen, wo gemeinsame Dienste oder zentrale Standards einen Vorteil bringen. | Getestete Verbesserungen und begründete Entscheidungen. Lokale Lösungen bleiben bestehen, wo sie fachlich sinnvoll sind. |
+| Phase | Was Menschen tun | Was verfügbar wird | Nächster Schritt |
+| --- | --- | --- | --- |
+| **1 · Entdecken – Wissen sichtbar machen** | Verstehen, wie Arbeit tatsächlich läuft; eine gemeinsame Prozesssprache aufbauen; vorhandene Materialien, Werkzeuge und Expertise finden; Übergaben und Reibung erkennen. | Nachvollziehbare Beschreibungen mit Karte, offenen Fragen und sichtbaren Übergaben sowie ein Überblick über den Bestand. | Eine Übergabe, die oft hakt, mit den Beteiligten anschauen – und wenn möglich gleich vereinfachen. |
+| **2 · Teilen – Voneinander lernen** | Beschreibungen teilen, Vorgehen vergleichen, nützliche Beispiele übernehmen und anpassen; Gemeinsames und begründete lokale Unterschiede verstehen. | Eine Bibliothek mit expliziter Verantwortung: gemeinsame Muster, lokale Varianten und ihre Gründe. | Ein zweites Team prüft eine Beschreibung in seinem Kontext und hält fest, was es anders macht und warum. |
+| **3 · Institutionalisieren – Verbesserungen im Alltag verankern** | Nützliche Verbesserungen in die tägliche Arbeit einbauen: klare Zuständigkeiten, gepflegtes Wissen, passende Arbeitsabläufe, Prüfzyklen und messbare Ergebnisse. | Abläufe, die gepflegt werden und nicht an Einzelnen hängen – mit Pflegeverantwortung, Prüftermin und Messgrösse. | Für eine erprobte Vereinfachung festlegen, wer sie pflegt, wann sie überprüft wird und woran man merkt, ob sie hilft. |
 
-Die Phasen beschreiben den Aufbau organisationaler Fähigkeiten. Einzelne Teams können bereits früher Verbesserungen erproben; eine vollständige Inventarisierung ist keine Voraussetzung. Standardisierung ist eine mögliche, gesondert beschlossene Folge des gemeinsamen Verständnisses.
+Die Phasen beschreiben wachsende organisationale Fähigkeiten, keine starren Tore. Ein Team kann eine Übergabe bereits beim Entdecken vereinfachen und muss dafür nicht auf eine universitätsweite Prozessbibliothek warten; eine vollständige Inventarisierung ist keine Voraussetzung.
+
+Institutionalisieren heisst nicht vereinheitlichen. Lokale Praxis braucht keine zentrale Freigabe; Teams verantworten ihre Varianten, und jede Variante wird für sich geprüft. Gemeinsame Standards werden nur dort vereinbart, wo sie helfen – durch eine gesonderte Entscheidung der zuständigen Stellen.
+
+**Durchgehendes Beispiel (fiktiv):** Die Kommunikation beschreibt «Veranstaltung ankündigen» und ergänzt nach dem Prozess-Check eine Checkliste für die Übergabe. Das Institut für Geografie übernimmt die Beschreibung und ergänzt eine Raumfreigabe; das Romanische Seminar übernimmt die Checkliste und ergänzt eine Übersetzungsprüfung. Die verantwortlichen Teams verankern, was sich bewährt: ein Formular mit Pflichtangaben, Aufgaben mit zuständiger Person und Frist, Pflegeverantwortung und eine Messgrösse. Ob das Institut die Checkliste übernimmt, entscheidet es selbst.
+
+### Erste Vereinfachungen mit vorhandenen Werkzeugen
+
+Aus einer verstandenen Reibung kann ein kleiner, prüfbarer Schritt werden: beobachtete Reibung → vorgeschlagener Ablauf → menschliche Verantwortung → Prüfung, ob es hilft. Beispiele (Vorschläge, keine Integrationen dieser Demo):
+
+- **Unvollständige Anfragen** → Formular mit Pflichtangaben (z. B. Microsoft Forms). Regelbasiert.
+- **Weiterleiten und Nachfassen** → Aufgabe mit zuständiger Person und Frist (Planner), Benachrichtigung (Teams) und Erinnerung, verbunden über Power Automate. Regelbasiert.
+- **Wiederholtes Abtippen** → Angaben einmal erfassen (z. B. SharePoint-Liste) und weitergeben. Regelbasiert.
+- **Freitextanfragen lesen und einordnen** → ein Sprachmodell (z. B. Mistral) schlägt Kategorie und Kurzfassung vor; unsichere Fälle prüft immer eine Person. Nur hier ist Sprachverständnis nötig.
+
+Regelbasierte Automatisierung liefert bei gleicher Eingabe dasselbe Ergebnis und ist leicht zu prüfen. Ein Sprachmodell liefert Vorschläge mit Unsicherheit; es braucht menschliche Prüfung, eine Klärung des Datenschutzes und laufende Qualitätskontrolle. Forms, Planner, Teams und SharePoint sind in Power Automate Standard-Connectors; ein Sprachmodell lässt sich nur über einen Premium- oder benutzerdefinierten Connector einbinden und braucht eine entsprechende Lizenz sowie einen API-Zugang. Mistral ist dabei eine mögliche Modellkomponente, kein Workflow-Produkt. Ob Werkzeuge an einer Hochschule – etwa an der Universität Basel – lizenziert, eingerichtet und freigegeben sind, ist vor jedem Vorschlag zu klären. Wirkung wird gemessen, nicht angenommen; frei werdende Arbeitszeit ist keine Budgeteinsparung.
 
 ## Prozessbibliothek: verwandte Varianten mit eigener Verantwortung
 
@@ -107,7 +122,7 @@ Die geplante Datenstruktur hält Prozess-ID, Versions-ID, gegebenenfalls Ausgang
 | **2 · KI-unterstützte Wissensbasis** | KI schlägt Einordnungen, verwandte Prozesse, Unterschiede und Pflegehinweise vor. Versionierte Daten und nachvollziehbare Beziehungen tragen die Bibliothek. | Beteiligte bestätigen Herkunft, Kontext und Inhalte; Kuration entscheidet über Aufnahme und Pflege. |
 | **3 · Kontextbezogene Verbesserungshilfe** | Unterstützung berücksichtigt die tatsächliche Werkzeug-, Service- und Prozesslandschaft der Universität und verweist auf passende Quellen und Beispiele. | Zuständige Stellen prüfen Anwendbarkeit, Aufwand und Wirkung und entscheiden über Umsetzung oder gemeinsame Standards. |
 
-Die organisatorischen Phasen benötigen keine bestimmte KI-Ausbaustufe. Die Wissensbasis lässt sich zunächst manuell kuratieren. KI unterstützt Strukturierung und Navigation; sie erhält keine Befugnis, Prozesse freizugeben oder Standards festzulegen.
+Die organisatorischen Phasen benötigen keine bestimmte KI-Ausbaustufe; für erste Vereinfachungen reichen oft vorhandene Werkzeuge. Die Wissensbasis lässt sich zunächst manuell kuratieren. KI unterstützt Strukturierung und Navigation; sie erhält keine Befugnis, Prozesse freizugeben oder Standards festzulegen.
 
 ### Heute umgesetzt und spätere Entwicklung
 
