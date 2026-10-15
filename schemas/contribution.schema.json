@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/blackmath88/expertise-to-process/schemas/contribution.schema.json",
+  "title": "Pietro contribution envelope (schemaVersion 1)",
+  "description": "Downloaded by the browser, never sent. A curator reviews it and, if accepted, adds the candidateEntry (with updated review/maintenance fields) to docs/app/data. Authoritative validator: docs/app/lib/contribution.js validateContribution. No other top-level keys are allowed: access tokens, backend settings, browser metadata and chat histories are never part of a contribution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "kind", "contributionId", "createdAt", "status", "candidateEntry", "openQuestions", "sharingConfirmation"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "kind": {"const": "pietro-contribution"},
+    "contributionId": {"type": "string", "pattern": "^beitrag-[\\w-]+$"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "status": {"const": "pending-review"},
+    "candidateEntry": {"$ref": "library-entry.schema.json", "description": "review.status is always 'pending-review'; effectiveness 'untested'; authority 'none'; provenance.sourceType 'contribution'."},
+    "openQuestions": {"type": "array", "maxItems": 30, "items": {"type": "string", "maxLength": 600}},
+    "narrative": {"type": "string", "maxLength": 8000, "description": "Only present if the contributor explicitly chose to keep their free narrative."},
+    "sharingConfirmation": {
+      "type": "object", "required": ["confirmed", "statement", "limit", "confirmedAt"],
+      "description": "Records the contributor's intent to share for review. It is not an authorisation to publish.",
+      "properties": {"confirmed": {"const": true}, "statement": {"type": "string"}, "limit": {"type": "string"}, "confirmedAt": {"type": ["string", "null"]}}
+    }
+  }
+}

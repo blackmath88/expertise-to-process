@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "note": "Verzeichnis der veröffentlichten Einträge. Die vollständigen Datensätze liegen nur in den verlinkten Dateien.",
+  "entries": [
+    {"id": "onboarding", "kind": "process-example", "path": "processes/onboarding.json"},
+    {"id": "event", "kind": "process-example", "path": "processes/event.json"},
+    {"id": "funding", "kind": "process-example", "path": "processes/funding.json"},
+    {"id": "completeness-check", "kind": "pattern", "path": "patterns/completeness-check.json"},
+    {"id": "explicit-handover", "kind": "pattern", "path": "patterns/explicit-handover.json"}
+  ]
+}

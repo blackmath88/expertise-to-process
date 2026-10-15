@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "onboarding",
+  "kind": "process-example",
+  "title": "Neue Mitarbeitende aufnehmen",
+  "summary": "Von der Vertragsunterschrift bis zum vorbereiteten ersten Arbeitstag – mit Rückfrageschleife, wenn Eintrittsunterlagen fehlen.",
+  "fictional": true,
+  "context": {
+    "scope": "Fiktive Verwaltungseinheit der Universität Musterstadt; Anstellung von Mitarbeitenden ohne Sonderfälle wie Gastaufenthalte.",
+    "constraints": [
+      "Fiktive Kriterien: unterschriebener Vertrag, Personalien, Bankverbindung, bei Bedarf Arbeitsbewilligung.",
+      "Die HR-Administration entscheidet über Vollständigkeit; die neue Person liefert die Angaben.",
+      "Zugänge werden erst beantragt, wenn die Stammdaten erfasst sind."
+    ]
+  },
+  "classification": {
+    "familyId": "personal",
+    "activityTags": ["collect-information", "completeness-check", "request-missing-information", "data-entry", "explicit-handover", "provision-access"],
+    "frictionTags": ["rework-loop", "duplicate-entry"]
+  },
+  "provenance": {"sourceType": "fictional-example", "sourceLabel": "Fiktives Lehrbeispiel der erfundenen Universität Musterstadt; keine reale Vorgabe", "sourceRefs": []},
+  "review": {"status": "not-reviewed", "reviewedByRole": null, "reviewedAt": null},
+  "effectiveness": {"status": "untested", "evidenceRefs": []},
+  "authority": {"status": "none", "scope": null, "authoritySource": null},
+  "maintenance": {"ownerRole": "Projektkuration Demonstrator", "reviewDue": "2027-04-30"},
+  "relatedIds": ["funding"],
+  "patternIds": ["completeness-check", "explicit-handover"],
+  "openQuestions": [
+    "Wie oft fehlen Unterlagen beim ersten Einreichen? Bisher nicht gezählt.",
+    "Wer informiert das Team, wenn sich der Eintritt verzögert?",
+    "Werden Angaben aus dem PDF-Formular von Hand ins HR-System übertragen?"
+  ],
+  "process": {
+    "version": 1,
+    "title": "Neue Mitarbeitende aufnehmen",
+    "owner": "HR-Administration",
+    "trigger": "Arbeitsvertrag ist unterschrieben",
+    "outcome": "Erster Arbeitstag ist vorbereitet",
+    "lens": "work",
+    "pain": "Unterlagen kommen unvollständig an und werden per E-Mail nachgefordert. Angaben aus dem PDF-Formular werden von Hand ins HR-System übertragen.",
+    "frequency": "Fiktiv: etwa 6-mal pro Monat",
+    "steps": [
+      {"id": "s1", "type": "task", "label": "Eintrittsunterlagen anfordern", "role": "HR-Administration", "system": "E-Mail-Vorlage", "note": "", "next": "s2"},
+      {"id": "s2", "type": "task", "label": "Unterlagen einreichen", "role": "Neue Person", "system": "PDF-Formular", "note": "", "next": "s3"},
+      {"id": "s3", "type": "decision", "label": "Unterlagen vollständig?", "role": "HR-Administration", "system": "Checkliste", "note": "Fiktive Kriterien siehe Kontext.", "next": "s5", "yes": "s5", "no": "s4"},
+      {"id": "s4", "type": "task", "label": "Fehlende Angaben nachfordern", "role": "HR-Administration", "system": "E-Mail", "note": "Rückfrageschleife", "next": "s2"},
+      {"id": "s5", "type": "task", "label": "Stammdaten erfassen", "role": "HR-Administration", "system": "HR-System", "note": "", "next": "s6"},
+      {"id": "s6", "type": "task", "label": "Arbeitsplatz und Zugänge beantragen", "role": "Vorgesetzte Person", "system": "IT-Ticket", "note": "Übergabe an die IT", "next": "s7"},
+      {"id": "s7", "type": "task", "label": "Zugänge einrichten", "role": "IT-Support", "system": "Kontoverwaltung", "note": "", "next": "s8"},
+      {"id": "s8", "type": "task", "label": "Ersten Arbeitstag vorbereiten", "role": "Team", "system": "", "note": "", "next": "end"}
+    ],
+    "checks": {"purpose": "yes", "owner": "yes", "validated": "unknown", "exceptions": "unknown", "data": "unknown", "permission": "unknown", "review": "unknown", "baseline": "no"},
+    "opportunity": {"kind": "simplify", "hypothesis": "Wenn die Kriterienliste bereits mit der Anforderung verschickt wird, erwarten wir weniger Nachforderungen. Ungeprüfte Hypothese.", "measure": "Anzahl Nachforderungen pro Eintritt", "next": "Nachforderungen während eines Monats zählen"}
+  }
+}

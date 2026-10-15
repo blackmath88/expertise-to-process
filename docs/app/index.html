@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Pietro · Expertise verbinden</title>
+<meta name="description" content="Demo: Prozesssprache lernen, eigene Abläufe beschreiben und mit einer Prozessbibliothek vergleichen – am Beispiel der fiktiven Universität Musterstadt.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<p class="demo-band"><b>Demo</b> · Die Universität Musterstadt ist erfunden. Alle Abläufe, Rollen und Beispiele sind fiktiv; die App speichert nichts auf einem Server.</p>
+<header class="site-header">
+  <a class="brand" href="#start"><span class="brandmark" aria-hidden="true">p.</span><span>Pietro <small>UNIVERSITÄT MUSTERSTADT · PROZESSWERKSTATT</small></span></a>
+  <nav class="primary-nav" aria-label="Hauptnavigation">
+    <a href="#lernen" data-route="lernen">Lernen</a>
+    <a href="#prozess" data-route="prozess">Mein Prozess</a>
+    <a href="#bibliothek" data-route="bibliothek">Prozessbibliothek</a>
+  </nav>
+  <button id="settingsBtn" type="button" class="quiet">Einstellungen</button>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- START -->
+<section id="view-start" class="view" aria-labelledby="startHeading">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">WAS EINZELNE WISSEN, SOLL DIE INSTITUTION KÖNNEN.</p>
+      <h1 id="startHeading" tabindex="-1">Expertise verbinden.<br><em>Gemeinsam besser arbeiten.</em></h1>
+      <p class="intro">An der (fiktiven) Universität Musterstadt lernen Mitarbeitende eine gemeinsame Prozesssprache. Beschreibe deinen eigenen Ablauf und vergleiche ihn mit verwandten Beispielen. So wird Erfahrungswissen verständlich, auffindbar und für andere nutzbar.</p>
+      <div class="actions">
+        <button id="entryExample" type="button" class="primary">Beispiel ausprobieren</button>
+        <button id="entryOwn" type="button">Eigenen Prozess beschreiben</button>
+        <button id="entryLibrary" type="button">Bibliothek erkunden</button>
+      </div>
+      <p class="micro">Ohne Konto. Ohne KI im Offline-Modus. Dein Entwurf bleibt in diesem Browser, bis du ihn ausdrücklich speicherst oder als Datei herunterlädst.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <span class="art-note">VOM EINZELWISSEN ZUR GEMEINSAMEN BIBLIOTHEK</span>
+      <div class="recipe"><span class="dot"></span> Sprache lernen</div>
+      <div class="recipe"><span class="square"></span> Eigenen Ablauf beschreiben</div>
+      <div class="recipe"><span class="diamond"></span> Muster vergleichen</div>
+      <div class="recipe final"><span class="dot"></span> Geprüft beitragen</div>
+      <p>Erst das Rezept verstehen.<br>Dann gemeinsam die Küche verbessern.</p>
+      <span class="pizza">🍕</span>
+    </div>
+  </div>
+  <ol class="journey">
+    <li><b>Lernen</b><span>Kurze Übungen zu Auslöser, Tätigkeit, Entscheidung, Rolle, Übergabe, Ergebnis und Ausnahme. Kein Pflichtkurs.</span></li>
+    <li><b>Mein Prozess</b><span>Geführte Fragen oder direkte Bearbeitung, eine lesbare Karte und ein Prozess-Check mit Bezug auf deine Schritte.</span></li>
+    <li><b>Prozessbibliothek</b><span>Fiktive Beispiele der Universität Musterstadt und Muster: gemeinsame Tätigkeiten erkennen, lokale Unterschiede respektieren.</span></li>
+  </ol>
+</section>
+
+<!-- LERNEN -->
+<section id="view-lernen" class="view" aria-labelledby="learnHeading" hidden>
+  <div class="section-intro">
+    <p class="eyebrow">GEMEINSAME PROZESSSPRACHE</p>
+    <h1 id="learnHeading" tabindex="-1">Sieben Begriffe, mit denen sich Arbeit erklären lässt.</h1>
+    <p>Jede Übung dauert eine Minute. Du bekommst zu jeder Antwort eine Erklärung – und kannst jederzeit direkt in deinen eigenen Prozess wechseln.</p>
+  </div>
+  <fieldset class="segmented">
+    <legend>Beispiele aus</legend>
+    <label><input type="radio" name="lessonContext" value="uni" checked> Hochschule</label>
+    <label><input type="radio" name="lessonContext" value="pizza"> Pietros Pizzeria</label>
+  </fieldset>
+  <div class="learn-layout">
+    <nav aria-label="Übungen"><ol id="exerciseNav" class="exercise-nav"></ol></nav>
+    <article id="exercise" class="lesson" aria-live="polite"></article>
+  </div>
+  <p class="note">Wir nutzen Grundideen aus BPMN. Die vereinfachten Karten und Mermaid-Exporte sind keine formal validierten BPMN-2.0-Modelle. Parallele Arbeit wird erklärt, aber im Editor nicht abgebildet.</p>
+</section>
+
+<!-- MEIN PROZESS -->
+<section id="view-prozess" class="view" aria-labelledby="draftHeading" hidden>
+  <div class="draft-bar">
+    <div>
+      <p class="eyebrow">MEIN PROZESS · PERSÖNLICHER ENTWURF</p>
+      <h1 id="draftHeading" tabindex="-1">Mein Prozess</h1>
+      <p id="draftStatus" class="badge" role="status">Nicht gespeichert</p>
+    </div>
+    <div class="draft-actions">
+      <button id="undoBtn" type="button" disabled>Rückgängig</button>
+      <button id="saveDraft" type="button">Auf diesem Gerät speichern</button>
+      <button id="newDraft" type="button" class="quiet">Neuer Entwurf</button>
+    </div>
+  </div>
+  <div class="work-tabs" role="tablist" aria-label="Werkbank">
+    <button type="button" role="tab" id="tab-ablauf" aria-controls="panel-ablauf" aria-selected="true">Ablauf</button>
+    <button type="button" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" tabindex="-1">Prozess-Check</button>
+    <button type="button" role="tab" id="tab-vergleich" aria-controls="panel-vergleich" aria-selected="false" tabindex="-1">Vergleich</button>
+    <button type="button" role="tab" id="tab-mitnehmen" aria-controls="panel-mitnehmen" aria-selected="false" tabindex="-1">Mitnehmen / Beitragen</button>
+  </div>
+
+  <section id="panel-ablauf" role="tabpanel" aria-labelledby="tab-ablauf" class="tabpanel">
+    <div class="workbench">
+      <section class="col col-capture" aria-labelledby="captureHeading">
+        <h2 id="captureHeading">Aufnehmen</h2>
+        <div class="mode-switch" role="group" aria-label="Arbeitsweise">
+          <button type="button" id="modeGuided" aria-pressed="true">Geführte Fragen</button>
+          <button type="button" id="modeDirect" aria-pressed="false">Direkt bearbeiten</button>
+        </div>
+        <div id="guidedPane">
+          <div id="scriptBanner" class="script-banner" hidden></div>
+          <div id="questionCard" class="question-card"></div>
+          <div id="proposalCard" class="proposal-card" hidden aria-live="polite"></div>
+          <details class="narrative">
+            <summary>Frei erzählen (wird nicht ausgewertet)</summary>
+            <p class="micro">Offline versteht Pietro keinen Freitext. Deine Erzählung bleibt als Notiz bei deinem Entwurf. Strukturiert wird nur, was du über die Fragen oder direkt einträgst.</p>
+            <label for="narrative">Deine Erzählung</label>
+            <textarea id="narrative" maxlength="8000" placeholder="Erzähl, wie der Ablauf heute tatsächlich läuft."></textarea>
+          </details>
+          <p class="micro">Spracheingabe gibt es noch nicht. Sie ist erst mit einem autorisierten, selbst betriebenen Dienst vorgesehen: Aufnahme → bearbeitbares Transkript → bewusst senden.</p>
+        </div>
+        <div id="directPane" hidden>
+          <div class="form-grid">
+            <label>Wie heisst der Prozess?<input id="title" maxlength="160"></label>
+            <label>Wer verantwortet ihn?<input id="owner" maxlength="160" placeholder="Rolle oder Team; «offen» ist auch eine Antwort"></label>
+            <label>Was löst ihn aus?<input id="trigger" maxlength="160" placeholder="Ein Ereignis, z. B. «Antrag ist eingegangen»"></label>
+            <label>Wann ist er abgeschlossen?<input id="outcome" maxlength="160" placeholder="Ein Zustand, z. B. «Antrag ist bewilligt»"></label>
+            <label>Welche Perspektive hilft dir?<select id="lens"><option value="work">Arbeitsalltag</option><option value="service">Anfragende &amp; Wartezeiten</option><option value="decisions">Entscheidungen &amp; Verantwortung</option><option value="data">Informationen &amp; Systeme</option></select></label>
+            <label>Wie häufig kommt das vor?<input id="frequency" maxlength="160" placeholder="z. B. etwa 10-mal pro Monat; geschätzt"></label>
+            <label class="wide">Wo wird es mühsam?<textarea id="pain" maxlength="4000"></textarea></label>
+            <label class="wide">Werden Angaben mehrfach erfasst oder übertragen?<select id="reportedDuplicate"><option value="unknown">Weiss nicht</option><option value="yes">Ja</option><option value="no">Nein</option></select></label>
+          </div>
+          <div class="subhead"><div><h3>Schritte</h3><p>Eine Tätigkeit pro Schritt. Maximal 15; grössere Prozesse teilen wir auf.</p></div><button id="addStep" type="button">+ Schritt</button></div>
+          <div id="stepList"></div>
+          <p id="validation" class="note" role="status"></p>
+        </div>
+      </section>
+
+      <section class="col col-map" aria-labelledby="mapHeading">
+        <h2 id="mapHeading">Karte</h2>
+        <p id="lensHint" class="micro"></p>
+        <div class="legend" aria-hidden="true"><span>○ Ereignis</span><span>▢ Tätigkeit</span><span>◇ Entscheidung</span><span class="back">⇢ Rückweg</span></div>
+        <div id="mapContainer" class="map-container"></div>
+        <h3 id="mapTextHeading">Ablauf als Text</h3>
+        <ol id="mapText" class="map-text" aria-labelledby="mapTextHeading"></ol>
+      </section>
+
+      <aside class="col col-insights" aria-labelledby="insightHeading">
+        <h2 id="insightHeading">Beschreibungsstand</h2>
+        <p class="micro">Was eine brauchbare Beschreibung enthält. Kein Punktwert und keine Bereitschaftsbewertung.</p>
+        <ul id="completeness" class="completeness"></ul>
+        <h3>Nächste Fragen aus dem Prozess-Check</h3>
+        <ul id="nextHints" class="hint-list"></ul>
+        <h3>Begriffe</h3>
+        <div id="glossary"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="panel-check" role="tabpanel" aria-labelledby="tab-check" class="tabpanel" hidden>
+    <div class="section-intro">
+      <h2>Prozess-Check</h2>
+      <p>Feste Regeln prüfen deine Angaben – ohne KI. Jede Rückmeldung nennt die Schritte oder Felder, auf die sie sich bezieht. Was du nicht angegeben hast, bleibt offen; es werden keine Einsparungen geschätzt und keine Regeln beurteilt.</p>
+    </div>
+    <div class="check-grid">
+      <section aria-labelledby="factsHeading"><h3 id="factsHeading">Gemeldete Fakten</h3><ul id="factsList" class="finding-list"></ul></section>
+      <section aria-labelledby="questionsHeading"><h3 id="questionsHeading">Offene Fragen</h3><ul id="questionsList" class="finding-list"></ul></section>
+      <section aria-labelledby="hypothesesHeading"><h3 id="hypothesesHeading">Verbesserungshypothesen</h3><p class="micro">Ungeprüft. Prüfe erst Weglassen und Vereinfachen, dann Automatisierung oder KI.</p><ul id="hypothesesList" class="finding-list"></ul></section>
+    </div>
+    <h3>Deine Hypothese</h3>
+    <div class="form-grid">
+      <label>Was möchtest du untersuchen?<select id="kind"><option value="simplify">Vereinfachen</option><option value="remove">Weglassen</option><option value="automate">Regelbasiert automatisieren</option><option value="ai">Mit KI unterstützen</option></select></label>
+      <label>Woran würdest du die Verbesserung erkennen?<input id="measure" maxlength="4000" placeholder="Rückfragen, Bearbeitungszeit, Fehler …"></label>
+      <label class="wide">Hypothese<textarea id="hypothesis" maxlength="4000" placeholder="Wenn wir … ändern, erwarten wir …, weil …"></textarea></label>
+      <label class="wide">Nächster konkreter Schritt<input id="next" maxlength="4000" placeholder="z. B. Rückfragen einen Monat lang zählen"></label>
+    </div>
+    <details class="checks-details">
+      <summary>Prüfstand (Selbstauskunft)</summary>
+      <p class="micro">Gesprächsgrundlage, keine fachliche oder technische Freigabe.</p>
+      <div id="checks" class="checks"></div>
+    </details>
+    <div class="actions"><button id="exportReport" type="button" class="primary">Sparring-Bericht herunterladen (Markdown)</button></div>
+  </section>
+
+  <section id="panel-vergleich" role="tabpanel" aria-labelledby="tab-vergleich" class="tabpanel" hidden>
+    <div class="section-intro">
+      <h2>Vergleich mit der Bibliothek</h2>
+      <p>Ordne deinen Prozess ein. Verwandte Beispiele werden über gemeinsame Tags gefunden – ein fester, nachvollziehbarer Abgleich, keine inhaltliche KI-Analyse.</p>
+    </div>
+    <div class="compare-layout">
+      <form id="classifyForm" class="classify">
+        <label>Prozessfamilie<select id="ownFamily"><option value="">Noch nicht gewählt</option></select></label>
+        <fieldset><legend>Tätigkeiten in deinem Prozess</legend><div id="ownActivity" class="tag-grid"></div></fieldset>
+        <fieldset><legend>Reibung</legend><div id="ownFriction" class="tag-grid"></div></fieldset>
+        <button id="suggestTags" type="button">Tags aus Stichwörtern vorschlagen</button>
+        <div id="tagProposal" class="proposal-card" hidden aria-live="polite"></div>
+      </form>
+      <div>
+        <h3>Verwandte Einträge</h3>
+        <p id="relatedStatus" class="micro" role="status"></p>
+        <ul id="relatedList" class="related-list"></ul>
+        <div id="ownComparison"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-mitnehmen" role="tabpanel" aria-labelledby="tab-mitnehmen" class="tabpanel" hidden>
+    <div class="section-intro">
+      <h2>Mitnehmen</h2>
+      <p>Dein Entwurf gehört dir. Exportierte Dateien enthalten deine Eingaben.</p>
+    </div>
+    <div class="export-grid">
+      <button id="exportJson" type="button"><strong>Arbeitsstand sichern</strong><span>JSON · Prozessdatei Version 1, hier wieder importierbar</span></button>
+      <button id="exportMd" type="button"><strong>Prozess-Steckbrief</strong><span>Markdown · lesbar und weiterbearbeitbar</span></button>
+      <button id="exportReport2" type="button"><strong>Sparring-Bericht</strong><span>Markdown · Fakten, offene Fragen, Hypothesen</span></button>
+      <button id="exportMmd" type="button"><strong>Diagramm</strong><span>Mermaid · für Dokumentation und Wikis</span></button>
+    </div>
+    <div class="import-row">
+      <label class="file-label">Arbeitsstand importieren (JSON)<input type="file" id="importFile" accept=".json,application/json"></label>
+      <button id="deleteDraft" type="button" class="quiet">Gespeicherten Entwurf auf diesem Gerät löschen</button>
+    </div>
+
+    <section class="contribute" aria-labelledby="contributeHeading">
+      <h2 id="contributeHeading">Beitragen</h2>
+      <ol class="flow"><li>Datei herunterladen</li><li>fachlich prüfen lassen</li><li>durch Kuration aufnehmen</li></ol>
+      <p>Du bereitest hier eine <b>separate Beitragskopie</b> vor. Was du weglässt, bleibt in deinem persönlichen Entwurf erhalten. Es wird nichts gesendet: Du lädst Dateien herunter und gibst sie selbst zur Prüfung weiter.</p>
+      <div class="contribute-layout">
+        <form id="contributionForm">
+          <label>Titel<input id="cTitle" maxlength="160"></label>
+          <label>Zusammenfassung<textarea id="cSummary" maxlength="600" placeholder="Ein bis zwei Sätze: Was beschreibt der Prozess?"></textarea></label>
+          <label>Geltungsbereich<input id="cScope" maxlength="600" placeholder="Für welche Einheit oder welche Fälle gilt diese Beschreibung?"></label>
+          <label>Lokale Bedingungen (eine pro Zeile)<textarea id="cConstraints" maxlength="6000" placeholder="Kriterien, Fristen, Zuständigkeiten, die nur hier gelten"></textarea></label>
+          <label>Prozessfamilie<select id="cFamily"><option value="">Bitte wählen</option></select></label>
+          <fieldset><legend>Was soll die Beitragskopie weglassen?</legend><div id="cRedactions" class="tag-grid"></div></fieldset>
+          <label class="check"><input type="checkbox" id="cFictional"> Dies ist ein erfundenes Beispiel</label>
+          <label>Offene Fragen (eine pro Zeile)<textarea id="cQuestions" maxlength="6000"></textarea></label>
+        </form>
+        <div class="contribution-preview">
+          <h3>Vorschau: genau das wird heruntergeladen</h3>
+          <div id="cReadable" class="readable"></div>
+          <details><summary>Exakter Dateiinhalt (JSON)</summary><pre id="cPreview" tabindex="0"></pre></details>
+          <ul id="cErrors" class="errors" role="status"></ul>
+          <label class="check confirm"><input type="checkbox" id="cConfirm"> <span id="cStatement"></span></label>
+          <p id="cLimit" class="micro"></p>
+          <button id="cDownload" type="button" class="primary">Beitrag herunterladen (JSON + Markdown)</button>
+          <p id="cResult" class="note" role="status" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="assist" aria-labelledby="assistHeading">
+      <h2 id="assistHeading">Mit einem KI-Werkzeug weiterdenken (optional)</h2>
+      <p>Kopiere Prozess und Gesprächsanleitung in ein für deine Daten zugelassenes Werkzeug. Oder verbinde unter Einstellungen einen separat betriebenen Mistral-Server.</p>
+      <button id="copyPrompt" type="button">Gesprächsanleitung &amp; Prozess kopieren</button>
+      <details class="chat"><summary>Live-Gespräch über einen Mistral-Server</summary>
+        <p>Beim Senden werden der aktuelle Prozess und dieser Chat an den konfigurierten Server und von dort an Mistral übermittelt. Antworten sind Text und ändern deinen Entwurf nicht. Verwende nur dafür freigegebene Inhalte.</p>
+        <div id="chatLog" aria-live="polite"></div>
+        <form id="chatForm"><label>Deine Frage<textarea id="chatInput" maxlength="3000" required placeholder="Welche Rückfrage sollten wir zuerst klären?"></textarea></label><button id="sendChat" class="primary">An Mistral senden</button></form>
+      </details>
+    </section>
+  </section>
+</section>
+
+<!-- BIBLIOTHEK -->
+<section id="view-bibliothek" class="view" aria-labelledby="libraryHeading" hidden>
+  <div id="libList">
+    <div class="section-intro">
+      <p class="eyebrow">GEMEINSAMES GEDÄCHTNIS · DEMONSTRATOR</p>
+      <h1 id="libraryHeading" tabindex="-1">Prozessbibliothek</h1>
+      <p>Fiktive Beispiele der Universität Musterstadt und wiederverwendbare Muster. Fachliche Prüfung, Wirkung und Verbindlichkeit werden getrennt ausgewiesen: Ein Beispiel ist kein Standard.</p>
+    </div>
+    <form class="filters" role="search">
+      <label>Suche in Titel und Zusammenfassung<input id="libSearch" type="search" maxlength="120"></label>
+      <label>Familie<select id="libFamily"><option value="">Alle Familien</option></select></label>
+      <label>Tätigkeit<select id="libTag"><option value="">Alle Tätigkeiten</option></select></label>
+      <label>Art<select id="libKind"><option value="">Beispiele und Muster</option><option value="process">Nur Beispiele</option><option value="pattern">Nur Muster</option></select></label>
+    </form>
+    <div id="libStatus" role="status" class="lib-status"></div>
+    <ul id="libResults" class="lib-results"></ul>
+  </div>
+  <article id="libDetail" class="lib-detail" hidden aria-labelledby="libDetailTitle"></article>
+</section>
+
+<footer>
+  <p><strong>Pietro · Expertise verbinden</strong><br>Konzeptprototyp von Achim Imboden. Die Universität Musterstadt ist erfunden; Ähnlichkeiten mit realen Hochschulen sind nicht beabsichtigt. Alle Bibliotheksbeispiele sind fiktiv.</p>
+  <a href="https://github.com/blackmath88/expertise-to-process">Quellcode &amp; Hintergrund</a>
+</footer>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="confirmDialog" aria-labelledby="confirmTitle">
+  <h2 id="confirmTitle"></h2>
+  <p id="confirmText"></p>
+  <div class="actions" id="confirmActions"></div>
+</dialog>
+
+<dialog id="settings" aria-labelledby="settingsTitle">
+  <form method="dialog">
+    <div class="subhead"><h2 id="settingsTitle">Einstellungen</h2><button type="submit" aria-label="Schliessen">✕</button></div>
+    <p><b>Offline-Modus (Standard):</b> Die Werkbank sendet keine Daten. Die Bibliothek wird als Datei von dieser Website geladen; Vorschläge stammen aus festen Fragen, einem gekennzeichneten Drehbuch und Regeln.</p>
+    <p>Optional: Für Live-Gespräche braucht es einen gesondert betriebenen Mistral-Server. Seine Antworten sind Text und verändern deinen Entwurf nicht.</p>
+    <label>Backend-URL<input id="backend" type="url" placeholder="https://dein-server.example/api/chat"></label>
+    <label>Zugangstoken für diesen Server<input id="accessToken" type="password" autocomplete="off" placeholder="Nur für diese Sitzung; kein Mistral-API-Schlüssel"></label>
+    <p class="micro">URL und Token bleiben nur im Arbeitsspeicher dieser Seite und werden nie exportiert.</p>
+    <button id="applySettings" value="save" class="primary">Übernehmen</button>
+  </form>
+</dialog>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

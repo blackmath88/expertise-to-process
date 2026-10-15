@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "funding",
+  "kind": "process-example",
+  "title": "Forschungsförderungsantrag vorbereiten",
+  "summary": "Von der Ausschreibung bis zur fristgerechten Einreichung – mit formaler Vollständigkeitsprüfung und interner Unterschrift.",
+  "fictional": true,
+  "context": {
+    "scope": "Fiktive Forschungsgruppe der Universität Musterstadt mit unterstützender Forschungsadministration; ein Antrag bei einer externen Förderorganisation.",
+    "constraints": [
+      "Fiktive Kriterien: Budgetvorlage, Lebenslauf, Datenmanagementplan, interne Unterschrift.",
+      "Die Kriterien unterscheiden sich je Ausschreibung und Förderorganisation.",
+      "Die externe Einreichfrist ist fix; die interne Prüfung braucht einen Vorlauf.",
+      "Die Forschungsadministration prüft formal, nicht wissenschaftlich."
+    ]
+  },
+  "classification": {
+    "familyId": "forschung",
+    "activityTags": ["collect-information", "completeness-check", "request-missing-information", "approval", "submit", "explicit-handover"],
+    "frictionTags": ["rework-loop", "waiting"]
+  },
+  "provenance": {"sourceType": "fictional-example", "sourceLabel": "Fiktives Lehrbeispiel der erfundenen Universität Musterstadt; keine reale Vorgabe", "sourceRefs": []},
+  "review": {"status": "not-reviewed", "reviewedByRole": null, "reviewedAt": null},
+  "effectiveness": {"status": "untested", "evidenceRefs": []},
+  "authority": {"status": "none", "scope": null, "authoritySource": null},
+  "maintenance": {"ownerRole": "Projektkuration Demonstrator", "reviewDue": "2027-04-30"},
+  "relatedIds": ["onboarding"],
+  "patternIds": ["completeness-check", "explicit-handover"],
+  "openQuestions": [
+    "Wie viele Tage vor der externen Frist braucht die interne Prüfung?",
+    "Wer entscheidet, wenn die Unterschrift kurz vor der Frist fehlt?",
+    "Gibt es eine Kriterienliste je Förderorganisation oder wird sie jedes Mal neu erstellt?"
+  ],
+  "process": {
+    "version": 1,
+    "title": "Forschungsförderungsantrag vorbereiten",
+    "owner": "Antragstellende Forschungsgruppe",
+    "trigger": "Passende Ausschreibung ist gefunden",
+    "outcome": "Antrag ist fristgerecht eingereicht",
+    "lens": "decisions",
+    "pain": "Fehlende Unterlagen fallen oft erst kurz vor der Frist auf. Die Unterschrift muss dann unter Zeitdruck eingeholt werden.",
+    "frequency": "Fiktiv: mehrmals pro Semester",
+    "steps": [
+      {"id": "s1", "type": "task", "label": "Ausschreibung und Kriterien prüfen", "role": "Forschende", "system": "Website der Förderorganisation", "note": "", "next": "s2"},
+      {"id": "s2", "type": "task", "label": "Antragsunterlagen zusammenstellen", "role": "Forschende", "system": "Antragsvorlage", "note": "", "next": "s3"},
+      {"id": "s3", "type": "task", "label": "Budget abstimmen", "role": "Forschungsadministration", "system": "Budgetvorlage", "note": "Übergabe von den Forschenden an die Administration", "next": "s4"},
+      {"id": "s4", "type": "decision", "label": "Unterlagen vollständig und formal korrekt?", "role": "Forschungsadministration", "system": "Checkliste der Ausschreibung", "note": "Formale, keine wissenschaftliche Prüfung.", "next": "s6", "yes": "s6", "no": "s5"},
+      {"id": "s5", "type": "task", "label": "Fehlende Unterlagen nachreichen", "role": "Forschende", "system": "E-Mail", "note": "Rückfrageschleife", "next": "s4"},
+      {"id": "s6", "type": "task", "label": "Interne Unterschrift einholen", "role": "Zeichnungsberechtigte Stelle", "system": "", "note": "", "next": "s7"},
+      {"id": "s7", "type": "task", "label": "Antrag im Portal einreichen", "role": "Forschende", "system": "Portal der Förderorganisation", "note": "", "next": "end"}
+    ],
+    "checks": {"purpose": "yes", "owner": "unknown", "validated": "unknown", "exceptions": "unknown", "data": "yes", "permission": "unknown", "review": "unknown", "baseline": "no"},
+    "opportunity": {"kind": "simplify", "hypothesis": "Wenn die formale Prüfung früher und anhand einer festen Checkliste geschieht, erwarten wir weniger Nachreichungen kurz vor der Frist. Ungeprüfte Hypothese.", "measure": "Nachreichungen in der letzten Woche vor der Frist", "next": "Mit der Forschungsadministration eine Checkliste für eine Ausschreibung testen"}
+  }
+}

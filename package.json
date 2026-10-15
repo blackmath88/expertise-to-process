@@ -1,0 +1,17 @@
+{
+  "name": "pietro-process-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node tests/browser.mjs",
+    "validate:library": "node scripts/validate-library.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
+}

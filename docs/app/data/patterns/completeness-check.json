@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "completeness-check",
+  "kind": "pattern",
+  "title": "Vollständigkeit vor der Übergabe prüfen",
+  "summary": "Vor einer Übergabe wird anhand vereinbarter Kriterien geprüft, ob alles Nötige vorliegt; Lücken werden gezielt nachgefordert.",
+  "fictional": true,
+  "context": {
+    "scope": "Übergreifendes Tätigkeitsmuster; die Kriterien sind immer lokal.",
+    "constraints": [
+      "Das Muster sagt nichts darüber, welche Kriterien gelten. Diese legt die fachlich zuständige Stelle fest."
+    ]
+  },
+  "classification": {
+    "familyId": "uebergreifend",
+    "activityTags": ["completeness-check", "request-missing-information", "explicit-handover"],
+    "frictionTags": ["rework-loop"]
+  },
+  "provenance": {"sourceType": "curated-pattern", "sourceLabel": "Abgeleitet aus den fiktiven Beispielen dieses Demonstrators", "sourceRefs": ["onboarding", "funding"]},
+  "review": {"status": "not-reviewed", "reviewedByRole": null, "reviewedAt": null},
+  "effectiveness": {"status": "untested", "evidenceRefs": []},
+  "authority": {"status": "none", "scope": null, "authoritySource": null},
+  "maintenance": {"ownerRole": "Projektkuration Demonstrator", "reviewDue": "2027-04-30"},
+  "relatedIds": ["onboarding", "funding"],
+  "patternIds": [],
+  "openQuestions": [],
+  "pattern": {
+    "steps": [
+      {"label": "Kriterien festlegen und sichtbar machen", "roleHint": "Fachlich zuständige Stelle"},
+      {"label": "Unterlagen anhand der Kriterien prüfen", "roleHint": "Prüfende Rolle"},
+      {"label": "Bei Lücken gezielt nachfordern", "roleHint": "Prüfende Rolle"},
+      {"label": "Vollständigkeit bestätigen und übergeben", "roleHint": "Prüfende Rolle → nächste Rolle"}
+    ],
+    "prerequisites": [
+      "Die Kriterien sind fachlich festgelegt und den Einreichenden vorab bekannt.",
+      "Eine prüfende Rolle ist benannt."
+    ],
+    "limits": [
+      "Ersetzt keine inhaltliche oder rechtliche Prüfung.",
+      "Eine Rückfrageschleife ist nicht automatisch Verschwendung; manchmal ist sie fachlich nötig."
+    ],
+    "questionsBeforeReuse": [
+      "Welche Kriterien gelten in deinem Kontext, und wer legt sie fest?",
+      "Kennen die Einreichenden die Kriterien, bevor sie einreichen?",
+      "Wie oft wird heute nachgefordert? Bisher geschätzt oder gezählt?"
+    ]
+  }
+}

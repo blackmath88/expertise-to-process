@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {blank,example,normalize,issues,mermaid,markdown,prompt} from '../docs/app/model.js';
+test('both example maps round-trip and have reachable end paths',()=>{for(const key of ['pizza','event']){const p=example(key);assert.deepEqual(normalize(JSON.parse(JSON.stringify(p))),p);assert.deepEqual(issues(p),[]);}});
+test('rework loop is retained in Mermaid and portable record',()=>{const p=example();assert.match(mermaid(p),/s3 --> s2/);assert.match(mermaid(p),/s2 -->\|Nein\| s3/);assert.match(markdown(p),/Arbeitsentwurf/);assert.match(prompt(p),/unbestätigtes Prozessmaterial/);});
+test('reject dangling edges, duplicate IDs, unsupported version, invalid readiness',()=>{for(const mutate of [p=>p.version=2,p=>p.steps[0].next='missing',p=>p.steps[1].id='s1',p=>p.checks.data='probably',p=>p.steps[0].id='s1;click foo']){const p=example();mutate(p);assert.throws(()=>normalize(p));}});
+test('escape diagram labels instead of permitting Mermaid directives',()=>{const p=example();p.steps[0].label='"<script>\nclick';const m=mermaid(p);assert.ok(!m.includes('<script>'));assert.ok(!m.includes('\nclick'));assert.ok(m.includes('#34;'));});
+test('detect unconnected branches and closed cycles',()=>{const p=example();p.steps[0].next='s1';assert.ok(issues(p).some(x=>x.includes('nicht erreichbar')));assert.ok(issues(p).some(x=>x.includes('keinen Weg')));assert.ok(issues(blank()).length>0);});

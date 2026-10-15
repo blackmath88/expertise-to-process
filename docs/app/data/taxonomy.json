@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "note": "Kleine lokale Kategorien für den Demonstrator. Stichwörter dienen nur der deterministischen Vorschlagsregel; sie sind keine semantische KI.",
+  "families": [
+    {"id": "personal", "label": "Personal & Anstellung"},
+    {"id": "kommunikation", "label": "Kommunikation & Veranstaltungen"},
+    {"id": "forschung", "label": "Forschungsunterstützung"},
+    {"id": "studium", "label": "Studium & Lehre"},
+    {"id": "finanzen", "label": "Finanzen & Beschaffung"},
+    {"id": "uebergreifend", "label": "Übergreifende Muster"}
+  ],
+  "activityTags": [
+    {"id": "collect-information", "label": "Angaben sammeln", "keywords": ["angaben", "unterlagen", "belege", "zusammenstellen", "sammeln", "einreichen", "anfordern", "formular"]},
+    {"id": "completeness-check", "label": "Vollständigkeit prüfen", "keywords": ["vollständig", "vollständigkeit", "komplett", "formal korrekt"]},
+    {"id": "request-missing-information", "label": "Fehlendes nachfordern", "keywords": ["nachfordern", "nachreichen", "fehlende", "rückfrage", "nachfragen"]},
+    {"id": "explicit-handover", "label": "Übergabe mit Verantwortung", "keywords": ["übergeben", "übergabe", "weiterleiten", "beantragen", "zuweisen"]},
+    {"id": "data-entry", "label": "Daten erfassen", "keywords": ["erfassen", "eintragen", "übertragen", "eingeben", "anlegen"]},
+    {"id": "approval", "label": "Prüfen & freigeben", "keywords": ["freigeben", "freigabe", "genehmigen", "visieren", "unterschrift", "unterschreiben", "bewilligen"]},
+    {"id": "create-content", "label": "Inhalte erstellen", "keywords": ["erstellen", "schreiben", "entwerfen", "verfassen", "ankündigung"]},
+    {"id": "publish", "label": "Veröffentlichen", "keywords": ["veröffentlichen", "publizieren", "online stellen"]},
+    {"id": "submit", "label": "Einreichen bei Dritten", "keywords": ["einreichen", "absenden", "portal"]},
+    {"id": "provision-access", "label": "Zugänge einrichten", "keywords": ["zugang", "zugänge", "konto", "berechtigung", "arbeitsplatz"]}
+  ],
+  "frictionTags": [
+    {"id": "rework-loop", "label": "Rückfrageschleife", "keywords": ["rückfrage", "nachfordern", "nachreichen", "nochmals", "korrigieren"]},
+    {"id": "duplicate-entry", "label": "Doppelte Erfassung", "keywords": ["übertragen", "doppelt", "abtippen", "erneut eingeben", "mehrfach"]},
+    {"id": "waiting", "label": "Wartezeit", "keywords": ["warten", "wartezeit", "frist", "verzögert"]},
+    {"id": "unclear-responsibility", "label": "Unklare Zuständigkeit", "keywords": ["unklar", "zuständig", "noch zu klären"]}
+  ]
+}

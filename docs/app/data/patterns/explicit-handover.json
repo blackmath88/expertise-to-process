@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "explicit-handover",
+  "kind": "pattern",
+  "title": "Übergabe mit klarer Verantwortung",
+  "summary": "Bei einem Rollenwechsel wird benannt, was übergeben wird, wer übernimmt und wie die Übernahme bestätigt wird.",
+  "fictional": true,
+  "context": {
+    "scope": "Übergreifendes Tätigkeitsmuster für Übergaben zwischen Rollen oder Teams.",
+    "constraints": [
+      "Wer wofür verantwortlich ist, entscheidet die zuständige Stelle; das Muster macht die Frage nur sichtbar."
+    ]
+  },
+  "classification": {
+    "familyId": "uebergreifend",
+    "activityTags": ["explicit-handover"],
+    "frictionTags": ["unclear-responsibility", "waiting"]
+  },
+  "provenance": {"sourceType": "curated-pattern", "sourceLabel": "Abgeleitet aus den fiktiven Beispielen dieses Demonstrators", "sourceRefs": ["onboarding", "funding", "event"]},
+  "review": {"status": "not-reviewed", "reviewedByRole": null, "reviewedAt": null},
+  "effectiveness": {"status": "untested", "evidenceRefs": []},
+  "authority": {"status": "none", "scope": null, "authoritySource": null},
+  "maintenance": {"ownerRole": "Projektkuration Demonstrator", "reviewDue": "2027-04-30"},
+  "relatedIds": ["onboarding", "funding", "event"],
+  "patternIds": [],
+  "openQuestions": [],
+  "pattern": {
+    "steps": [
+      {"label": "Übergabeinhalt benennen", "roleHint": "Abgebende Rolle"},
+      {"label": "Übernehmende Rolle benennen", "roleHint": "Abgebende Rolle"},
+      {"label": "Übernahme bestätigen", "roleHint": "Übernehmende Rolle"},
+      {"label": "Offene Punkte mitgeben", "roleHint": "Abgebende Rolle"}
+    ],
+    "prerequisites": [
+      "Beide Rollen sind benannt, nicht nur Personen.",
+      "Es ist vereinbart, woran eine vollständige Übergabe erkennbar ist."
+    ],
+    "limits": [
+      "Mehr Bestätigungen bedeuten mehr Aufwand; nur dort einsetzen, wo Übergaben tatsächlich verloren gehen.",
+      "Klärt keine Zuständigkeitskonflikte; macht sie nur sichtbar."
+    ],
+    "questionsBeforeReuse": [
+      "An welchen Stellen wechselt in deinem Prozess die Rolle?",
+      "Woran merkt die übernehmende Rolle heute, dass sie übernehmen soll?",
+      "Was geht bei Übergaben heute verloren – beobachtet oder vermutet?"
+    ]
+  }
+}

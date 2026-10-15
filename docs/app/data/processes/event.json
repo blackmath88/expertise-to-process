@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "event",
+  "kind": "process-example",
+  "title": "Veranstaltung ankündigen",
+  "summary": "Von der geplanten Veranstaltung bis zur veröffentlichten Ankündigung – mit inhaltlicher Freigabe und Übergabe an die Kommunikation.",
+  "fictional": true,
+  "context": {
+    "scope": "Fiktives Institut der Universität Musterstadt mit zentraler Kommunikationsstelle; öffentliche Veranstaltungen.",
+    "constraints": [
+      "Die organisierende Person verantwortet den Inhalt; die Kommunikation verantwortet die Veröffentlichung.",
+      "Fiktive Vorgabe: Ankündigungen erscheinen spätestens drei Wochen vor dem Termin.",
+      "Bilder brauchen geklärte Nutzungsrechte."
+    ]
+  },
+  "classification": {
+    "familyId": "kommunikation",
+    "activityTags": ["collect-information", "create-content", "approval", "publish", "explicit-handover"],
+    "frictionTags": ["duplicate-entry", "rework-loop"]
+  },
+  "provenance": {"sourceType": "fictional-example", "sourceLabel": "Fiktives Lehrbeispiel der erfundenen Universität Musterstadt; keine reale Vorgabe", "sourceRefs": []},
+  "review": {"status": "not-reviewed", "reviewedByRole": null, "reviewedAt": null},
+  "effectiveness": {"status": "untested", "evidenceRefs": []},
+  "authority": {"status": "none", "scope": null, "authoritySource": null},
+  "maintenance": {"ownerRole": "Projektkuration Demonstrator", "reviewDue": "2027-04-30"},
+  "relatedIds": [],
+  "patternIds": ["explicit-handover"],
+  "openQuestions": [
+    "Wer gibt den Text frei, wenn die organisierende Person abwesend ist?",
+    "Werden Angaben aus der E-Mail in die Vorlage abgetippt?"
+  ],
+  "process": {
+    "version": 1,
+    "title": "Veranstaltung ankündigen",
+    "owner": "Noch zu klären",
+    "trigger": "Veranstaltung ist geplant",
+    "outcome": "Ankündigung ist veröffentlicht",
+    "lens": "data",
+    "pain": "Angaben werden nachgefragt und aus E-Mails in eine Vorlage übertragen.",
+    "frequency": "Fiktiv: etwa 10-mal pro Monat",
+    "steps": [
+      {"id": "s1", "type": "task", "label": "Angaben zusammenstellen", "role": "Organisation", "system": "E-Mail", "note": "", "next": "s2"},
+      {"id": "s2", "type": "task", "label": "Angaben an Kommunikation übergeben", "role": "Organisation", "system": "E-Mail", "note": "Übergabe ohne feste Vorlage", "next": "s3"},
+      {"id": "s3", "type": "task", "label": "Ankündigung erstellen", "role": "Kommunikation", "system": "Vorlage / CMS", "note": "", "next": "s4"},
+      {"id": "s4", "type": "decision", "label": "Inhalt freigegeben?", "role": "Organisation", "system": "", "note": "", "next": "s6", "yes": "s6", "no": "s5"},
+      {"id": "s5", "type": "task", "label": "Ankündigung überarbeiten", "role": "Kommunikation", "system": "Vorlage / CMS", "note": "Korrekturschleife", "next": "s4"},
+      {"id": "s6", "type": "task", "label": "Ankündigung veröffentlichen", "role": "Kommunikation", "system": "CMS", "note": "", "next": "end"}
+    ],
+    "checks": {"purpose": "yes", "owner": "no", "validated": "unknown", "exceptions": "unknown", "data": "unknown", "permission": "unknown", "review": "unknown", "baseline": "unknown"},
+    "opportunity": {"kind": "simplify", "hypothesis": "Wenn die Angaben in einer festen Vorlage übergeben werden, erwarten wir weniger Abtippen und Rückfragen. Ungeprüfte Hypothese.", "measure": "Rückfragen pro Ankündigung", "next": "Verantwortung für die Veröffentlichung klären"}
+  }
+}
