@@ -1,0 +1,93 @@
+/* Shared foundation: tokens for Pietro (product), Universität Musterstadt (fictional institution)
+   and semantic status, plus components used by landing page and app. See design-system/MASTER.md. */
+:root{
+  /* Pietro */
+  --ink:#15181d;--ink-2:#3a4049;--muted:#5d6470;--line:#e3e5e9;--line-strong:#c8ccd3;
+  --canvas:#f5f6f8;--surface:#fff;--cobalt:#2347c5;--cobalt-hover:#1b399f;--cobalt-soft:#eef2fd;
+  /* Universität Musterstadt */
+  --um-burgundy:#7b1e34;--um-burgundy-deep:#5c1426;--um-burgundy-soft:#f8eef0;--um-rule:#dcc8cd;--um-stone:#4a4e55;
+  /* Status */
+  --st-now:#0b6b45;--st-now-bg:#e7f4ed;--st-pilot:#875200;--st-pilot-bg:#fbf1de;
+  --st-vision:#4b3c9e;--st-vision-bg:#efedf9;--st-neutral:#5d6470;--st-danger:#b42318;--st-danger-bg:#fdeceb;
+  /* Type, space, shape */
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+  --r-control:6px;--r-panel:8px;--r-record:2px;
+  font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;font-synthesis:none;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{margin:0;font-size:16px;line-height:1.55;background:var(--surface);color:var(--ink)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+a{color:var(--cobalt);text-underline-offset:3px}
+a:hover{color:var(--cobalt-hover)}
+h1,h2,h3,h4{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;color:var(--ink)}
+.sr-only{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:var(--r-control);z-index:60}
+.skip:focus{left:8px}
+.label{font-size:12px;line-height:1.3;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-size:.92em}
+
+/* Icons */
+.icon{width:18px;height:18px;flex:none;vertical-align:-3px}
+.icon.lg{width:22px;height:22px}
+
+/* Buttons */
+.btn,button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 16px;border-radius:var(--r-control);
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-size:15px;font-weight:550;line-height:1.2;cursor:pointer;text-decoration:none;
+  transition:background-color .15s,border-color .15s,color .15s}
+.btn:hover,button:hover{background:var(--canvas);color:var(--ink)}
+.btn.primary,button.primary{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.btn.primary:hover,button.primary:hover{background:var(--cobalt-hover);border-color:var(--cobalt-hover);color:#fff}
+.btn.ghost,button.ghost,button.quiet{border-color:transparent;background:transparent;color:var(--ink-2)}
+.btn.ghost:hover,button.ghost:hover,button.quiet:hover{background:var(--canvas)}
+.btn.link{border:0;background:none;padding:0;min-height:0;color:var(--cobalt)}
+.btn.small,button.small{min-height:32px;padding:5px 11px;font-size:13px}
+button:disabled{opacity:.45;cursor:not-allowed}
+
+/* Status: shape + word + tint, never colour alone */
+.status{display:inline-flex;align-items:center;gap:6px;padding:2px 8px 2px 7px;border-radius:4px;font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap;background:var(--canvas);color:var(--st-neutral)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;flex:none;box-sizing:border-box;border:1.5px solid currentColor}
+.status.now,.status.ok{background:var(--st-now-bg);color:var(--st-now)}
+.status.now::before,.status.ok::before{background:currentColor}
+.status.pilot,.status.pending{background:var(--st-pilot-bg);color:var(--st-pilot)}
+.status.pilot::before,.status.pending::before{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.status.vision{background:var(--st-vision-bg);color:var(--st-vision)}
+.status.neutral::before{border-radius:1px;height:2px;border:0;background:currentColor}
+.status.danger{background:var(--st-danger-bg);color:var(--st-danger)}
+.status.danger::before{border:0;border-radius:0;width:9px;height:8px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* Pietro mark + workspace relationship */
+.p-brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700;font-size:17px;letter-spacing:-.015em}
+.p-brand:hover{color:var(--ink)}
+.p-brand svg{width:28px;height:28px;flex:none}
+.workspace{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.workspace .crumb-sep{color:var(--line-strong)}
+.workspace .um-inline{display:inline-flex;align-items:center;gap:7px;color:var(--um-burgundy-deep);font-weight:600}
+.workspace .um-inline svg{width:16px;height:16px}
+.fictional-tag{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--um-burgundy);border:1px solid var(--um-rule);padding:1px 6px;border-radius:var(--r-record);background:var(--surface)}
+
+/* Universität Musterstadt: masthead and records */
+.um-masthead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-top:4px solid var(--um-burgundy);background:var(--um-burgundy-soft);border-bottom:1px solid var(--um-rule)}
+.um-masthead svg.um-mark{width:36px;height:36px;flex:none}
+.um-wordmark{display:flex;flex-direction:column;line-height:1.1}
+.um-wordmark b{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--um-burgundy-deep)}
+.um-wordmark span{font-size:12px;color:var(--um-stone);letter-spacing:.02em}
+.um-masthead .fictional-tag{margin-left:auto}
+.um-record{background:var(--surface);border:1px solid var(--um-rule);border-top:3px solid var(--um-burgundy);border-radius:var(--r-record);color:var(--um-stone)}
+.um-record-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;padding:10px 16px;border-bottom:1px solid var(--um-rule);background:var(--um-burgundy-soft)}
+.um-record-head .label{color:var(--um-burgundy)}
+.um-record-head .mono{color:var(--um-stone);font-size:12px}
+.um-record-body{padding:16px}
+.um-meta{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:6px 18px;margin:0;font-size:14px}
+.um-meta dt{color:var(--muted);font-size:13px}
+.um-meta dd{margin:0;color:var(--ink-2)}
+
+/* Personal draft marker (Pietro) */
+.draft-mark{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cobalt)}
+.draft-mark svg{width:16px;height:16px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}

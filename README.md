@@ -61,8 +61,11 @@ Not included: speech input, structured AI proposals, a central database, formal 
 
 Static HTML/CSS/vanilla ES modules served from `docs/` (GitHub Pages). No build step, no CDN, no external fonts.
 
+Visual design: two identities, Pietro (product chrome, cobalt) and the fictional Universität Musterstadt (example content, burgundy). Tokens, components and rules are in [`design-system/MASTER.md`](design-system/MASTER.md); open `design-system/specimen.html` through a local server to see both side by side.
+
 ```
 docs/index.html        landing page (docs/landing/: styles, script, dummy institution data)
+docs/assets/           shared tokens/components (base.css) and SVG sprite (icons.svg)
 docs/app/
   index.html  style.css  app.js  model.js     v1 process model
   lib/storage.js       read-only static library + explicit browser draft storage

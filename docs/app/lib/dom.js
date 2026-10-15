@@ -19,3 +19,17 @@ function append(el, children) {
   }
 }
 export function replaceChildren(el, ...children) { el.replaceChildren(); append(el, children); return el; }
+
+// Inline SVG icon from the shared sprite (docs/assets/icons.svg). Decorative by default.
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const SPRITE = new URL('../../assets/icons.svg', import.meta.url).href;
+export function icon(name, cls = 'icon') {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', cls);
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('focusable', 'false');
+  const use = document.createElementNS(SVG_NS, 'use');
+  use.setAttribute('href', `${SPRITE}#${name}`);
+  svg.append(use);
+  return svg;
+}

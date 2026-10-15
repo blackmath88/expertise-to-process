@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Specimen · Pietro × Universität Musterstadt</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../docs/assets/base.css">
+<style>
+  body{background:var(--canvas)}
+  main{max-width:1120px;margin:0 auto;padding:48px 24px 96px}
+  h1{font-size:34px;letter-spacing:-.025em;margin:0 0 6px}
+  section{border-top:1px solid var(--line-strong);padding:28px 0 8px;display:grid;grid-template-columns:220px 1fr;gap:24px}
+  section>h2{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:2px 0 0}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .sw{width:132px;font-size:12px;color:var(--ink-2)}
+  .sw i{display:block;height:44px;border-radius:4px;margin-bottom:6px;border:1px solid var(--line)}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);padding:18px}
+  .draft{border-left:3px solid var(--cobalt)}
+  .type p{margin:4px 0}
+  .icons{display:flex;flex-wrap:wrap;gap:16px;color:var(--ink-2)}
+  .icons span{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;width:64px}
+  .icons svg{width:24px;height:24px}
+  @media (max-width:760px){section{grid-template-columns:1fr}.pair{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <p class="label">Design system specimen</p>
+  <h1>Pietro × Universität Musterstadt</h1>
+  <p class="workspace"><a class="p-brand" href="#"><svg aria-hidden="true"><use href="../docs/assets/icons.svg#pietro-mark"/></svg>Pietro</a><span class="crumb-sep">/</span><span class="um-inline"><svg aria-hidden="true"><use href="../docs/assets/icons.svg#um-mark"/></svg>Beispielraum Universität Musterstadt</span><span class="fictional-tag">Fiktive Beispieluniversität</span></p>
+
+  <section><h2>Product colours</h2><div class="row">
+    <div class="sw"><i style="background:var(--ink)"></i>ink #15181d</div>
+    <div class="sw"><i style="background:var(--ink-2)"></i>ink-2 #3a4049</div>
+    <div class="sw"><i style="background:var(--muted)"></i>muted #5d6470</div>
+    <div class="sw"><i style="background:var(--canvas)"></i>canvas #f5f6f8</div>
+    <div class="sw"><i style="background:var(--cobalt)"></i>cobalt #2347c5</div>
+    <div class="sw"><i style="background:var(--cobalt-soft)"></i>cobalt-soft #eef2fd</div>
+  </div></section>
+
+  <section><h2>Institution colours</h2><div class="row">
+    <div class="sw"><i style="background:var(--um-burgundy)"></i>burgundy #7b1e34</div>
+    <div class="sw"><i style="background:var(--um-burgundy-deep)"></i>burgundy-deep #5c1426</div>
+    <div class="sw"><i style="background:var(--um-burgundy-soft)"></i>burgundy-soft #f8eef0</div>
+    <div class="sw"><i style="background:var(--um-rule)"></i>rule #dcc8cd</div>
+    <div class="sw"><i style="background:var(--um-stone)"></i>stone #4a4e55</div>
+  </div></section>
+
+  <section><h2>Status</h2><div class="row">
+    <span class="status now">Heute in der Demo</span><span class="status pilot">Nächster Pilot</span><span class="status vision">Zielbild</span>
+    <span class="status ok">Fachlich geprüft</span><span class="status pending">Prüfung ausstehend</span><span class="status neutral">Nicht geprüft</span><span class="status danger">Rückweg</span>
+  </div></section>
+
+  <section><h2>Typography</h2><div class="type">
+    <p style="font-size:56px;font-weight:700;letter-spacing:-.035em;line-height:1.02">Was Einzelne wissen.</p>
+    <p style="font-size:30px;font-weight:650;letter-spacing:-.02em">Abschnittstitel · h2</p>
+    <p style="font-size:17px;font-weight:650">Komponententitel · h3</p>
+    <p>Fliesstext, 16 px, Zeilenhöhe 1.55. Prozesse verständlich machen.</p>
+    <p class="label">Label · Grossbuchstaben</p>
+    <p class="mono">ank-geografie · v2.1</p>
+  </div></section>
+
+  <section><h2>Buttons</h2><div class="row">
+    <button class="primary" type="button"><svg class="icon" aria-hidden="true"><use href="../docs/assets/icons.svg#i-arrow"/></svg>Beispiel ausprobieren</button>
+    <button type="button"><svg class="icon" aria-hidden="true"><use href="../docs/assets/icons.svg#i-download"/></svg>Exportieren</button>
+    <button class="ghost" type="button">Abbrechen</button>
+  </div></section>
+
+  <section><h2>Icons</h2><div class="icons">
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-learn"/></svg>learn</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-map"/></svg>map</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-library"/></svg>library</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-fact"/></svg>fact</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-question"/></svg>question</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-bulb"/></svg>hypothesis</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-branch"/></svg>variant</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-users"/></svg>team</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-shield"/></svg>review</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-device"/></svg>local</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-undo"/></svg>undo</span>
+    <span><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-compare"/></svg>compare</span>
+  </div></section>
+
+  <section><h2>Product vs institution</h2><div class="pair">
+    <div class="panel draft">
+      <p class="draft-mark"><svg aria-hidden="true"><use href="../docs/assets/icons.svg#i-device"/></svg>Persönlicher Entwurf · nur in diesem Browser</p>
+      <h3 style="margin:8px 0 6px">Spesen nach einer Dienstreise abrechnen</h3>
+      <p style="margin:0 0 14px;color:var(--ink-2);font-size:15px">Pietro-Styling: weisse Fläche, Kobalt-Linie, Steuerelemente gehören dem Produkt.</p>
+      <button class="primary small" type="button">Vorschlag übernehmen</button>
+    </div>
+    <article class="um-record">
+      <div class="um-record-head"><span class="label">Fiktiver Bibliothekseintrag</span><span class="mono">onboarding · v3</span></div>
+      <div class="um-record-body">
+        <h3 style="margin:0 0 10px">Neue Mitarbeitende aufnehmen</h3>
+        <dl class="um-meta"><dt>Verantwortlich</dt><dd>HR-Administration</dd><dt>Geltungsbereich</dt><dd>Fiktive Verwaltungseinheit</dd><dt>Prüfung</dt><dd><span class="status neutral">Nicht geprüft</span></dd></dl>
+      </div>
+    </article>
+  </div></section>
+
+  <section><h2>Masthead</h2><div>
+    <div class="um-masthead"><svg class="um-mark" aria-hidden="true"><use href="../docs/assets/icons.svg#um-mark"/></svg><div class="um-wordmark"><b>Universität Musterstadt</b><span>Beispielraum für Prozessbeschreibungen</span></div><span class="fictional-tag">Fiktive Beispieluniversität</span></div>
+  </div></section>
+</main>
+</body>
+</html>

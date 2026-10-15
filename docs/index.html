@@ -7,361 +7,387 @@
 <title>Pietro · Was Einzelne wissen, soll die Institution können</title>
 <meta name="description" content="Wie individuelle Expertise über eine gemeinsame Prozesssprache, eine kuratierte Bibliothek mit lokalen Varianten und gezielte Verbesserungen zu organisationalem Wissen wird – mit klarer Trennung von heutiger Demo, Pilot und Zielbild.">
 <link rel="icon" href="data:,">
+<link rel="stylesheet" href="./assets/base.css">
 <link rel="stylesheet" href="./landing/landing.css">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
-<p class="demo-band">Demo · Die Universität Musterstadt ist erfunden. Alle Personen, Abläufe und Daten sind fiktiv.</p>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="#top"><span class="brandmark" aria-hidden="true">p</span>Pietro</a>
+    <a class="p-brand" href="#top"><svg aria-hidden="true"><use href="./assets/icons.svg#pietro-mark"/></svg>Pietro</a>
     <nav aria-label="Seitenabschnitte" class="page-nav">
       <a href="#weg">Weg</a><a href="#technik">Technik</a><a href="#stand">Stand</a><a href="#pilot">Pilot</a><a href="#grundlagen">Grundlagen</a><a href="#demo">Demo</a>
     </nav>
-    <a class="button primary small" href="./app/">App öffnen</a>
+    <a class="btn primary small" href="./app/">App öffnen</a>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
 
 <section class="hero" id="top" aria-labelledby="heroTitle">
-  <p class="kicker">Gemeinsam verstehen. Eigenständig gestalten.</p>
-  <h1 id="heroTitle">Was Einzelne wissen,<br>soll die Institution können.</h1>
-  <p class="lead">Beschreibe einen Ablauf aus deinem Alltag. Pietro macht daraus eine bearbeitbare Karte und stellt Fragen zu Übergaben, Ausnahmen und offenen Punkten. So können andere an dein Wissen anknüpfen – und Teams voneinander lernen, ohne ihre fachlichen Unterschiede zu verlieren.</p>
-  <div class="actions">
-    <a class="button primary" href="#demo">Demo ansehen</a>
-    <a class="button ghost" href="./app/">Selbst ausprobieren →</a>
+  <div class="hero-text">
+    <p class="kicker">Gemeinsam verstehen. Eigenständig gestalten.</p>
+    <h1 id="heroTitle">Was Einzelne wissen, soll die Institution können.</h1>
+    <p class="lead">Beschreibe einen Ablauf aus deinem Alltag. Pietro macht daraus eine bearbeitbare Karte und stellt Fragen zu Übergaben, Ausnahmen und offenen Punkten. So können andere an dein Wissen anknüpfen – und Teams voneinander lernen, ohne ihre fachlichen Unterschiede zu verlieren.</p>
+    <div class="actions">
+      <a class="btn primary" href="#demo"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-arrow"/></svg>Demo ansehen</a>
+      <a class="btn" href="./app/">Selbst ausprobieren</a>
+    </div>
   </div>
-  <figure class="window" aria-label="Ausschnitt aus der App: eine Prozesskarte">
-    <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><em>Mein Prozess · Spesen abrechnen</em></div>
-    <div class="window-body">
-      <div id="heroMap" class="hero-map"></div>
+  <div class="immediate" aria-label="Unmittelbarer Nutzen">
+    <p class="label">Was eine Person sofort mitnimmt <span class="status now">Heute in der Demo</span></p>
+    <ol>
+      <li><svg class="icon lg" aria-hidden="true"><use href="./assets/icons.svg#i-map"/></svg><div><b>Eine verständliche Prozesskarte</b><span>Schritt für Schritt erfasst, korrigierbar, mit Textfassung.</span></div></li>
+      <li><svg class="icon lg" aria-hidden="true"><use href="./assets/icons.svg#i-question"/></svg><div><b>Nützliche Rückfragen</b><span>Zu Rückwegen, Übergaben und Unbekanntem – mit Bezug auf den Schritt.</span></div></li>
+      <li><svg class="icon lg" aria-hidden="true"><use href="./assets/icons.svg#i-users"/></svg><div><b>Wissen zum Anknüpfen</b><span>Eine Beschreibung, mit der Kolleginnen und Kollegen weiterarbeiten können.</span></div></li>
+    </ol>
+  </div>
+  <figure class="product-frame" aria-label="Ausschnitt aus der App: eine Prozesskarte im Beispielraum">
+    <div class="frame-bar">
+      <span class="workspace"><span class="p-brand small-brand"><svg aria-hidden="true"><use href="./assets/icons.svg#pietro-mark"/></svg>Pietro</span><span class="crumb-sep" aria-hidden="true">/</span><span class="um-inline"><svg aria-hidden="true"><use href="./assets/icons.svg#um-mark"/></svg>Beispielraum Universität Musterstadt</span><span class="fictional-tag">Fiktive Beispieluniversität</span></span>
+      <span class="draft-mark"><svg aria-hidden="true"><use href="./assets/icons.svg#i-device"/></svg>Persönlicher Entwurf</span>
+    </div>
+    <div class="frame-body">
+      <div class="frame-map">
+        <p class="frame-title">Spesen nach einer Dienstreise abrechnen</p>
+        <div id="heroMap" class="hero-map"></div>
+      </div>
       <aside class="hero-notes" aria-label="Rückmeldungen des Prozess-Checks">
-        <p class="note-label">Prozess-Check</p>
+        <p class="label">Prozess-Check · ohne KI</p>
         <div id="heroNotes"></div>
       </aside>
     </div>
   </figure>
-  <div class="immediate" aria-label="Unmittelbarer Nutzen">
-    <p class="small muted">Was eine Person sofort mitnimmt <span class="chip now">Heute in der Demo</span></p>
-    <ul>
-      <li><b>Eine verständliche Prozesskarte</b><span>Schritt für Schritt erfasst, korrigierbar, mit Textfassung.</span></li>
-      <li><b>Nützliche Rückfragen</b><span>Zu Rückwegen, Übergaben und Unbekanntem – mit Bezug auf den Schritt.</span></li>
-      <li><b>Wissen zum Anknüpfen</b><span>Eine Beschreibung, mit der Kolleginnen und Kollegen weiterarbeiten können.</span></li>
-    </ul>
+</section>
+
+<section class="ed" id="idee" aria-labelledby="ideeTitle">
+  <header class="ed-label"><span class="ed-num">01</span><span>Ausgangslage</span></header>
+  <div class="ed-body">
+    <h2 id="ideeTitle">Wenn Erfahrung an Einzelnen hängt, <span class="muted">wird jede Übergabe zum Neuanfang.</span></h2>
+    <div class="story">
+      <article><h3>Heute</h3><p>Lena arbeitet seit Jahren im Sekretariat. Sie weiss, welche Belege bei Spesen fehlen, wer unterschreiben muss und welche Ausnahme es letztes Jahr gab. Aufgeschrieben ist davon wenig. Wechselt sie die Stelle, beginnt jemand von vorn.</p></article>
+      <article><h3>Mit Pietro</h3><p>Lena beschreibt ihren Ablauf Schritt für Schritt, geführt durch einfache Fragen. Sie sieht eine Karte, korrigiert sie und erhält Rückfragen, die sie selbst noch nicht gestellt hatte. Das Ergebnis gehört zuerst ihr.</p></article>
+      <article><h3>Für die Institution</h3><p>Wenn Lena will, gibt sie eine bereinigte Fassung zur Prüfung frei. In der Bibliothek zeigt sich: Andere Einheiten prüfen ebenfalls Vollständigkeit – mit anderen Kriterien. Das Muster wird sichtbar, die Unterschiede bleiben.</p></article>
+    </div>
+    <blockquote class="statement"><b>Gemeinsam verstehen. Eigenständig gestalten.</b> Die gemeinsame Prozesssprache verbindet eigenständige Arbeitsweisen – sie schreibt keinen einheitlichen Ablauf vor. Teams behalten die Verantwortung für ihre Abläufe und entscheiden, was sie mit wem teilen und was sie übernehmen.</blockquote>
   </div>
 </section>
 
-<section id="idee" aria-labelledby="ideeTitle">
-  <p class="kicker">Ausgangslage</p>
-  <h2 id="ideeTitle">Wenn Erfahrung an Einzelnen hängt,<br><span class="muted">wird jede Übergabe zum Neuanfang.</span></h2>
-  <div class="cols three">
-    <article>
-      <h3>Heute</h3>
-      <p>Lena arbeitet seit Jahren im Sekretariat. Sie weiss, welche Belege bei Spesen fehlen, wer unterschreiben muss und welche Ausnahme es letztes Jahr gab. Aufgeschrieben ist davon wenig. Wechselt sie die Stelle, beginnt jemand von vorn.</p>
-    </article>
-    <article>
-      <h3>Mit Pietro</h3>
-      <p>Lena beschreibt ihren Ablauf Schritt für Schritt, geführt durch einfache Fragen. Sie sieht eine Karte, korrigiert sie und erhält Rückfragen, die sie selbst noch nicht gestellt hatte. Das Ergebnis gehört zuerst ihr.</p>
-    </article>
-    <article>
-      <h3>Für die Institution</h3>
-      <p>Wenn Lena will, gibt sie eine bereinigte Fassung zur Prüfung frei. In der Bibliothek zeigt sich: Andere Einheiten prüfen ebenfalls Vollständigkeit – mit anderen Kriterien. Das Muster wird sichtbar, die Unterschiede bleiben.</p>
-    </article>
+<section class="ed" id="weg" aria-labelledby="wegTitle">
+  <header class="ed-label"><span class="ed-num">02</span><span>Organisationaler Weg</span></header>
+  <div class="ed-body">
+    <h2 id="wegTitle">Entdecken, verbinden, verbessern. <span class="muted">Von individueller Expertise zu einer gemeinsam lernenden Organisation.</span></h2>
+    <ol class="phases">
+      <li>
+        <span class="phase-no">1</span>
+        <h3>Entdecken und verstehen</h3>
+        <p>Prozessdenken lernen und eine gemeinsame Sprache entwickeln. Den Bestand erkunden: Welche Abläufe, Werkzeuge, Dokumentationen und Ansprechstellen gibt es bereits?</p>
+        <dl><dt>Ergebnis</dt><dd>Ein erster Überblick und nachvollziehbare Beschreibungen.</dd><dt>Nächste Entscheidung</dt><dd>Beteiligte prüfen Verständlichkeit und wählen nützliche Fälle für die Bibliothek.</dd></dl>
+      </li>
+      <li>
+        <span class="phase-no">2</span>
+        <h3>Teilen und verbinden</h3>
+        <p>Eine kuratierte Bibliothek aufbauen. Gemeinsame Muster, lokale Varianten und ihre Gründe verstehen. Hilfreiches übernehmen und an den eigenen Kontext anpassen.</p>
+        <dl><dt>Ergebnis</dt><dd>Prozessfamilien mit verantwortlichen Teams und nachvollziehbarer Herkunft.</dd><dt>Nächste Entscheidung</dt><dd>Wiederverwendung wird praktisch erprobt.</dd></dl>
+      </li>
+      <li>
+        <span class="phase-no">3</span>
+        <h3>Gezielt verbessern</h3>
+        <p>Passende Werkzeuge wählen, unnötigen Aufwand reduzieren, Vereinfachungen testen. Prüfen, wo gemeinsame Dienste oder Standards einen Vorteil bringen.</p>
+        <dl><dt>Ergebnis</dt><dd>Getestete Verbesserungen und begründete Entscheidungen.</dd><dt>Nächste Entscheidung</dt><dd>Standardisierung nur dort, wo sie gesondert beschlossen wird und nachweislich hilft.</dd></dl>
+      </li>
+    </ol>
+    <p class="footnote">Die Phasen beschreiben den Aufbau organisationaler Fähigkeiten, keine starre Reihenfolge. Einzelne Teams können früher Verbesserungen erproben; eine vollständige Inventarisierung ist keine Voraussetzung. Lokale Lösungen bleiben bestehen, wo sie fachlich sinnvoll sind.</p>
   </div>
-  <blockquote class="statement"><b>Gemeinsam verstehen. Eigenständig gestalten.</b> Die gemeinsame Prozesssprache verbindet eigenständige Arbeitsweisen – sie schreibt keinen einheitlichen Ablauf vor. Teams behalten die Verantwortung für ihre Abläufe und entscheiden, was sie mit wem teilen und was sie übernehmen.</blockquote>
 </section>
 
-<section id="weg" aria-labelledby="wegTitle">
-  <p class="kicker">Organisationaler Weg</p>
-  <h2 id="wegTitle">Entdecken, verbinden, verbessern.<br><span class="muted">Von individueller Expertise zu einer gemeinsam lernenden Organisation.</span></h2>
-  <ol class="phases">
-    <li>
-      <span class="phase-no">1</span>
-      <h3>Entdecken und verstehen</h3>
-      <p>Prozessdenken lernen und eine gemeinsame Sprache entwickeln. Den Bestand erkunden: Welche Abläufe, Werkzeuge, Dokumentationen und Ansprechstellen gibt es bereits?</p>
-      <dl><dt>Ergebnis</dt><dd>Ein erster Überblick und nachvollziehbare Beschreibungen.</dd><dt>Nächste Entscheidung</dt><dd>Beteiligte prüfen Verständlichkeit und wählen nützliche Fälle für die Bibliothek.</dd></dl>
-    </li>
-    <li>
-      <span class="phase-no">2</span>
-      <h3>Teilen und verbinden</h3>
-      <p>Eine kuratierte Bibliothek aufbauen. Gemeinsame Muster, lokale Varianten und ihre Gründe verstehen. Hilfreiches übernehmen und an den eigenen Kontext anpassen.</p>
-      <dl><dt>Ergebnis</dt><dd>Prozessfamilien mit verantwortlichen Teams und nachvollziehbarer Herkunft.</dd><dt>Nächste Entscheidung</dt><dd>Wiederverwendung wird praktisch erprobt.</dd></dl>
-    </li>
-    <li>
-      <span class="phase-no">3</span>
-      <h3>Gezielt verbessern</h3>
-      <p>Passende Werkzeuge wählen, unnötigen Aufwand reduzieren, Vereinfachungen testen. Prüfen, wo gemeinsame Dienste oder Standards einen Vorteil bringen.</p>
-      <dl><dt>Ergebnis</dt><dd>Getestete Verbesserungen und begründete Entscheidungen.</dd><dt>Nächste Entscheidung</dt><dd>Standardisierung nur dort, wo sie gesondert beschlossen wird und nachweislich hilft.</dd></dl>
-    </li>
-  </ol>
-  <p class="footnote">Die Phasen beschreiben den Aufbau organisationaler Fähigkeiten, keine starre Reihenfolge. Einzelne Teams können früher Verbesserungen erproben; eine vollständige Inventarisierung ist keine Voraussetzung. Lokale Lösungen bleiben bestehen, wo sie fachlich sinnvoll sind.</p>
-</section>
-
-<section id="technik" aria-labelledby="technikTitle">
-  <p class="kicker">Technische Entwicklung</p>
-  <h2 id="technikTitle">Eine eigene Spur – passend zur Reife.<br><span class="muted">Hin zu einer KI-gestützten Prozesswissensbasis.</span></h2>
-  <p class="intro">Die Technik begleitet den organisationalen Weg, sie treibt ihn nicht. Die Phasen oben brauchen keine bestimmte KI-Ausbaustufe: Die Bibliothek lässt sich zunächst manuell kuratieren. KI unterstützt Strukturierung und Navigation – sie erhält keine Befugnis, Prozesse freizugeben oder Standards festzulegen.</p>
-  <div class="tracks" role="group" aria-label="Zwei verbundene Spuren">
-    <div class="track-label">Organisation</div>
-    <div class="track-cell">1 · Entdecken und verstehen</div>
-    <div class="track-cell">2 · Teilen und verbinden</div>
-    <div class="track-cell">3 · Gezielt verbessern</div>
-    <div class="track-label">Technik</div>
-    <div class="track-cell tech">
-      <h3>Geführte, optional KI-gestützte Erfassung</h3>
-      <p>Fragen helfen beim Beschreiben; bearbeitbare Karte, Prozess-Check und Export bringen sofort Nutzen. Gründe, Fehlerquellen und Ausnahmen werden mit erfasst.</p>
-      <p class="decide"><b>Mensch entscheidet:</b> Mitarbeitende prüfen und korrigieren jeden Vorschlag.</p>
-      <p class="chips"><span class="chip now">Heute: geführte Fragen ohne KI</span><span class="chip vision">Zielbild: KI-gestützte Eingabe</span></p>
-    </div>
-    <div class="track-cell tech">
-      <h3>KI-unterstützte Wissensbasis</h3>
-      <p>Vorschläge für Einordnung, verwandte Prozesse, Unterschiede und Pflegehinweise. Versionierte Daten und nachvollziehbare Beziehungen tragen die Bibliothek.</p>
-      <p class="decide"><b>Mensch entscheidet:</b> Beteiligte bestätigen Herkunft und Inhalt; die Kuration entscheidet über Aufnahme und Pflege.</p>
-      <p class="chips"><span class="chip now">Heute: statische Bibliothek, Tag-Abgleich</span><span class="chip vision">Zielbild</span></p>
-    </div>
-    <div class="track-cell tech">
-      <h3>Kontextbezogene Verbesserungshilfe</h3>
-      <p>Unterstützung, die die tatsächliche Werkzeug-, Service- und Prozesslandschaft der Universität kennt und auf passende Quellen und Beispiele verweist.</p>
-      <p class="decide"><b>Mensch entscheidet:</b> Zuständige Stellen prüfen Anwendbarkeit, Aufwand und Wirkung.</p>
-      <p class="chips"><span class="chip vision">Zielbild</span></p>
+<section class="ed" id="technik" aria-labelledby="technikTitle">
+  <header class="ed-label"><span class="ed-num">03</span><span>Technische Entwicklung</span></header>
+  <div class="ed-body">
+    <h2 id="technikTitle">Eine eigene Spur – passend zur Reife. <span class="muted">Hin zu einer KI-gestützten Prozesswissensbasis.</span></h2>
+    <p class="intro">Die Technik begleitet den organisationalen Weg, sie treibt ihn nicht. Die Phasen oben brauchen keine bestimmte KI-Ausbaustufe: Die Bibliothek lässt sich zunächst manuell kuratieren. KI unterstützt Strukturierung und Navigation – sie erhält keine Befugnis, Prozesse freizugeben oder Standards festzulegen.</p>
+    <div class="tracks" role="group" aria-label="Zwei verbundene Spuren">
+      <div class="track-label">Organisation</div>
+      <div class="track-cell org">1 · Entdecken und verstehen</div>
+      <div class="track-cell org">2 · Teilen und verbinden</div>
+      <div class="track-cell org">3 · Gezielt verbessern</div>
+      <div class="track-label">Technik</div>
+      <div class="track-cell tech">
+        <h3>Geführte, optional KI-gestützte Erfassung</h3>
+        <p>Fragen helfen beim Beschreiben; bearbeitbare Karte, Prozess-Check und Export bringen sofort Nutzen. Gründe, Fehlerquellen und Ausnahmen werden mit erfasst.</p>
+        <p class="decide"><b>Mensch entscheidet:</b> Mitarbeitende prüfen und korrigieren jeden Vorschlag.</p>
+        <p class="chips"><span class="status now">Heute: geführte Fragen ohne KI</span><span class="status vision">Zielbild: KI-gestützte Eingabe</span></p>
+      </div>
+      <div class="track-cell tech">
+        <h3>KI-unterstützte Wissensbasis</h3>
+        <p>Vorschläge für Einordnung, verwandte Prozesse, Unterschiede und Pflegehinweise. Versionierte Daten und nachvollziehbare Beziehungen tragen die Bibliothek.</p>
+        <p class="decide"><b>Mensch entscheidet:</b> Beteiligte bestätigen Herkunft und Inhalt; die Kuration entscheidet über Aufnahme und Pflege.</p>
+        <p class="chips"><span class="status now">Heute: statische Bibliothek, Tag-Abgleich</span><span class="status vision">Zielbild</span></p>
+      </div>
+      <div class="track-cell tech">
+        <h3>Kontextbezogene Verbesserungshilfe</h3>
+        <p>Unterstützung, die die tatsächliche Werkzeug-, Service- und Prozesslandschaft der Universität kennt und auf passende Quellen und Beispiele verweist.</p>
+        <p class="decide"><b>Mensch entscheidet:</b> Zuständige Stellen prüfen Anwendbarkeit, Aufwand und Wirkung.</p>
+        <p class="chips"><span class="status vision">Zielbild</span></p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="stand" aria-labelledby="standTitle">
-  <p class="kicker">Stand der Dinge</p>
-  <h2 id="standTitle">Was es heute gibt, was ein Pilot prüft, wohin es gehen kann.</h2>
-  <div class="maturity">
-    <article>
-      <span class="chip now">Heute in der Demo</span>
-      <ul>
-        <li>Sieben Lernübungen zur Prozesssprache</li>
-        <li>Geführte Fragen mit Vorschau, Übernehmen, Verwerfen und Rückgängig</li>
-        <li>Regelbasierter Prozess-Check ohne KI</li>
-        <li>Statische Bibliothek mit fiktiven Beispielen; Vergleich über Tags</li>
-        <li>Beiträge als Dateien zur Prüfung – kein automatisches Senden</li>
-        <li>Optionaler Live-Chat nur über einen separat betriebenen Server</li>
-      </ul>
-    </article>
-    <article>
-      <span class="chip pilot">Nächster Pilot · Vorschlag</span>
-      <ul>
-        <li>Zwölf Wochen, drei freiwillige Teams, wenige abgegrenzte Prozesse</li>
-        <li>Zuerst vorhandene Dokumentationen und Angebote sichten</li>
-        <li>Beschreibungen von anderen verstehen und in einem zweiten Kontext anpassen lassen</li>
-        <li>Aufwand und Nutzen ehrlich messen</li>
-      </ul>
-    </article>
-    <article>
-      <span class="chip vision">Zielbild</span>
-      <ul>
-        <li>Versionierte Prozessfamilien mit expliziter Herkunft</li>
-        <li>Verbesserungsvorschläge zwischen Varianten</li>
-        <li>KI-gestützte Einordnung und Pflege der Bibliothek</li>
-        <li>Hinweise aus der realen Werkzeug- und Servicelandschaft</li>
-        <li>Betrieb in einer abgestimmten, selbst gehosteten Umgebung</li>
-      </ul>
-    </article>
-  </div>
-
-  <h3 class="sub">Heute in der App: fünf Schritte</h3>
-  <ol class="steps">
-    <li><span class="num">1</span><div><h3>Lernen</h3><p>Sieben Begriffe in kurzen Übungen. Jede Antwort wird erklärt, auch die falsche.</p></div></li>
-    <li><span class="num">2</span><div><h3>Beschreiben</h3><p>Eine Frage nach der anderen. Jede Antwort wird zum Vorschlag: ansehen, übernehmen, ändern oder verwerfen.</p></div></li>
-    <li><span class="num">3</span><div><h3>Prüfen</h3><p>Feste Regeln trennen gemeldete Fakten, offene Fragen und Hypothesen – jeweils mit Schrittbezug.</p></div></li>
-    <li><span class="num">4</span><div><h3>Vergleichen</h3><p>Verwandte Beispiele über gemeinsame Tätigkeits-Tags. Nachvollziehbar statt «magisch».</p></div></li>
-    <li><span class="num">5</span><div><h3>Beitragen</h3><p>Eine bereinigte Kopie mit exakter Vorschau, Status «Prüfung ausstehend».</p></div></li>
-  </ol>
-  <div class="not-list">
-    <h3>Was bewusst nicht passiert</h3>
-    <ul>
-      <li>Keine erfundenen Einsparungen, Regeln oder Freigaben. Unbekanntes bleibt unbekannt.</li>
-      <li>Kein automatisches Veröffentlichen. Ein Entwurf wird nie von selbst institutionelles Wissen.</li>
-      <li>Keine Ranglisten von Personen oder Teams. Beschrieben werden Abläufe, nicht Leistungen.</li>
-      <li>Ein Rückweg ist nicht automatisch Verschwendung. Er wird zur Frage, ob er nötig ist.</li>
-      <li>Prüfung, Wirkung und Verbindlichkeit sind drei getrennte Eigenschaften und werden nicht vererbt.</li>
-      <li>Eine gemeinsame Beschreibung ist keine Standardisierung. Vereinheitlichen wäre eine eigene Entscheidung der zuständigen Stellen.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="pilot" aria-labelledby="pilotTitle">
-  <p class="kicker">Pilot · Vorschlag</p>
-  <h2 id="pilotTitle">Klein anfangen, ehrlich messen.</h2>
-  <p class="intro">Ein begrenzter Versuch klärt, ob der Ansatz trägt – bevor über weitere Technik oder Ausbau entschieden wird. Budget, Kostenstelle und Mandat sind <b>nicht</b> zugesagt; sie werden vor dem Start vereinbart.</p>
-  <div class="pilot-grid">
-    <div>
-      <h3>Rahmen</h3>
-      <ul class="plain">
-        <li>Zwölf Wochen, drei freiwillige Teams</li>
-        <li>Wenige, klar abgegrenzte Prozesse</li>
-        <li>Zuerst bestehende Dokumentationen und Angebote sichten</li>
-        <li>Erprobung einer Anpassung an einen zweiten Kontext</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Vorgesehene Verantwortung</h3>
-      <dl class="roles">
-        <dt>Beteiligte Teams</dt><dd>beschreiben und prüfen ihre Abläufe</dd>
-        <dt>Betreuung</dt><dd>moderiert, unterstützt beim Erfassen</dd>
-        <dt>Fachliche Prüfung</dt><dd>bestätigt Inhalte für den Geltungsbereich</dd>
-        <dt>Kuration</dt><dd>entscheidet über Aufnahme und Pflege</dd>
-        <dt>IT</dt><dd>klärt zulässigen Betrieb und Datenhaltung</dd>
-      </dl>
-    </div>
-    <div>
-      <h3>Was gemessen wird</h3>
-      <ul class="plain">
-        <li>Kann eine andere Person eine Beschreibung verstehen und wiederverwenden?</li>
-        <li>Rückfragen und Suchaufwand – gegenüber dem Aufwand für Erfassen, Prüfen und Pflegen</li>
-        <li>Vergleich mit einem guten Formular ohne Tutor</li>
-      </ul>
-    </div>
-  </div>
-  <p class="footnote">Frei werdende Arbeitszeit ist keine Budgeteinsparung. Bestehende Ressourcen sind eine zu prüfende Finanzierungsoption, keine Zusage. Auch interne Arbeit und selbst gehosteter Betrieb verursachen Aufwand. Für den Ideenwettbewerb gilt: Zusätzliche laufende Kosten müssen durch nachgewiesene Einsparungen ausgeglichen werden. Der Pilot erfasst deshalb Erfassungs-, Prüf- und Pflegeaufwand sowie Betriebskosten separat. Eine Fortführung setzt diesen Nachweis voraus; eine Zeitersparnis allein belegt noch keine Budgetentlastung.</p>
-</section>
-
-<section id="grundlagen" aria-labelledby="wissTitle">
-  <p class="kicker">Grundlagen</p>
-  <h2 id="wissTitle">Worauf die Idee aufbaut.<br><span class="muted">Und was noch nicht belegt ist.</span></h2>
-  <p class="intro">Wir unterscheiden Theorie, empirische Hinweise, Praxisbeispiele und die ungetestete Wirkung von Pietro selbst. Die Quellen begründen die Richtung – sie beweisen nicht, dass diese Umsetzung wirkt.</p>
-  <div class="science" id="wissenschaft">
-    <h3 class="evidence-type">Theorie</h3>
-    <article>
-      <div class="sci-head"><h3>Implizites Wissen</h3><p class="source">Michael Polanyi · <i>The Tacit Dimension</i>, 1966</p></div>
-      <p>«Wir wissen mehr, als wir zu sagen wissen.» Nicht alles Erfahrungswissen lässt sich aufschreiben.</p>
-      <dl><dt>Übernommen</dt><dd>Konkrete Fälle und gezielte Fragen statt leerer Formulare.</dd><dt>Grenze</dt><dd>Eine Karte hält nur einen Teil dieses Wissens fest; Gespräche bleiben nötig.</dd></dl>
-    </article>
-    <article>
-      <div class="sci-head"><h3>Wissensumwandlung</h3><p class="source">Nonaka &amp; Takeuchi · <i>The Knowledge-Creating Company</i>, 1995</p></div>
-      <p>Wissen entsteht im Wechsel von implizit und explizit: austauschen, ausformulieren, kombinieren, verinnerlichen.</p>
-      <dl><dt>Übernommen</dt><dd>Beschreiben und Vergleichen sind eigene Schritte.</dd><dt>Grenze</dt><dd>Einflussreiches Modell; seine empirische Prüfung gilt als schwierig.</dd></dl>
-    </article>
-    <article>
-      <div class="sci-head"><h3>Lernen in der Praxis · Grenzobjekte</h3><p class="source">Lave &amp; Wenger, 1991 · Star &amp; Griesemer, 1989</p></div>
-      <p>Lernen gelingt oft gut im tatsächlichen Arbeitskontext. Gemeinsame Objekte können Gruppen verbinden, obwohl jede sie aus ihrem Blickwinkel liest.</p>
-      <dl><dt>Übernommen</dt><dd>Begriffe am eigenen Ablauf lernen; die Karte als gemeinsames Objekt mit lokalen Unterschieden.</dd><dt>Grenze</dt><dd>Software schafft keine Gemeinschaft; Austausch braucht Zeit und Anlässe.</dd></dl>
-    </article>
-    <h3 class="evidence-type">Empirische Hinweise</h3>
-    <article>
-      <div class="sci-head"><h3>Prozesskarten und Wissenserwerb</h3><p class="source">White &amp; Cicmil · <i>IJPPM</i> 65(3), 2016 · <a href="https://doi.org/10.1108/IJPPM-01-2014-0007">DOI</a></p></div>
-      <p>Vierjährige Aktionsforschung in drei Organisationen: Prozesskarten dienten nicht nur der Verbesserung, sondern auch als Wissensspeicher; Wissen entstand vor allem im gemeinsamen Erarbeiten.</p>
-      <dl><dt>Übernommen</dt><dd>Erfassen als gemeinsamer Vorgang mit Rückfragen, nicht nur als Formular.</dd><dt>Grenze</dt><dd>Drei Organisationen, keine Hochschule, kein Werkzeugvergleich.</dd></dl>
-    </article>
-    <article>
-      <div class="sci-head"><h3>Wissensablagen im Arbeitsalltag</h3><p class="source">Subramani et al. · <i>MIS Quarterly</i>, 2021 · <a href="https://doi.org/10.25300/MISQ/2021/15635">DOI</a></p></div>
-      <p>Längsschnitt bei Servicetechnikern eines Unternehmens: Mehr Zugriff auf dokumentiertes Wissen ging mit weniger Anrufen beim technischen Support einher; prozedurales Wissen half besonders bei komplexen Problemen.</p>
-      <dl><dt>Übernommen</dt><dd>Wiederverwendung und Rückfragen als Messgrössen im Pilot.</dd><dt>Grenze</dt><dd>Ein Unternehmen, technischer Support – kein Hochschulversuch.</dd></dl>
-    </article>
-    <h3 class="evidence-type">Praxisbeispiel</h3>
-    <article>
-      <div class="sci-head"><h3>Prozessportal an einer Hochschule</h3><p class="source">Hochschule Luzern · <a href="https://www.hslu.ch/-/media/campus/common/files/dokumente/h/ueber-uns/qualitaetsentwicklung/260114-hslu-bro-qualitaetsmanagementsystem-a4-24s-web.pdf">Qualitätsmanagementsystem (PDF)</a></p></div>
-      <p>Die HSLU beschreibt ein Prozessportal, das für alle Mitarbeitenden zugänglich ist, mit Prozesslandkarten zur Orientierung.</p>
-      <dl><dt>Übernommen</dt><dd>Ein gemeinsamer, zugänglicher Ort für Prozessbeschreibungen existiert an Hochschulen bereits.</dd><dt>Grenze</dt><dd>Ein Vorbild für die Form – kein Beleg für Einsparungen oder für die Wirkung von Pietro.</dd></dl>
-    </article>
-    <h3 class="evidence-type">Ungetestet</h3>
-    <article class="untested">
-      <div class="sci-head"><h3>Die Wirkung von Pietro</h3><p class="source">Noch keine Studie</p></div>
-      <p>Ob geführte Erfassung, Bibliothek mit Varianten und Vergleich tatsächlich Verständnis, Wiederverwendung oder Aufwand verbessern, ist nicht untersucht.</p>
-      <dl><dt>Nächster Schritt</dt><dd>Der vorgeschlagene Pilot misst genau das – im Vergleich mit einem guten Formular.</dd></dl>
-    </article>
-  </div>
-  <p class="footnote">Die Karten nutzen Grundideen aus BPMN (OMG-Standard), sind aber bewusst vereinfacht und kein formal gültiges BPMN-2.0-Modell.</p>
-</section>
-
-<section id="demo" aria-labelledby="demoTitle">
-  <p class="kicker">Demo</p>
-  <h2 id="demoTitle">So sieht es aus.<br><span class="muted">Für Einzelne, für die Universität – und als Zielbild.</span></h2>
-  <p class="intro">Alle Daten sind erfunden. Zahlen sind Zählungen dieser Beispieldaten, keine Messungen. Karte und Prozess-Check «Für Einzelne» erzeugt die App mit denselben Regeln wie im Einsatz. «Prozessfamilien» ist eine Illustration des Zielbilds.</p>
-  <div class="segmented" role="tablist" aria-label="Demo-Ansicht">
-    <button type="button" role="tab" id="tab-person" aria-controls="panel-person" aria-selected="true">Für Einzelne</button>
-    <button type="button" role="tab" id="tab-uni" aria-controls="panel-uni" aria-selected="false" tabindex="-1">Für die Universität</button>
-    <button type="button" role="tab" id="tab-family" aria-controls="panel-family" aria-selected="false" tabindex="-1">Prozessfamilien</button>
-  </div>
-
-  <div id="panel-person" role="tabpanel" aria-labelledby="tab-person" class="panel">
-    <p class="panel-status"><span class="chip now">Heute in der Demo</span></p>
-    <div class="persona">
-      <span class="avatar" aria-hidden="true">L</span>
-      <div><b>Lena</b> <span class="muted">· fiktiv · Sekretariat, Institut für Geografie</span><br><span class="small muted">«Spesen nach einer Dienstreise abrechnen»</span></div>
-    </div>
-    <div class="person-grid">
-      <section aria-labelledby="pMap">
-        <h3 id="pMap"><span class="step-no">1</span>Ihr Ablauf als Karte</h3>
-        <div id="personMap" class="map-box"><p class="small muted">Karte wird geladen …</p></div>
-        <details><summary>Ablauf als Text</summary><ol id="personMapText" class="map-text"></ol></details>
-      </section>
-      <section aria-labelledby="pCheck">
-        <h3 id="pCheck"><span class="step-no">2</span>Was der Prozess-Check zurückgibt</h3>
-        <div id="personCheck"></div>
-        <h3><span class="step-no">3</span>Was sie mitnimmt</h3>
-        <ul class="plain">
-          <li>Prozessdatei (JSON), jederzeit wieder importierbar</li>
-          <li>Lesbarer Steckbrief und Diagramm für das Team</li>
-          <li>Sparring-Bericht mit offenen Fragen fürs nächste Gespräch</li>
+<section class="ed" id="stand" aria-labelledby="standTitle">
+  <header class="ed-label"><span class="ed-num">04</span><span>Stand der Dinge</span></header>
+  <div class="ed-body">
+    <h2 id="standTitle">Was es heute gibt, was ein Pilot prüft, wohin es gehen kann.</h2>
+    <div class="maturity">
+      <article>
+        <h3><span class="status now">Heute in der Demo</span></h3>
+        <ul>
+          <li>Sieben Lernübungen zur Prozesssprache</li>
+          <li>Geführte Fragen mit Vorschau, Übernehmen, Verwerfen und Rückgängig</li>
+          <li>Regelbasierter Prozess-Check ohne KI</li>
+          <li>Statische Bibliothek mit fiktiven Beispielen; Vergleich über Tags</li>
+          <li>Beiträge als Dateien zur Prüfung – kein automatisches Senden</li>
+          <li>Optionaler Live-Chat nur über einen separat betriebenen Server</li>
         </ul>
-        <h3><span class="step-no">4</span>Ihr freiwilliger Beitrag</h3>
-        <div class="contrib">
-          <span class="status pending">Prüfung ausstehend</span>
-          <p>Bereinigte Kopie, Freitext und Werkzeugnamen entfernt. Lena hat die Vorschau bestätigt – das ist keine Freigabe zur Veröffentlichung.</p>
-          <p class="small muted">Datei herunterladen → fachlich prüfen lassen → durch Kuration aufnehmen</p>
-        </div>
-      </section>
+      </article>
+      <article>
+        <h3><span class="status pilot">Nächster Pilot · Vorschlag</span></h3>
+        <ul>
+          <li>Zwölf Wochen, drei freiwillige Teams, wenige abgegrenzte Prozesse</li>
+          <li>Zuerst vorhandene Dokumentationen und Angebote sichten</li>
+          <li>Beschreibungen von anderen verstehen und in einem zweiten Kontext anpassen lassen</li>
+          <li>Aufwand und Nutzen ehrlich messen</li>
+        </ul>
+      </article>
+      <article>
+        <h3><span class="status vision">Zielbild</span></h3>
+        <ul>
+          <li>Versionierte Prozessfamilien mit expliziter Herkunft</li>
+          <li>Verbesserungsvorschläge zwischen Varianten</li>
+          <li>KI-gestützte Einordnung und Pflege der Bibliothek</li>
+          <li>Hinweise aus der realen Werkzeug- und Servicelandschaft</li>
+          <li>Betrieb in einer abgestimmten, selbst gehosteten Umgebung</li>
+        </ul>
+      </article>
     </div>
-    <div class="actions"><a class="button primary" href="./app/">Dieses Beispiel in der App durchspielen</a></div>
+
+    <h3 class="sub">Heute in der App: fünf Schritte</h3>
+    <ol class="steps">
+      <li><span class="num">1</span><div><h4>Lernen</h4><p>Sieben Begriffe in kurzen Übungen. Jede Antwort wird erklärt, auch die falsche.</p></div></li>
+      <li><span class="num">2</span><div><h4>Beschreiben</h4><p>Eine Frage nach der anderen. Jede Antwort wird zum Vorschlag: ansehen, übernehmen, ändern oder verwerfen.</p></div></li>
+      <li><span class="num">3</span><div><h4>Prüfen</h4><p>Feste Regeln trennen gemeldete Fakten, offene Fragen und Hypothesen – jeweils mit Schrittbezug.</p></div></li>
+      <li><span class="num">4</span><div><h4>Vergleichen</h4><p>Verwandte Beispiele über gemeinsame Tätigkeits-Tags. Nachvollziehbar statt «magisch».</p></div></li>
+      <li><span class="num">5</span><div><h4>Beitragen</h4><p>Eine bereinigte Kopie mit exakter Vorschau, Status «Prüfung ausstehend».</p></div></li>
+    </ol>
+    <div class="not-list">
+      <h3 class="sub">Was bewusst nicht passiert</h3>
+      <ul>
+        <li>Keine erfundenen Einsparungen, Regeln oder Freigaben. Unbekanntes bleibt unbekannt.</li>
+        <li>Kein automatisches Veröffentlichen. Ein Entwurf wird nie von selbst institutionelles Wissen.</li>
+        <li>Keine Ranglisten von Personen oder Teams. Beschrieben werden Abläufe, nicht Leistungen.</li>
+        <li>Ein Rückweg ist nicht automatisch Verschwendung. Er wird zur Frage, ob er nötig ist.</li>
+        <li>Prüfung, Wirkung und Verbindlichkeit sind drei getrennte Eigenschaften und werden nicht vererbt.</li>
+        <li>Eine gemeinsame Beschreibung ist keine Standardisierung. Vereinheitlichen wäre eine eigene Entscheidung der zuständigen Stellen.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ed" id="pilot" aria-labelledby="pilotTitle">
+  <header class="ed-label"><span class="ed-num">05</span><span>Pilot · Vorschlag</span></header>
+  <div class="ed-body">
+    <h2 id="pilotTitle">Klein anfangen, ehrlich messen.</h2>
+    <p class="intro">Ein begrenzter Versuch klärt, ob der Ansatz trägt – bevor über weitere Technik oder Ausbau entschieden wird. Budget, Kostenstelle und Mandat sind <b>nicht</b> zugesagt; sie werden vor dem Start vereinbart.</p>
+    <div class="pilot-grid">
+      <div>
+        <h3>Rahmen</h3>
+        <ul class="plain">
+          <li>Zwölf Wochen, drei freiwillige Teams</li>
+          <li>Wenige, klar abgegrenzte Prozesse</li>
+          <li>Zuerst bestehende Dokumentationen und Angebote sichten</li>
+          <li>Erprobung einer Anpassung an einen zweiten Kontext</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Vorgesehene Verantwortung</h3>
+        <dl class="roles">
+          <dt>Beteiligte Teams</dt><dd>beschreiben und prüfen ihre Abläufe</dd>
+          <dt>Betreuung</dt><dd>moderiert, unterstützt beim Erfassen</dd>
+          <dt>Fachliche Prüfung</dt><dd>bestätigt Inhalte für den Geltungsbereich</dd>
+          <dt>Kuration</dt><dd>entscheidet über Aufnahme und Pflege</dd>
+          <dt>IT</dt><dd>klärt zulässigen Betrieb und Datenhaltung</dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Was gemessen wird</h3>
+        <ul class="plain">
+          <li>Kann eine andere Person eine Beschreibung verstehen und wiederverwenden?</li>
+          <li>Rückfragen und Suchaufwand – gegenüber dem Aufwand für Erfassen, Prüfen und Pflegen</li>
+          <li>Vergleich mit einem guten Formular ohne Tutor</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote">Frei werdende Arbeitszeit ist keine Budgeteinsparung. Bestehende Ressourcen sind eine zu prüfende Finanzierungsoption, keine Zusage. Auch interne Arbeit und selbst gehosteter Betrieb verursachen Aufwand. Für den Ideenwettbewerb gilt: Zusätzliche laufende Kosten müssen durch nachgewiesene Einsparungen ausgeglichen werden. Der Pilot erfasst deshalb Erfassungs-, Prüf- und Pflegeaufwand sowie Betriebskosten separat. Eine Fortführung setzt diesen Nachweis voraus; eine Zeitersparnis allein belegt noch keine Budgetentlastung.</p>
+  </div>
+</section>
+
+<section class="ed" id="grundlagen" aria-labelledby="wissTitle">
+  <header class="ed-label"><span class="ed-num">06</span><span>Grundlagen</span></header>
+  <div class="ed-body">
+    <h2 id="wissTitle">Worauf die Idee aufbaut. <span class="muted">Und was noch nicht belegt ist.</span></h2>
+    <p class="intro">Wir unterscheiden Theorie, empirische Hinweise, Praxisbeispiele und die ungetestete Wirkung von Pietro selbst. Die Quellen begründen die Richtung – sie beweisen nicht, dass diese Umsetzung wirkt.</p>
+    <div class="science" id="wissenschaft">
+      <h3 class="evidence-type">Theorie</h3>
+      <article>
+        <div class="sci-head"><h4>Implizites Wissen</h4><p class="source">Michael Polanyi · <i>The Tacit Dimension</i>, 1966</p></div>
+        <p>«Wir wissen mehr, als wir zu sagen wissen.» Nicht alles Erfahrungswissen lässt sich aufschreiben.</p>
+        <dl><dt>Übernommen</dt><dd>Konkrete Fälle und gezielte Fragen statt leerer Formulare.</dd><dt>Grenze</dt><dd>Eine Karte hält nur einen Teil dieses Wissens fest; Gespräche bleiben nötig.</dd></dl>
+      </article>
+      <article>
+        <div class="sci-head"><h4>Wissensumwandlung</h4><p class="source">Nonaka &amp; Takeuchi · <i>The Knowledge-Creating Company</i>, 1995</p></div>
+        <p>Wissen entsteht im Wechsel von implizit und explizit: austauschen, ausformulieren, kombinieren, verinnerlichen.</p>
+        <dl><dt>Übernommen</dt><dd>Beschreiben und Vergleichen sind eigene Schritte.</dd><dt>Grenze</dt><dd>Einflussreiches Modell; seine empirische Prüfung gilt als schwierig.</dd></dl>
+      </article>
+      <article>
+        <div class="sci-head"><h4>Lernen in der Praxis · Grenzobjekte</h4><p class="source">Lave &amp; Wenger, 1991 · Star &amp; Griesemer, 1989</p></div>
+        <p>Lernen gelingt oft gut im tatsächlichen Arbeitskontext. Gemeinsame Objekte können Gruppen verbinden, obwohl jede sie aus ihrem Blickwinkel liest.</p>
+        <dl><dt>Übernommen</dt><dd>Begriffe am eigenen Ablauf lernen; die Karte als gemeinsames Objekt mit lokalen Unterschieden.</dd><dt>Grenze</dt><dd>Software schafft keine Gemeinschaft; Austausch braucht Zeit und Anlässe.</dd></dl>
+      </article>
+      <h3 class="evidence-type">Empirische Hinweise</h3>
+      <article>
+        <div class="sci-head"><h4>Prozesskarten und Wissenserwerb</h4><p class="source">White &amp; Cicmil · <i>IJPPM</i> 65(3), 2016 · <a href="https://doi.org/10.1108/IJPPM-01-2014-0007">DOI</a></p></div>
+        <p>Vierjährige Aktionsforschung in drei Organisationen: Prozesskarten dienten nicht nur der Verbesserung, sondern auch als Wissensspeicher; Wissen entstand vor allem im gemeinsamen Erarbeiten.</p>
+        <dl><dt>Übernommen</dt><dd>Erfassen als gemeinsamer Vorgang mit Rückfragen, nicht nur als Formular.</dd><dt>Grenze</dt><dd>Drei Organisationen, keine Hochschule, kein Werkzeugvergleich.</dd></dl>
+      </article>
+      <article>
+        <div class="sci-head"><h4>Wissensablagen im Arbeitsalltag</h4><p class="source">Subramani et al. · <i>MIS Quarterly</i>, 2021 · <a href="https://doi.org/10.25300/MISQ/2021/15635">DOI</a></p></div>
+        <p>Längsschnitt bei Servicetechnikern eines Unternehmens: Mehr Zugriff auf dokumentiertes Wissen ging mit weniger Anrufen beim technischen Support einher; prozedurales Wissen half besonders bei komplexen Problemen.</p>
+        <dl><dt>Übernommen</dt><dd>Wiederverwendung und Rückfragen als Messgrössen im Pilot.</dd><dt>Grenze</dt><dd>Ein Unternehmen, technischer Support – kein Hochschulversuch.</dd></dl>
+      </article>
+      <h3 class="evidence-type">Praxisbeispiel</h3>
+      <article>
+        <div class="sci-head"><h4>Prozessportal an einer Hochschule</h4><p class="source">Hochschule Luzern · <a href="https://www.hslu.ch/-/media/campus/common/files/dokumente/h/ueber-uns/qualitaetsentwicklung/260114-hslu-bro-qualitaetsmanagementsystem-a4-24s-web.pdf">Qualitätsmanagementsystem (PDF)</a></p></div>
+        <p>Die HSLU beschreibt ein Prozessportal, das für alle Mitarbeitenden zugänglich ist, mit Prozesslandkarten zur Orientierung.</p>
+        <dl><dt>Übernommen</dt><dd>Ein gemeinsamer, zugänglicher Ort für Prozessbeschreibungen existiert an Hochschulen bereits.</dd><dt>Grenze</dt><dd>Ein Vorbild für die Form – kein Beleg für Einsparungen oder für die Wirkung von Pietro.</dd></dl>
+      </article>
+      <h3 class="evidence-type">Ungetestet</h3>
+      <article class="untested">
+        <div class="sci-head"><h4>Die Wirkung von Pietro</h4><p class="source">Noch keine Studie</p></div>
+        <p>Ob geführte Erfassung, Bibliothek mit Varianten und Vergleich tatsächlich Verständnis, Wiederverwendung oder Aufwand verbessern, ist nicht untersucht.</p>
+        <dl><dt>Nächster Schritt</dt><dd>Der vorgeschlagene Pilot misst genau das – im Vergleich mit einem guten Formular.</dd></dl>
+      </article>
+    </div>
+    <p class="footnote">Die Karten nutzen Grundideen aus BPMN (OMG-Standard), sind aber bewusst vereinfacht und kein formal gültiges BPMN-2.0-Modell.</p>
+  </div>
+</section>
+
+<section class="ed demo" id="demo" aria-labelledby="demoTitle">
+  <header class="ed-label"><span class="ed-num">07</span><span>Demo</span></header>
+  <div class="ed-body">
+    <h2 id="demoTitle">So sieht es aus. <span class="muted">Für Einzelne, für die Universität – und als Zielbild.</span></h2>
+    <p class="intro">Alle Daten sind erfunden. Zahlen sind Zählungen dieser Beispieldaten, keine Messungen. Karte und Prozess-Check «Für Einzelne» erzeugt die App mit denselben Regeln wie im Einsatz. «Prozessfamilien» ist eine Illustration des Zielbilds.</p>
+    <div class="tabs" role="tablist" aria-label="Demo-Ansicht">
+      <button type="button" role="tab" id="tab-person" aria-controls="panel-person" aria-selected="true">Für Einzelne <span class="status now">Heute</span></button>
+      <button type="button" role="tab" id="tab-uni" aria-controls="panel-uni" aria-selected="false" tabindex="-1">Für die Universität <span class="status pilot">Illustration</span></button>
+      <button type="button" role="tab" id="tab-family" aria-controls="panel-family" aria-selected="false" tabindex="-1">Prozessfamilien <span class="status vision">Zielbild</span></button>
+    </div>
   </div>
 
-  <div id="panel-uni" role="tabpanel" aria-labelledby="tab-uni" class="panel" hidden>
-    <p class="panel-status"><span class="chip pilot">Illustration · Dummy-Daten</span></p>
-    <p id="uniSummary" class="uni-summary"></p>
-    <section aria-labelledby="uMatrix">
-      <h3 id="uMatrix">Wo dieselben Tätigkeitsmuster vorkommen</h3>
-      <p class="small muted">Zeilen: Muster. Spalten: Einheiten. Jeder Punkt ist eine Prozessbeschreibung. Wähle ein Muster für Beispiele und lokale Unterschiede.</p>
-      <div class="matrix-wrap"><table id="matrix" class="matrix"></table></div>
-      <div id="patternDetail" class="pattern-detail" aria-live="polite"></div>
-    </section>
-    <div class="uni-grid">
-      <section aria-labelledby="uPipe">
-        <h3 id="uPipe">Weg in die Bibliothek</h3>
-        <div id="pipeline" class="pipeline"></div>
-      </section>
-      <section aria-labelledby="uDims">
-        <h3 id="uDims">Drei getrennte Eigenschaften</h3>
-        <div id="dimensions"></div>
-      </section>
+  <div id="panel-person" role="tabpanel" aria-labelledby="tab-person" class="panel demo-frame product">
+    <div class="frame-bar">
+      <span class="workspace"><span class="p-brand small-brand"><svg aria-hidden="true"><use href="./assets/icons.svg#pietro-mark"/></svg>Pietro</span><span class="crumb-sep" aria-hidden="true">/</span><span class="um-inline"><svg aria-hidden="true"><use href="./assets/icons.svg#um-mark"/></svg>Beispielraum Universität Musterstadt</span><span class="fictional-tag">Fiktive Beispieluniversität</span></span>
+      <span class="status now">Heute in der Demo</span>
     </div>
-    <section aria-labelledby="uQuestions">
-      <h3 id="uQuestions">Offene Fragen über Einheiten hinweg</h3>
-      <ul id="questions" class="question-list"></ul>
-    </section>
-    <p class="footnote">Dieses Bild entsteht nur aus den Beschreibungen selbst: Tags, Prüfstatus und offene Fragen. Es gibt keine Leistungsdaten über Personen, keine Ranglisten und keine Zeit- oder Kostenzahlen. Ob sich Aufwand verringert, kann erst ein Pilot mit Messung zeigen.</p>
+    <div class="frame-content">
+      <div class="persona">
+        <span class="avatar" aria-hidden="true">L</span>
+        <div><b>Lena</b> <span class="muted">· fiktiv · Sekretariat, Institut für Geografie</span><br><span class="draft-mark"><svg aria-hidden="true"><use href="./assets/icons.svg#i-device"/></svg>Persönlicher Entwurf · «Spesen nach einer Dienstreise abrechnen»</span></div>
+      </div>
+      <div class="person-grid">
+        <section aria-labelledby="pMap">
+          <h3 id="pMap"><span class="step-no">1</span>Ihr Ablauf als Karte</h3>
+          <div id="personMap" class="map-box"><p class="small muted">Karte wird geladen …</p></div>
+          <details><summary>Ablauf als Text</summary><ol id="personMapText" class="map-text"></ol></details>
+        </section>
+        <section aria-labelledby="pCheck">
+          <h3 id="pCheck"><span class="step-no">2</span>Was der Prozess-Check zurückgibt</h3>
+          <div id="personCheck"></div>
+          <h3><span class="step-no">3</span>Was sie mitnimmt</h3>
+          <ul class="plain icon-list">
+            <li><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-download"/></svg>Prozessdatei (JSON), jederzeit wieder importierbar</li>
+            <li><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-fact"/></svg>Lesbarer Steckbrief und Diagramm für das Team</li>
+            <li><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-question"/></svg>Sparring-Bericht mit offenen Fragen fürs nächste Gespräch</li>
+          </ul>
+          <h3><span class="step-no">4</span>Ihr freiwilliger Beitrag</h3>
+          <div class="contrib">
+            <span class="status pending">Prüfung ausstehend</span>
+            <p>Bereinigte Kopie, Freitext und Werkzeugnamen entfernt. Lena hat die Vorschau bestätigt – das ist keine Freigabe zur Veröffentlichung.</p>
+            <p class="small muted">Datei herunterladen → fachlich prüfen lassen → durch Kuration aufnehmen</p>
+          </div>
+        </section>
+      </div>
+      <div class="actions"><a class="btn primary" href="./app/"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-arrow"/></svg>Dieses Beispiel in der App durchspielen</a></div>
+    </div>
   </div>
 
-  <div id="panel-family" role="tabpanel" aria-labelledby="tab-family" class="panel" hidden>
-    <p class="panel-status"><span class="chip vision">Zielbild · fiktive Illustration</span></p>
-    <p class="vision-note">Diese Ansicht zeigt eine geplante Arbeitsweise. Die heutige App hat <b>keine</b> Versionsverwaltung, keine Vorschläge zwischen Teams und kein Übernehmen. Wähle eine der vier Erklärungen, um Anpassung, Vergleich, Vorschlag und Übernahme am Beispiel zu verstehen. Es wird nichts gesendet oder gespeichert.</p>
-    <div id="familyIntro" class="family-intro"><p>Beispieldaten werden geladen …</p></div>
-    <div class="family-views" role="group" aria-label="Arbeitsweise erklären">
-      <button type="button" class="view-btn" data-view="adapt" aria-pressed="true">Für unser Team anpassen</button>
-      <button type="button" class="view-btn" data-view="diff" aria-pressed="false">Unterschiede verstehen</button>
-      <button type="button" class="view-btn" data-view="propose" aria-pressed="false">Verbesserung vorschlagen</button>
-      <button type="button" class="view-btn" data-view="adopt" aria-pressed="false">Änderung geprüft übernehmen</button>
+  <div id="panel-uni" role="tabpanel" aria-labelledby="tab-uni" class="panel demo-frame institution" hidden>
+    <div class="um-masthead"><svg class="um-mark" aria-hidden="true"><use href="./assets/icons.svg#um-mark"/></svg><div class="um-wordmark"><b>Universität Musterstadt</b><span>Prozessbibliothek · Übersicht der Einheiten</span></div><span class="fictional-tag">Fiktive Beispieluniversität</span></div>
+    <div class="frame-content">
+      <p class="panel-status"><span class="status pilot">Illustration · Dummy-Daten</span></p>
+      <p id="uniSummary" class="uni-summary"></p>
+      <section aria-labelledby="uMatrix">
+        <h3 id="uMatrix">Wo dieselben Tätigkeitsmuster vorkommen</h3>
+        <p class="small muted">Zeilen: Muster. Spalten: Einheiten. Jeder Punkt ist eine Prozessbeschreibung. Wähle ein Muster für Beispiele und lokale Unterschiede.</p>
+        <div class="matrix-wrap"><table id="matrix" class="matrix"></table></div>
+        <div id="patternDetail" class="pattern-detail" aria-live="polite"></div>
+      </section>
+      <div class="uni-grid">
+        <section aria-labelledby="uPipe">
+          <h3 id="uPipe">Weg in die Bibliothek</h3>
+          <div id="pipeline" class="pipeline"></div>
+        </section>
+        <section aria-labelledby="uDims">
+          <h3 id="uDims">Drei getrennte Eigenschaften</h3>
+          <div id="dimensions"></div>
+        </section>
+      </div>
+      <section aria-labelledby="uQuestions">
+        <h3 id="uQuestions">Offene Fragen über Einheiten hinweg</h3>
+        <ul id="questions" class="question-list"></ul>
+      </section>
+      <p class="footnote">Dieses Bild entsteht nur aus den Beschreibungen selbst: Tags, Prüfstatus und offene Fragen. Es gibt keine Leistungsdaten über Personen, keine Ranglisten und keine Zeit- oder Kostenzahlen. Ob sich Aufwand verringert, kann erst ein Pilot mit Messung zeigen.</p>
     </div>
-    <div id="familyView" class="family-view" aria-live="polite"></div>
-    <p class="footnote">Varianten behalten ihre eigene Verantwortung. Eine neue Ausgangsversion überschreibt keine lokale Variante; fachliche Prüfung, Wirkung und Verbindlichkeit gelten für die jeweilige Version und werden nie automatisch vererbt. Herkunft ist eine ausdrückliche Beziehung – ähnliche Tags allein belegen keine gemeinsame Abstammung.</p>
+  </div>
+
+  <div id="panel-family" role="tabpanel" aria-labelledby="tab-family" class="panel demo-frame institution" hidden>
+    <div class="um-masthead"><svg class="um-mark" aria-hidden="true"><use href="./assets/icons.svg#um-mark"/></svg><div class="um-wordmark"><b>Universität Musterstadt</b><span>Prozessfamilie · Varianten und Herkunft</span></div><span class="fictional-tag">Fiktive Beispieluniversität</span></div>
+    <div class="frame-content">
+      <p class="panel-status"><span class="status vision">Zielbild · fiktive Illustration</span></p>
+      <p class="vision-note">Diese Ansicht zeigt eine geplante Arbeitsweise. Die heutige App hat <b>keine</b> Versionsverwaltung, keine Vorschläge zwischen Teams und kein Übernehmen. Wähle eine der vier Erklärungen, um Anpassung, Vergleich, Vorschlag und Übernahme am Beispiel zu verstehen. Es wird nichts gesendet oder gespeichert.</p>
+      <div id="familyIntro" class="family-intro"><p>Beispieldaten werden geladen …</p></div>
+      <div class="family-views" role="group" aria-label="Arbeitsweise erklären">
+        <button type="button" class="view-btn" data-view="adapt" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-branch"/></svg>Für unser Team anpassen</button>
+        <button type="button" class="view-btn" data-view="diff" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-compare"/></svg>Unterschiede verstehen</button>
+        <button type="button" class="view-btn" data-view="propose" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-bulb"/></svg>Verbesserung vorschlagen</button>
+        <button type="button" class="view-btn" data-view="adopt" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-shield"/></svg>Änderung geprüft übernehmen</button>
+      </div>
+      <div id="familyView" class="family-view" aria-live="polite"></div>
+      <p class="footnote">Varianten behalten ihre eigene Verantwortung. Eine neue Ausgangsversion überschreibt keine lokale Variante; fachliche Prüfung, Wirkung und Verbindlichkeit gelten für die jeweilige Version und werden nie automatisch vererbt. Herkunft ist eine ausdrückliche Beziehung – ähnliche Tags allein belegen keine gemeinsame Abstammung.</p>
+    </div>
   </div>
 </section>
 
 <section class="cta" aria-labelledby="ctaTitle">
-  <h2 id="ctaTitle">Selbst ausprobieren.</h2>
-  <p class="intro">Geführte Erfassung, Karte und Prozess-Check funktionieren im Browser ohne KI-Dienst. Beiträge werden als Datei exportiert. Nur der optionale Live-Chat über einen separat eingerichteten Server übermittelt Eingaben an einen KI-Dienst.</p>
-  <div class="actions center"><a class="button primary" href="./app/">App öffnen</a><a class="button ghost" href="https://github.com/blackmath88/expertise-to-process">Quellcode auf GitHub →</a></div>
+  <div>
+    <h2 id="ctaTitle">Selbst ausprobieren.</h2>
+    <p>Geführte Erfassung, Karte und Prozess-Check funktionieren im Browser ohne KI-Dienst. Beiträge werden als Datei exportiert. Nur der optionale Live-Chat über einen separat eingerichteten Server übermittelt Eingaben an einen KI-Dienst.</p>
+  </div>
+  <div class="actions"><a class="btn primary" href="./app/"><svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#i-arrow"/></svg>App öffnen</a><a class="btn" href="https://github.com/blackmath88/expertise-to-process">Quellcode auf GitHub</a></div>
 </section>
 </main>
 
 <footer>
-  <p>Pietro · Konzeptprototyp von Achim Imboden. Die Universität Musterstadt ist erfunden; Ähnlichkeiten mit realen Hochschulen sind nicht beabsichtigt.</p>
+  <p><b>Pietro</b> · Konzeptprototyp von Achim Imboden. Die Universität Musterstadt ist erfunden; Ähnlichkeiten mit realen Hochschulen sind nicht beabsichtigt.</p>
   <a href="https://github.com/blackmath88/expertise-to-process">GitHub</a>
 </footer>
 <script type="module" src="./landing/landing.js"></script>

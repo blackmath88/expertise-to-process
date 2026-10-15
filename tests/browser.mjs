@@ -12,7 +12,7 @@ const PREFIX = '/some-org-pietro-copy';
 const temp = await mkdtemp(join(tmpdir(), 'pietro-'));
 const site = join(temp, 'site');
 await cp(new URL('../docs/', import.meta.url), join(site, PREFIX.slice(1)), {recursive: true});
-const mime = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json'};
+const mime = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml'};
 const server = http.createServer(async (req, res) => {
   const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   const file = resolve(site, '.' + path + (path.endsWith('/') ? 'index.html' : ''));
@@ -51,10 +51,10 @@ try {
   await step('app and data load below an arbitrary repository prefix', async () => {
     await page.goto(appUrl);
     await page.screenshot({path: `${shots}/desktop-start.png`});
-    assert.match(await page.textContent('.demo-band'), /Universität Musterstadt ist erfunden/);
+    assert.match(await page.textContent('.workspace-bar'), /Universität Musterstadt ist erfunden/);
     await page.click('[data-route="bibliothek"]');
-    await page.locator('.lib-card').first().waitFor();
-    assert.equal(await page.locator('.lib-card').count(), 5);
+    await page.locator('.lib-record').first().waitFor();
+    assert.equal(await page.locator('.lib-record').count(), 5);
     assert.ok(requests.some(u => u === appUrl + 'data/library-index.json'));
     assert.ok(requests.some(u => u === appUrl + 'data/processes/funding.json'));
   });
@@ -149,7 +149,7 @@ try {
   });
 
   await step('scripted example: accept, edit, reject and undo do what the preview says', async () => {
-    await page.click('.brand');
+    await page.click('.p-brand');
     await page.click('#entryExample');
     await page.locator('#proposalCard [data-action="accept"]').waitFor();
     assert.match(await page.textContent('#scriptBanner'), /keine KI/);
@@ -277,13 +277,13 @@ try {
     assert.match(await page.textContent('#libStatus'), /Keine Einträge gefunden/);
     await page.click('#libStatus button');
     await page.selectOption('#libFamily', 'forschung');
-    assert.equal(await page.locator('.lib-card').count(), 1);
+    assert.equal(await page.locator('.lib-record').count(), 1);
     await page.selectOption('#libFamily', '');
     await page.selectOption('#libKind', 'pattern');
-    assert.equal(await page.locator('.lib-card').count(), 2);
+    assert.equal(await page.locator('.lib-record').count(), 2);
     await page.selectOption('#libKind', '');
     await page.screenshot({path: `${shots}/desktop-library.png`, fullPage: true});
-    await page.click('.lib-card a:has-text("Neue Mitarbeitende")');
+    await page.click('.lib-record a:has-text("Neue Mitarbeitende")');
     await page.locator('#libDetailTitle').waitFor();
     const detail = await page.textContent('#libDetail');
     for (const text of ['Nicht fachlich geprüft', 'Wirkung nicht getestet', 'Keine verbindliche Vorgabe', 'Fiktiv', 'Offene Fragen', 'Vollständigkeit vor der Übergabe prüfen']) assert.ok(detail.includes(text), text);
@@ -381,7 +381,7 @@ try {
       await page.goto(appUrl + '#' + hash);
       await page.waitForTimeout(150);
       assert.ok(await noOverflow(page), 'overflow in ' + hash);
-      assert.ok(await page.locator('.demo-band').isVisible(), 'fictional notice visible in ' + hash);
+      assert.ok(await page.locator('.workspace-bar .fictional-tag').isVisible(), 'fictional notice visible in ' + hash);
       await page.screenshot({path: `${shots}/mobile-${name}.png`, fullPage: true});
     }
     await page.goto(appUrl + '#prozess/vergleich');

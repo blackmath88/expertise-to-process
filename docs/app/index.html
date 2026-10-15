@@ -7,20 +7,24 @@
 <title>Pietro · Expertise verbinden</title>
 <meta name="description" content="Demo: Prozesssprache lernen, eigene Abläufe beschreiben und mit einer Prozessbibliothek vergleichen – am Beispiel der fiktiven Universität Musterstadt.">
 <link rel="icon" href="data:,">
+<link rel="stylesheet" href="../assets/base.css">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
-<p class="demo-band"><b>Demo</b> · Die Universität Musterstadt ist erfunden. Alle Abläufe, Rollen und Beispiele sind fiktiv; die App speichert nichts auf einem Server.</p>
 <header class="site-header">
-  <a class="brand" href="#start"><span class="brandmark" aria-hidden="true">p</span><span>Pietro <small>Universität Musterstadt</small></span></a>
+  <a class="p-brand" href="#start"><svg aria-hidden="true"><use href="../assets/icons.svg#pietro-mark"/></svg>Pietro</a>
   <nav class="primary-nav" aria-label="Hauptnavigation">
-    <a href="#lernen" data-route="lernen">Lernen</a>
-    <a href="#prozess" data-route="prozess">Mein Prozess</a>
-    <a href="#bibliothek" data-route="bibliothek">Prozessbibliothek</a>
+    <a href="#lernen" data-route="lernen"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-learn"/></svg>Lernen</a>
+    <a href="#prozess" data-route="prozess"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-map"/></svg>Mein Prozess</a>
+    <a href="#bibliothek" data-route="bibliothek"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-library"/></svg>Prozess&shy;bibliothek</a>
   </nav>
-  <button id="settingsBtn" type="button" class="quiet">Einstellungen</button>
+  <button id="settingsBtn" type="button" class="ghost"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-settings"/></svg>Einstellungen</button>
 </header>
+<div class="workspace-bar">
+  <p class="workspace"><span>Pietro</span><span class="crumb-sep" aria-hidden="true">/</span><span class="um-inline"><svg aria-hidden="true"><use href="../assets/icons.svg#um-mark"/></svg>Beispielraum Universität Musterstadt</span><span class="fictional-tag">Fiktive Beispieluniversität</span></p>
+  <p class="workspace-note">Die Universität Musterstadt ist erfunden. Alle Abläufe, Rollen und Beispiele sind fiktiv; die App speichert nichts auf einem Server.</p>
+</div>
 
 <main id="main" tabindex="-1">
 
@@ -32,17 +36,17 @@
       <h1 id="startHeading" tabindex="-1">Expertise verbinden.<br><em>Gemeinsam besser arbeiten.</em></h1>
       <p class="intro">An der (fiktiven) Universität Musterstadt lernen Mitarbeitende eine gemeinsame Prozesssprache. Beschreibe deinen eigenen Ablauf und vergleiche ihn mit verwandten Beispielen. So wird Erfahrungswissen verständlich, auffindbar und für andere nutzbar.</p>
       <div class="actions">
-        <button id="entryExample" type="button" class="primary">Beispiel ausprobieren</button>
-        <button id="entryOwn" type="button">Eigenen Prozess beschreiben</button>
-        <button id="entryLibrary" type="button">Bibliothek erkunden</button>
+        <button id="entryExample" type="button" class="primary"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-arrow"/></svg>Beispiel ausprobieren</button>
+        <button id="entryOwn" type="button"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg>Eigenen Prozess beschreiben</button>
+        <button id="entryLibrary" type="button" class="ghost"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-library"/></svg>Bibliothek erkunden</button>
       </div>
       <p class="micro">Ohne Konto. Ohne KI im Offline-Modus. Dein Entwurf bleibt in diesem Browser, bis du ihn ausdrücklich speicherst oder als Datei herunterlädst.</p>
     </div>
   </div>
   <ol class="journey">
-    <li><b>Lernen</b><span>Kurze Übungen zu Auslöser, Tätigkeit, Entscheidung, Rolle, Übergabe, Ergebnis und Ausnahme. Kein Pflichtkurs.</span></li>
-    <li><b>Mein Prozess</b><span>Geführte Fragen oder direkte Bearbeitung, eine lesbare Karte und ein Prozess-Check mit Bezug auf deine Schritte.</span></li>
-    <li><b>Prozessbibliothek</b><span>Fiktive Beispiele der Universität Musterstadt und Muster: gemeinsame Tätigkeiten erkennen, lokale Unterschiede respektieren.</span></li>
+    <li><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-learn"/></svg><b>Lernen</b><span>Kurze Übungen zu Auslöser, Tätigkeit, Entscheidung, Rolle, Übergabe, Ergebnis und Ausnahme. Kein Pflichtkurs.</span></li>
+    <li><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-map"/></svg><b>Mein Prozess</b><span>Geführte Fragen oder direkte Bearbeitung, eine lesbare Karte und ein Prozess-Check mit Bezug auf deine Schritte.</span></li>
+    <li><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-library"/></svg><b>Prozessbibliothek</b><span>Fiktive Beispiele der Universität Musterstadt und Muster: gemeinsame Tätigkeiten erkennen, lokale Unterschiede respektieren.</span></li>
   </ol>
   <p class="note scope-note"><b>Heute in der Demo:</b> Lernen, eigenen Ablauf beschreiben, regelbasierter Prozess-Check, Vergleich mit fiktiven Beispielen und Beitrag als Datei. Wie daraus Prozessfamilien mit lokalen Varianten, eine KI-gestützte Wissensbasis und gezielte Verbesserungen werden können, zeigt die <a href="../#weg">Projektseite</a> – dort klar als Pilot und Zielbild gekennzeichnet.</p>
 </section>
@@ -70,14 +74,14 @@
 <section id="view-prozess" class="view" aria-labelledby="draftHeading" hidden>
   <div class="draft-bar">
     <div>
-      <p class="eyebrow">Persönlicher Entwurf</p>
+      <p class="draft-mark"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-device"/></svg>Persönlicher Entwurf · nur in diesem Browser</p>
       <h1 id="draftHeading" tabindex="-1">Mein Prozess</h1>
       <p id="draftStatus" class="badge" role="status">Nicht gespeichert</p>
     </div>
     <div class="draft-actions">
       <button id="undoBtn" type="button" disabled>Rückgängig</button>
-      <button id="saveDraft" type="button">Auf diesem Gerät speichern</button>
-      <button id="newDraft" type="button" class="quiet">Neuer Entwurf</button>
+      <button id="saveDraft" type="button" class="primary"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-save"/></svg>Auf diesem Gerät speichern</button>
+      <button id="newDraft" type="button" class="ghost"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg>Neuer Entwurf</button>
     </div>
   </div>
   <div class="work-tabs" role="tablist" aria-label="Werkbank">
@@ -118,7 +122,7 @@
             <label class="wide">Wo wird es mühsam?<textarea id="pain" maxlength="4000"></textarea></label>
             <label class="wide">Werden Angaben mehrfach erfasst oder übertragen?<select id="reportedDuplicate"><option value="unknown">Weiss nicht</option><option value="yes">Ja</option><option value="no">Nein</option></select></label>
           </div>
-          <div class="subhead"><div><h3>Schritte</h3><p>Eine Tätigkeit pro Schritt. Maximal 15; grössere Prozesse teilen wir auf.</p></div><button id="addStep" type="button">+ Schritt</button></div>
+          <div class="subhead"><div><h3>Schritte</h3><p>Eine Tätigkeit pro Schritt. Maximal 15; grössere Prozesse teilen wir auf.</p></div><button id="addStep" type="button"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-plus"/></svg>Schritt</button></div>
           <div id="stepList"></div>
           <p id="validation" class="note" role="status"></p>
         </div>
@@ -151,9 +155,9 @@
       <p>Feste Regeln prüfen deine Angaben – ohne KI. Jede Rückmeldung nennt die Schritte oder Felder, auf die sie sich bezieht. Was du nicht angegeben hast, bleibt offen; es werden keine Einsparungen geschätzt und keine Regeln beurteilt.</p>
     </div>
     <div class="check-grid">
-      <section aria-labelledby="factsHeading"><h3 id="factsHeading">Gemeldete Fakten</h3><ul id="factsList" class="finding-list"></ul></section>
-      <section aria-labelledby="questionsHeading"><h3 id="questionsHeading">Offene Fragen</h3><ul id="questionsList" class="finding-list"></ul></section>
-      <section aria-labelledby="hypothesesHeading"><h3 id="hypothesesHeading">Verbesserungshypothesen</h3><p class="micro">Ungeprüft. Prüfe erst Weglassen und Vereinfachen, dann Automatisierung oder KI.</p><ul id="hypothesesList" class="finding-list"></ul></section>
+      <section aria-labelledby="factsHeading"><h3 id="factsHeading"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-fact"/></svg>Gemeldete Fakten</h3><ul id="factsList" class="finding-list"></ul></section>
+      <section aria-labelledby="questionsHeading"><h3 id="questionsHeading"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-question"/></svg>Offene Fragen</h3><ul id="questionsList" class="finding-list"></ul></section>
+      <section aria-labelledby="hypothesesHeading"><h3 id="hypothesesHeading"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-bulb"/></svg>Verbesserungshypothesen</h3><p class="micro">Ungeprüft. Prüfe erst Weglassen und Vereinfachen, dann Automatisierung oder KI.</p><ul id="hypothesesList" class="finding-list"></ul></section>
     </div>
     <h3>Deine Hypothese</h3>
     <div class="form-grid">
@@ -167,7 +171,7 @@
       <p class="micro">Gesprächsgrundlage, keine fachliche oder technische Freigabe.</p>
       <div id="checks" class="checks"></div>
     </details>
-    <div class="actions"><button id="exportReport" type="button" class="primary">Sparring-Bericht herunterladen (Markdown)</button></div>
+    <div class="actions"><button id="exportReport" type="button" class="primary"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-download"/></svg>Sparring-Bericht herunterladen (Markdown)</button></div>
   </section>
 
   <section id="panel-vergleich" role="tabpanel" aria-labelledby="tab-vergleich" class="tabpanel" hidden>
@@ -198,10 +202,10 @@
       <p>Dein Entwurf gehört dir. Exportierte Dateien enthalten deine Eingaben.</p>
     </div>
     <div class="export-grid">
-      <button id="exportJson" type="button"><strong>Arbeitsstand sichern</strong><span>JSON · Prozessdatei Version 1, hier wieder importierbar</span></button>
-      <button id="exportMd" type="button"><strong>Prozess-Steckbrief</strong><span>Markdown · lesbar und weiterbearbeitbar</span></button>
-      <button id="exportReport2" type="button"><strong>Sparring-Bericht</strong><span>Markdown · Fakten, offene Fragen, Hypothesen</span></button>
-      <button id="exportMmd" type="button"><strong>Diagramm</strong><span>Mermaid · für Dokumentation und Wikis</span></button>
+      <button id="exportJson" type="button"><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-save"/></svg><strong>Arbeitsstand sichern</strong><span>JSON · Prozessdatei Version 1, hier wieder importierbar</span></button>
+      <button id="exportMd" type="button"><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-fact"/></svg><strong>Prozess-Steckbrief</strong><span>Markdown · lesbar und weiterbearbeitbar</span></button>
+      <button id="exportReport2" type="button"><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-question"/></svg><strong>Sparring-Bericht</strong><span>Markdown · Fakten, offene Fragen, Hypothesen</span></button>
+      <button id="exportMmd" type="button"><svg class="icon lg" aria-hidden="true"><use href="../assets/icons.svg#i-map"/></svg><strong>Diagramm</strong><span>Mermaid · für Dokumentation und Wikis</span></button>
     </div>
     <div class="import-row">
       <label class="file-label">Arbeitsstand importieren (JSON)<input type="file" id="importFile" accept=".json,application/json"></label>
@@ -230,7 +234,7 @@
           <ul id="cErrors" class="errors" role="status"></ul>
           <label class="check confirm"><input type="checkbox" id="cConfirm"> <span id="cStatement"></span></label>
           <p id="cLimit" class="micro"></p>
-          <button id="cDownload" type="button" class="primary">Beitrag herunterladen (JSON + Markdown)</button>
+          <button id="cDownload" type="button" class="primary"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-download"/></svg>Beitrag herunterladen (JSON + Markdown)</button>
           <p id="cResult" class="note" role="status" hidden></p>
         </div>
       </div>
@@ -251,6 +255,7 @@
 
 <!-- BIBLIOTHEK -->
 <section id="view-bibliothek" class="view" aria-labelledby="libraryHeading" hidden>
+  <div class="um-masthead lib-masthead"><svg class="um-mark" aria-hidden="true"><use href="../assets/icons.svg#um-mark"/></svg><div class="um-wordmark"><b>Universität Musterstadt</b><span>Prozessbibliothek · fiktive Einträge im Beispielraum</span></div><span class="fictional-tag">Fiktive Beispieluniversität</span></div>
   <div id="libList">
     <div class="section-intro">
       <p class="eyebrow">Gemeinsames Gedächtnis</p>
@@ -266,7 +271,7 @@
     <div id="libStatus" role="status" class="lib-status"></div>
     <ul id="libResults" class="lib-results"></ul>
   </div>
-  <article id="libDetail" class="lib-detail" hidden aria-labelledby="libDetailTitle"></article>
+  <article id="libDetail" class="lib-detail um-record" hidden aria-labelledby="libDetailTitle"></article>
 </section>
 
 <footer>
@@ -285,7 +290,7 @@
 
 <dialog id="settings" aria-labelledby="settingsTitle">
   <form method="dialog">
-    <div class="subhead"><h2 id="settingsTitle">Einstellungen</h2><button type="submit" aria-label="Schliessen">✕</button></div>
+    <div class="subhead"><h2 id="settingsTitle">Einstellungen</h2><button type="submit" class="ghost" aria-label="Schliessen"><svg class="icon" aria-hidden="true"><use href="../assets/icons.svg#i-plus" transform="rotate(45 12 12)"/></svg></button></div>
     <p><b>Offline-Modus (Standard):</b> Die Werkbank sendet keine Daten. Die Bibliothek wird als Datei von dieser Website geladen; Vorschläge stammen aus festen Fragen, einem gekennzeichneten Drehbuch und Regeln.</p>
     <p>Optional: Für Live-Gespräche braucht es einen gesondert betriebenen Mistral-Server. Seine Antworten sind Text und verändern deinen Entwurf nicht.</p>
     <label>Backend-URL<input id="backend" type="url" placeholder="https://dein-server.example/api/chat"></label>
