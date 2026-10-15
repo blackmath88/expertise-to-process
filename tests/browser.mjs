@@ -81,7 +81,7 @@ try {
       for (const row of ['Was Menschen tun', 'Was verfügbar wird', 'Nächster Schritt']) assert.ok(t.includes(row), row);
     }
     assert.match(journey, /muss dafür nicht auf eine universitätsweite Prozessbibliothek warten/);
-    assert.match(journey, /keine zentrale Freigabe/);
+    assert.match(journey, /im Rahmen bestehender Zuständigkeiten und Vorgaben/);
     const story = await page.textContent('.journey');
     assert.match(story, /Veranstaltung ankündigen[\s\S]*Raumfreigabe einholen[\s\S]*Übersetzung prüfen[\s\S]*Formular mit Pflichtangaben/);
     assert.match(story, /Fiktive Beispieluniversität/);
