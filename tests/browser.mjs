@@ -247,7 +247,7 @@ try {
     await page.waitForFunction(() => document.getElementById('toast').textContent.includes('Import fehlgeschlagen'));
     assert.equal(await page.textContent('#draftHeading'), 'Spesen nach einer Dienstreise abrechnen');
     await page.setInputFiles('#importFile', exported.file);
-    await page.click('#confirmActions button:has-text("Ersetzen")');
+    await page.click('#confirmActions button:text-is("Ersetzen")');
     assert.equal(await page.textContent('#draftHeading'), 'Spesen nach einer Dienstreise abrechnen');
     assert.equal(await page.locator('#mapText li').count(), 6);
   });
@@ -260,7 +260,7 @@ try {
     const file = join(temp, 'evil.json');
     await writeFile(file, JSON.stringify(evil));
     await page.setInputFiles('#importFile', file);
-    await page.click('#confirmActions button:has-text("Ersetzen")');
+    await page.click('#confirmActions button:text-is("Ersetzen")');
     // The import resolves asynchronously after the dialog closes; wait for it instead of racing it.
     await page.waitForFunction(title => document.getElementById('draftHeading').textContent === title, evil.title);
     assert.equal(await page.textContent('#draftHeading'), evil.title);
@@ -302,7 +302,7 @@ try {
     await page.click('#confirmActions button:has-text("Abbrechen")');
     assert.equal(await page.textContent('#draftHeading'), 'Spesen nach einer Dienstreise abrechnen');
     await page.click('#useAsDraft');
-    await page.click('#confirmActions button:has-text("Ersetzen")');
+    await page.click('#confirmActions button:text-is("Ersetzen")');
     await page.locator('#view-prozess:not([hidden])').waitFor();
     assert.equal(await page.textContent('#draftHeading'), 'Neue Mitarbeitende aufnehmen');
     assert.match(await page.textContent('#draftStatus'), /Kopie von/);
