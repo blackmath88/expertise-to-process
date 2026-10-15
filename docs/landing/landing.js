@@ -9,7 +9,7 @@ import {blankExtras, createProposal, applyProposal, scriptedTurns} from '../app/
 const $ = id => document.getElementById(id);
 
 // ---- Tabs ----
-const tabs = ['person', 'uni'];
+const tabs = ['person', 'uni', 'family'];
 function select(name, focus = true) {
   for (const t of tabs) {
     $('tab-' + t).setAttribute('aria-selected', String(t === name));
@@ -109,8 +109,73 @@ async function uniDemo() {
     dim('Fachliche Prüfung', REVIEW, 'review'), dim('Wirkung', EFFECT, 'effectiveness'), dim('Verbindlichkeit', AUTH, 'authority'),
     h('p', {class: 'micro'}, 'Geprüft heisst nicht wirksam, und wirksam heisst nicht verbindlich. Wirkung wird erst gemessen, wenn ein Versuch stattgefunden hat – deshalb steht hier überall «nicht getestet».'));
 
+  familyDemo(data.family);
+
   // Questions
   replaceChildren($('questions'), data.processes.flatMap(p => p.openQuestions.map(q => h('li', {}, h('span', {}, q), h('span', {class: 'micro'}, ` · ${p.title}, ${unit(p.unit)}`)))));
+}
+
+// ---- Prozessfamilien (Zielbild): explanatory views only, nothing is submitted or merged ----
+function familyDemo(family) {
+  if (!family) return;
+  const byId = id => family.versions.find(v => v.id === id);
+  const base = family.versions.find(v => !v.parent);
+  const variants = family.versions.filter(v => v.parent);
+  replaceChildren($('familyIntro'),
+    h('p', {}, h('b', {}, `Prozessfamilie «${family.title}»`), ` – eine Ausgangsbeschreibung und ${variants.length} lokale Varianten. Jede Variante hat ein verantwortliches Team, einen Geltungsbereich, eine eigene Version und einen Grund für die Anpassung.`));
+  const card = v => h('article', {class: 'version-card' + (v.parent ? ' variant' : ' base')},
+    h('p', {class: 'v-meta'}, h('span', {class: 'v-tag'}, v.version), v.parent ? ` · abgeleitet von ${byId(v.parent.id).title} ${v.parent.version}` : ' · Ausgangsbeschreibung'),
+    h('h4', {}, v.title),
+    h('dl', {}, h('dt', {}, 'Verantwortliches Team'), h('dd', {}, v.team), h('dt', {}, 'Geltungsbereich'), h('dd', {}, v.scope),
+      v.reason ? [h('dt', {}, 'Grund für die Anpassung'), h('dd', {}, v.reason)] : null,
+      h('dt', {}, 'Fachliche Prüfung'), h('dd', {}, v.review)));
+  const views = {
+    adapt: () => [
+      h('p', {class: 'view-lead'}, 'Ein Team nimmt eine bestehende Beschreibung als Ausgangspunkt, passt sie an und übernimmt die Verantwortung für seinen Geltungsbereich. Die Herkunft bleibt sichtbar.'),
+      h('div', {class: 'lineage'}, card(base), h('div', {class: 'lineage-children'}, variants.map(card))),
+      h('h4', {}, `Entwicklung von «${base.title}»`),
+      h('ol', {class: 'history'}, base.history.map(e => h('li', {}, h('span', {class: 'v-tag'}, e.version), ' ' + e.change))),
+      h('p', {class: 'small muted'}, `Das Institut für Geografie hat von ${variants[0].parent.version} abgeleitet; die Ausgangsbeschreibung ist inzwischen bei ${base.version}. Die neuere Version wird nicht automatisch übernommen.`)
+    ],
+    diff: () => {
+      const all = [];
+      for (const v of family.versions) for (const st of v.steps) if (!all.includes(st.label)) all.push(st.label);
+      const order = family.versions.map(v => v.steps.map(x => x.label));
+      all.sort((a, b) => Math.min(...order.map(o => o.indexOf(a) < 0 ? 99 : o.indexOf(a))) - Math.min(...order.map(o => o.indexOf(b) < 0 ? 99 : o.indexOf(b))));
+      return [
+        h('p', {class: 'view-lead'}, 'Gemeinsame Schritte und begründete Unterschiede stehen nebeneinander. Eine Abweichung ist kein Mangel – sie hat einen Grund und eine Verantwortung.'),
+        h('p', {class: 'scroll-hint small muted'}, 'Tabelle seitlich verschieben, um alle Varianten zu sehen.'),
+        h('div', {class: 'matrix-wrap'}, h('table', {class: 'diff-table'},
+          h('caption', {class: 'sr-only'}, 'Schritte der Varianten im Vergleich (fiktiv)'),
+          h('thead', {}, h('tr', {}, h('th', {scope: 'col'}, 'Schritt'), family.versions.map(v => h('th', {scope: 'col'}, v.team, h('span', {class: 'v-tag'}, v.version))))),
+          h('tbody', {}, all.map(label => h('tr', {}, h('th', {scope: 'row'}, label), family.versions.map(v => {
+            const st = v.steps.find(x => x.label === label);
+            if (!st) return h('td', {class: 'absent'}, h('span', {'aria-hidden': 'true'}, '–'), h('span', {class: 'sr-only'}, 'nicht enthalten'));
+            return h('td', {class: st.added ? 'added' : 'shared'}, st.added ? 'Ergänzt' : 'Gemeinsam', st.note ? h('span', {class: 'small muted'}, ' · ' + st.note) : null);
+          })))))),
+        h('ul', {class: 'reasons'}, variants.map(v => h('li', {}, h('b', {}, v.team + ': '), v.reason)))
+      ];
+    },
+    propose: () => {
+      const p = family.proposal;
+      return [
+        h('p', {class: 'view-lead'}, 'Eine Verbesserung aus einer Variante kann anderen helfen. Sie wird vorgeschlagen – nicht verteilt.'),
+        h('div', {class: 'proposal'}, h('p', {class: 'v-meta'}, `Vorschlag aus «${byId(p.from).title}» ${byId(p.from).version}`), h('h4', {}, p.title), h('p', {}, p.change), h('p', {class: 'small muted'}, 'Begründung: ' + p.why)),
+        h('p', {class: 'small muted'}, 'Ein Vorschlag ändert keine Variante. Jedes verantwortliche Team entscheidet selbst, ob und wie es ihn übernimmt.')
+      ];
+    },
+    adopt: () => [
+      h('p', {class: 'view-lead'}, 'Wer eine Änderung übernimmt, erstellt eine neue Version seiner Variante. Diese braucht ihre eigene fachliche Prüfung – Status und Freigaben werden nicht geerbt.'),
+      h('ul', {class: 'decisions'}, family.proposal.decisions.map(d => h('li', {}, h('h4', {}, byId(d.target).team), h('span', {class: 'status ' + (d.status.startsWith('Bereits') ? 'done' : 'pending')}, d.status), h('p', {}, d.detail)))),
+      h('p', {class: 'small muted'}, 'Gemeinsame Standards wären eine eigene, begründete Entscheidung der zuständigen Stellen – nicht die Folge eines Vorschlags.')
+    ]
+  };
+  const show = view => {
+    document.querySelectorAll('.view-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+    replaceChildren($('familyView'), views[view]());
+  };
+  document.querySelectorAll('.view-btn').forEach(b => b.addEventListener('click', () => show(b.dataset.view)));
+  show('adapt');
 }
 
 personDemo();

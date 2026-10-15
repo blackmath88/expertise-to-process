@@ -26,6 +26,8 @@ After GitHub Pages is enabled:
 - **Landing page** – story, how it works, scientific background, and a dummy-data demo for an individual and for the university: `https://blackmath88.github.io/expertise-to-process/`
 - **App**: `https://blackmath88.github.io/expertise-to-process/app/`
 
+The landing page explains the organisational journey (*Entdecken und verstehen → Teilen und verbinden → Gezielt verbessern*), the separate technical track toward an AI-supported process knowledge base, and labels every capability as **Heute in der Demo**, **Nächster Pilot** (proposal) or **Zielbild**. Its *Prozessfamilien* demo tab is a fictional illustration of variants with responsible teams, version lineage and reasons for differences; its buttons only switch explanations – the app has no versioning, proposals or merging yet.
+
 The landing demo's *Für Einzelne* view runs the app's own map and process-check modules on the prepared example. The *Für die Universität* view only counts what is in `docs/landing/demo-institution.json` (12 invented process descriptions, 5 invented units); it shows no time, cost or performance figures.
 
 Locally (Node.js ≥ 22, no API key):
