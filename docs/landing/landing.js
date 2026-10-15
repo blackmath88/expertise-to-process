@@ -36,6 +36,12 @@ function personDemo() {
   $('personMap').innerHTML = mapSvg(p, {idPrefix: 'lena'});
   replaceChildren($('personMapText'), textAlternative(p).map(i => h('li', {}, h('b', {}, i.title), i.detail ? ' – ' + i.detail : '')));
   const review = reviewProcess(p, draft);
+  $('heroMap').innerHTML = mapSvg(p, {idPrefix: 'hero'});
+  const loop = review.questions.find(f => f.id.startsWith('q-loop'));
+  const hyp = review.hypotheses[0];
+  const handovers = review.facts.find(f => f.id === 'fact-handovers');
+  replaceChildren($('heroNotes'), [[loop, 'q', 'Frage'], [hyp, 'h', 'Hypothese'], [handovers, 'f', 'Fakt']].filter(([f]) => f).map(([f, cls, label]) =>
+    h('p', {class: 'hero-note'}, h('span', {class: 'tag ' + cls}, label), f.title, h('span', {class: 'ref'}, f.refs.filter(r => r.kind === 'step').slice(0, 2).map(r => r.id).join(' · ')))));
   const pick = (list, ids) => ids.map(id => list.find(f => f.id.startsWith(id))).filter(Boolean);
   const groups = [
     ['Gemeldete Fakten', 'fact', pick(review.facts, ['fact-loop', 'fact-duplicate'])],

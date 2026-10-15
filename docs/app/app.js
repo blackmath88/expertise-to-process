@@ -230,7 +230,7 @@ function proposalCard(container, state, {onAccept, onReject, extra} = {}) {
   })) : null;
   const canEdit = preview.lines.some(l => l.edit.length);
   replaceChildren(container,
-    h('p', {class: 'eyebrow'}, 'VORSCHLAG · ' + SOURCE_LABEL[state.proposal.source]),
+    h('p', {class: 'eyebrow'}, 'Vorschlag · ' + SOURCE_LABEL[state.proposal.source]),
     h('h3', {}, state.proposal.label),
     h('p', {class: 'micro'}, 'Erst nach «Übernehmen» ändert sich dein Entwurf. Danach kannst du die Änderung rückgängig machen.'),
     list, extra || null, editor,
@@ -278,12 +278,12 @@ function renderGuided() {
   if (script) replaceChildren(banner, h('b', {}, SCRIPT_TITLE), h('p', {}, `Schritt ${script.index + 1} von ${script.turns.length}. Fragen und Antworten sind vorbereitet, keine KI. Du entscheidest bei jedem Vorschlag, ob er übernommen wird.`), h('button', {type: 'button', class: 'quiet', onclick: () => { script = null; pending = null; renderGuided(); notify('Drehbuch beendet. Du kannst mit eigenen Antworten weitermachen.'); }}, 'Drehbuch beenden'));
   const card = $('questionCard');
   if (pending && pending.proposal.source === 'scripted-example') {
-    replaceChildren(card, h('p', {class: 'eyebrow'}, 'PIETRO FRAGT'), h('p', {class: 'question'}, pending.question), h('blockquote', {class: 'answer-quote'}, h('span', {class: 'micro'}, 'Vorbereitete Beispielantwort'), h('br'), pending.answerText));
+    replaceChildren(card, h('p', {class: 'eyebrow'}, 'Pietro fragt'), h('p', {class: 'question'}, pending.question), h('blockquote', {class: 'answer-quote'}, h('span', {class: 'micro'}, 'Vorbereitete Beispielantwort'), h('br'), pending.answerText));
     proposalCard($('proposalCard'), pending, {onAccept: acceptPending, onReject: rejectPending});
     return;
   }
   if (pending) {
-    replaceChildren(card, h('p', {class: 'eyebrow'}, 'DEINE ANTWORT'), h('p', {class: 'question'}, pending.question.prompt));
+    replaceChildren(card, h('p', {class: 'eyebrow'}, 'Deine Antwort'), h('p', {class: 'question'}, pending.question.prompt));
     proposalCard($('proposalCard'), pending, {onAccept: acceptPending, onReject: rejectPending});
     return;
   }
@@ -291,7 +291,7 @@ function renderGuided() {
   const q = nextQuestion(draft, guideState);
   if (!q) {
     replaceChildren(card,
-      h('p', {class: 'eyebrow'}, 'GRUNDBESCHREIBUNG ERFASST'),
+      h('p', {class: 'eyebrow'}, 'Grundbeschreibung erfasst'),
       h('p', {class: 'question'}, 'Stimmt die Karte mit dem tatsächlichen Ablauf überein?'),
       h('p', {class: 'micro'}, 'Korrigiere Bezeichnungen, Rollen und Verbindungen direkt. Danach zeigt der Prozess-Check offene Fragen und begründete Hypothesen.'),
       h('div', {class: 'actions'},
@@ -337,7 +337,7 @@ function renderGuided() {
       q.kind === 'step' && q.canFinish ? h('button', {type: 'button', onclick: () => { guideState.stepsDone = true; renderGuided(); focusGuided(); }}, 'Keine weiteren Schritte') : null,
       h('button', {type: 'button', class: 'quiet', onclick: () => { guideState.skipped.push(q.id); renderGuided(); focusGuided(); }}, 'Überspringen')));
   const done = completeness(draft.process, draft);
-  replaceChildren(card, h('p', {class: 'eyebrow'}, `PIETRO FRAGT · ${done.done} VON ${done.total} BESCHRIEBEN`), h('p', {class: 'question', id: 'guidedQuestion'}, q.prompt), h('p', {class: 'micro'}, q.help), conceptHelp(q.concept), form);
+  replaceChildren(card, h('p', {class: 'eyebrow'}, `Pietro fragt · ${done.done} von ${done.total} beschrieben`), h('p', {class: 'question', id: 'guidedQuestion'}, q.prompt), h('p', {class: 'micro'}, q.help), conceptHelp(q.concept), form);
 }
 
 $('narrative').oninput = e => { draft.narrative = e.target.value; touched(); };
@@ -767,7 +767,7 @@ function renderLesson() {
     replaceChildren(feedback, h('p', {class: o.correct ? 'right' : 'wrong'}, h('b', {}, o.correct ? 'Richtig. ' : 'Nicht ganz. '), o.why));
   }}, o.text));
   replaceChildren($('exercise'),
-    h('p', {class: 'eyebrow'}, `ÜBUNG ${lessonIndex + 1} / ${exercises.length} · ${lessonContext === 'uni' ? 'HOCHSCHULE' : 'PIZZERIA'}`),
+    h('p', {class: 'eyebrow'}, `Übung ${lessonIndex + 1} von ${exercises.length} · ${lessonContext === 'uni' ? 'Hochschule' : 'Pizzeria'}`),
     h('h2', {tabindex: '-1'}, glossary[ex.concept].term),
     h('p', {}, glossary[ex.concept].text),
     h('p', {class: 'scenario'}, v.scenario),
