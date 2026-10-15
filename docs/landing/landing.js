@@ -1,7 +1,7 @@
 // Landing page demo. The "Für Einzelne" view runs the app's real modules on the prepared example;
 // the "Für die Universität" view only counts what is in demo-institution.json (dummy data).
 import {blank} from '../app/model.js';
-import {h, replaceChildren} from '../app/lib/dom.js';
+import {h, replaceChildren, icon} from '../app/lib/dom.js';
 import {mapSvg, textAlternative} from '../app/lib/map.js';
 import {reviewProcess} from '../app/lib/review.js';
 import {blankExtras, createProposal, applyProposal, scriptedTurns} from '../app/lib/guidance.js';
@@ -40,16 +40,18 @@ function personDemo() {
   const loop = review.questions.find(f => f.id.startsWith('q-loop'));
   const hyp = review.hypotheses[0];
   const handovers = review.facts.find(f => f.id === 'fact-handovers');
-  replaceChildren($('heroNotes'), [[loop, 'q', 'Frage'], [hyp, 'h', 'Hypothese'], [handovers, 'f', 'Fakt']].filter(([f]) => f).map(([f, cls, label]) =>
-    h('p', {class: 'hero-note'}, h('span', {class: 'tag ' + cls}, label), f.title, h('span', {class: 'ref'}, f.refs.filter(r => r.kind === 'step').slice(0, 2).map(r => r.id).join(' · ')))));
+  const NOTE_ICON = {q: 'i-question', h: 'i-bulb', f: 'i-fact'};
+  replaceChildren($('heroNotes'), [[loop, 'q', 'Offene Frage'], [hyp, 'h', 'Hypothese'], [handovers, 'f', 'Fakt']].filter(([f]) => f).map(([f, cls, label]) =>
+    h('p', {class: 'hero-note ' + cls}, icon(NOTE_ICON[cls]), h('span', {}, h('span', {class: 'type'}, label), f.title, h('span', {class: 'ref'}, f.refs.filter(r => r.kind === 'step').slice(0, 2).map(r => r.id).join(' · '))))));
   const pick = (list, ids) => ids.map(id => list.find(f => f.id.startsWith(id))).filter(Boolean);
+  const GROUP_ICON = {fact: 'i-fact', question: 'i-question', hypothesis: 'i-bulb'};
   const groups = [
     ['Gemeldete Fakten', 'fact', pick(review.facts, ['fact-loop', 'fact-duplicate'])],
     ['Offene Fragen', 'question', pick(review.questions, ['q-loop', 'q-handover', 'q-validated'])],
     ['Verbesserungshypothesen (ungeprüft)', 'hypothesis', review.hypotheses.slice(0, 2)]
   ];
   replaceChildren($('personCheck'), groups.map(([title, kind, items]) => h('div', {class: 'finding-group ' + kind},
-    h('h4', {}, title),
+    h('h4', {}, icon(GROUP_ICON[kind]), title),
     h('ul', {}, items.map(f => h('li', {}, h('b', {}, f.title), h('span', {}, ' ' + f.detail), f.refs.some(r => r.kind === 'step') ? h('span', {class: 'refs'}, ' Bezug: ' + f.refs.filter(r => r.kind === 'step').map(r => r.id).join(', ')) : null))))),
   h('p', {class: 'micro'}, `Auszug: ${review.facts.length} Fakten, ${review.questions.length} offene Fragen, ${review.hypotheses.length} Hypothesen – erzeugt von den Regeln der App, ohne KI.`));
 }
@@ -57,6 +59,7 @@ function personDemo() {
 // ---- Für die Universität: counts of the dummy dataset only ----
 const REVIEW = {'not-reviewed': 'Beschrieben, nicht geprüft', 'pending-review': 'Prüfung ausstehend', 'reviewed': 'Fachlich geprüft'};
 const EFFECT = {'untested': 'Wirkung nicht getestet', 'anecdotal': 'Erfahrungsberichte', 'measured': 'Wirkung gemessen'};
+const REVIEW_CLASS = {'not-reviewed': 'neutral', 'pending-review': 'pending', 'reviewed': 'ok'};
 const AUTH = {'none': 'Keine Vorgabe', 'local-practice': 'Lokal vereinbarte Praxis', 'binding': 'Verbindliche Vorgabe'};
 
 async function uniDemo() {
@@ -102,7 +105,7 @@ async function uniDemo() {
   // Pipeline
   replaceChildren($('pipeline'), Object.entries(REVIEW).map(([key, label]) => {
     const list = data.processes.filter(p => p.review === key);
-    return h('div', {class: 'stage ' + key}, h('b', {}, label), h('span', {class: 'count'}, String(list.length)), h('ul', {}, list.map(p => h('li', {}, p.title))));
+    return h('div', {class: 'stage ' + key}, h('span', {class: 'status ' + REVIEW_CLASS[key]}, label), h('span', {class: 'count'}, String(list.length)), h('ul', {}, list.map(p => h('li', {}, p.title))));
   }));
 
   // Dimensions
@@ -125,12 +128,15 @@ function familyDemo(family) {
   const variants = family.versions.filter(v => v.parent);
   replaceChildren($('familyIntro'),
     h('p', {}, h('b', {}, `Prozessfamilie «${family.title}»`), ` – eine Ausgangsbeschreibung und ${variants.length} lokale Varianten. Jede Variante hat ein verantwortliches Team, einen Geltungsbereich, eine eigene Version und einen Grund für die Anpassung.`));
-  const card = v => h('article', {class: 'version-card' + (v.parent ? ' variant' : ' base')},
-    h('p', {class: 'v-meta'}, h('span', {class: 'v-tag'}, v.version), v.parent ? ` · abgeleitet von ${byId(v.parent.id).title} ${v.parent.version}` : ' · Ausgangsbeschreibung'),
-    h('h4', {}, v.title),
-    h('dl', {}, h('dt', {}, 'Verantwortliches Team'), h('dd', {}, v.team), h('dt', {}, 'Geltungsbereich'), h('dd', {}, v.scope),
-      v.reason ? [h('dt', {}, 'Grund für die Anpassung'), h('dd', {}, v.reason)] : null,
-      h('dt', {}, 'Fachliche Prüfung'), h('dd', {}, v.review)));
+  const reviewStatus = text => h('span', {class: 'status ' + (/ausstehend/.test(text) ? 'pending' : /geprüft/.test(text) ? 'ok' : 'neutral')}, text);
+  const card = v => h('article', {class: 'um-record version-card' + (v.parent ? ' variant' : ' base')},
+    h('div', {class: 'um-record-head'}, h('span', {class: 'label'}, v.parent ? 'Lokale Variante' : 'Ausgangsbeschreibung'), h('span', {class: 'mono'}, `${v.id} · ${v.version}`)),
+    h('div', {class: 'um-record-body'},
+      h('p', {class: 'v-meta'}, v.parent ? `abgeleitet von ${byId(v.parent.id).title} ${v.parent.version}` : 'ohne Ausgangsversion'),
+      h('h4', {}, v.title),
+      h('dl', {class: 'um-meta'}, h('dt', {}, 'Verantwortliches Team'), h('dd', {}, v.team), h('dt', {}, 'Geltungsbereich'), h('dd', {}, v.scope),
+        v.reason ? [h('dt', {}, 'Grund für die Anpassung'), h('dd', {}, v.reason)] : null,
+        h('dt', {}, 'Fachliche Prüfung'), h('dd', {}, reviewStatus(v.review)))));
   const views = {
     adapt: () => [
       h('p', {class: 'view-lead'}, 'Ein Team nimmt eine bestehende Beschreibung als Ausgangspunkt, passt sie an und übernimmt die Verantwortung für seinen Geltungsbereich. Die Herkunft bleibt sichtbar.'),
@@ -174,7 +180,7 @@ function familyDemo(family) {
     },
     adopt: () => [
       h('p', {class: 'view-lead'}, 'Wer eine Änderung übernimmt, erstellt eine neue Version seiner Variante. Diese braucht ihre eigene fachliche Prüfung – Status und Freigaben werden nicht geerbt.'),
-      h('ul', {class: 'decisions'}, family.proposal.decisions.map(d => h('li', {}, h('h4', {}, byId(d.target).team), h('span', {class: 'status ' + (d.status.startsWith('Bereits') ? 'done' : 'pending')}, d.status), h('p', {}, d.detail)))),
+      h('ul', {class: 'decisions'}, family.proposal.decisions.map(d => h('li', {}, h('h4', {}, byId(d.target).team), h('span', {class: 'status ' + (d.status.startsWith('Bereits') ? 'ok' : 'pending')}, d.status), h('p', {}, d.detail)))),
       h('p', {class: 'small muted'}, 'Gemeinsame Standards wären eine eigene, begründete Entscheidung der zuständigen Stellen – nicht die Folge eines Vorschlags.')
     ]
   };

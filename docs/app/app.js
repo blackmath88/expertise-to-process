@@ -1,5 +1,5 @@
 import {blank, lenses, checks, issues, mermaid, markdown, prompt} from './model.js';
-import {h, replaceChildren} from './lib/dom.js';
+import {h, replaceChildren, icon} from './lib/dom.js';
 import {esc, mapSvg, textAlternative} from './lib/map.js';
 import {createStaticLibrary, createDraftStore, parseDraft, serializeProcessFile, exportContribution} from './lib/storage.js';
 import {searchEntries, compareEntries, questionsBeforeReuse, relatedForDraft, labelFor, REVIEW_STATUS, EFFECTIVENESS_STATUS, AUTHORITY_STATUS} from './lib/library.js';
@@ -564,20 +564,41 @@ function renderLibrary(detailId) {
   replaceChildren(status, results.length
     ? h('p', {}, `${results.length} von ${library.entries.length} Einträgen${filtered ? ' passen zu deiner Auswahl' : ''}.`)
     : h('div', {class: 'empty-box'}, h('b', {}, 'Keine Einträge gefunden.'), h('p', {}, 'Die Suche durchsucht Titel und Zusammenfassung. Versuche einen anderen Begriff oder entferne einen Filter.'), h('button', {type: 'button', onclick: () => { $('libSearch').value = ''; $('libFamily').value = ''; $('libTag').value = ''; $('libKind').value = ''; renderLibrary(''); $('libSearch').focus(); }}, 'Filter zurücksetzen')));
-  replaceChildren($('libResults'), results.map(e => h('li', {class: 'lib-card'},
-    h('div', {class: 'badges'}, h('span', {class: 'pill'}, kindLabel(e)), e.fictional ? h('span', {class: 'pill fictional'}, 'Fiktiv') : null, h('span', {class: 'pill quiet-pill'}, tagLabel('families', e.classification.familyId))),
-    h('h2', {}, h('a', {href: '#bibliothek/' + e.id}, e.title)),
-    h('p', {}, e.summary),
-    h('p', {class: 'tags'}, e.classification.activityTags.map(t => h('span', {class: 'tag'}, tagLabel('activityTags', t))))
+  replaceChildren($('libResults'), results.map(e => h('li', {class: 'lib-record'},
+    h('div', {class: 'rec-main'},
+      h('p', {class: 'rec-meta'}, h('span', {class: 'mono'}, e.id), ' · ', kindLabel(e), e.fictional ? ' · fiktiv' : null),
+      h('h2', {}, h('a', {href: '#bibliothek/' + e.id}, e.title)),
+      h('p', {}, e.summary),
+      h('p', {class: 'tags'}, e.classification.activityTags.map(t => h('span', {class: 'tag'}, tagLabel('activityTags', t))))),
+    h('dl', {class: 'rec-side'},
+      h('dt', {}, 'Familie'), h('dd', {}, tagLabel('families', e.classification.familyId)),
+      h('dt', {}, 'Prüfung'), h('dd', {}, statusChip('review', e.review.status)))
   )));
 }
 
+// Status chips: shape + word, never colour alone (see design-system/MASTER.md).
+const STATUS_CLASS = {
+  review: {'reviewed': 'ok', 'pending-review': 'pending', 'not-reviewed': 'neutral'},
+  effectiveness: {'measured': 'ok', 'anecdotal': 'pending', 'untested': 'neutral'},
+  authority: {'binding': 'ok', 'local-practice': 'pending', 'none': 'neutral'}
+};
+const STATUS_TEXT = {review: REVIEW_STATUS, effectiveness: EFFECTIVENESS_STATUS, authority: AUTHORITY_STATUS};
+function statusChip(dim, value) { return h('span', {class: 'status ' + (STATUS_CLASS[dim][value] || 'neutral')}, STATUS_TEXT[dim][value] || value); }
+
 function statusTrio(e) {
-  const cell = (title, value, extra) => h('div', {class: 'status-cell'}, h('span', {class: 'eyebrow'}, title), h('b', {}, value), extra ? h('p', {class: 'micro'}, extra) : null);
+  const cell = (title, dim, value, extra) => h('div', {class: 'status-cell'}, h('span', {class: 'label'}, title), statusChip(dim, value), extra ? h('p', {class: 'micro'}, extra) : null);
   return h('div', {class: 'status-trio', role: 'group', 'aria-label': 'Prüfung, Wirkung und Verbindlichkeit'},
-    cell('Fachliche Prüfung', REVIEW_STATUS[e.review.status], e.review.reviewedByRole ? `${e.review.reviewedByRole}, ${e.review.reviewedAt}` : 'Niemand hat diese Beschreibung fachlich bestätigt.'),
-    cell('Wirkung', EFFECTIVENESS_STATUS[e.effectiveness.status], e.effectiveness.evidenceRefs.length ? 'Belege: ' + e.effectiveness.evidenceRefs.join(', ') : 'Keine Messung vorhanden.'),
-    cell('Verbindlichkeit', AUTHORITY_STATUS[e.authority.status], e.authority.authoritySource ? `${e.authority.scope} · ${e.authority.authoritySource}` : 'Ein Beispiel ist keine Vorgabe.'));
+    cell('Fachliche Prüfung', 'review', e.review.status, e.review.reviewedByRole ? `${e.review.reviewedByRole}, ${e.review.reviewedAt}` : 'Niemand hat diese Beschreibung fachlich bestätigt.'),
+    cell('Wirkung', 'effectiveness', e.effectiveness.status, e.effectiveness.evidenceRefs.length ? 'Belege: ' + e.effectiveness.evidenceRefs.join(', ') : 'Keine Messung vorhanden.'),
+    cell('Verbindlichkeit', 'authority', e.authority.status, e.authority.authoritySource ? `${e.authority.scope} · ${e.authority.authoritySource}` : 'Ein Beispiel ist keine Vorgabe.'));
+}
+
+function asRecord(container, e) {
+  const body = h('div', {class: 'um-record-body'});
+  body.append(...container.childNodes);
+  replaceChildren(container,
+    h('div', {class: 'um-record-head'}, h('a', {href: '#bibliothek', class: 'back'}, icon('i-back'), 'Zur Übersicht'), h('span', {class: 'label'}, 'Fiktiver Bibliothekseintrag'), h('span', {class: 'mono'}, e.id)),
+    body);
 }
 
 function renderDetail(e) {
@@ -586,8 +607,7 @@ function renderDetail(e) {
   const list = items => items.length ? h('ul', {}, items.map(i => h('li', {}, i))) : h('p', {class: 'micro'}, 'Keine Angaben.');
   const links = ids => ids.length ? h('ul', {class: 'link-list'}, ids.map(byId).filter(Boolean).map(x => h('li', {}, h('a', {href: '#bibliothek/' + x.id}, x.title), h('span', {class: 'micro'}, ' · ' + kindLabel(x))))) : h('p', {class: 'micro'}, 'Keine.');
   const head = [
-    h('a', {href: '#bibliothek', class: 'back'}, '← Zur Übersicht'),
-    h('div', {class: 'badges'}, h('span', {class: 'pill'}, kindLabel(e)), e.fictional ? h('span', {class: 'pill fictional'}, 'Fiktiv – keine reale Vorgabe') : null, h('span', {class: 'pill quiet-pill'}, tagLabel('families', e.classification.familyId))),
+    h('p', {class: 'rec-meta'}, kindLabel(e), ' · ', tagLabel('families', e.classification.familyId), e.fictional ? ' · fiktiv – keine reale Vorgabe' : null),
     h('h1', {id: 'libDetailTitle', tabindex: '-1'}, e.title),
     h('p', {class: 'intro'}, e.summary),
     statusTrio(e),
@@ -606,6 +626,7 @@ function renderDetail(e) {
       section('Fragen vor der Wiederverwendung', list(e.pattern.questionsBeforeReuse)),
       section('Beispiele mit diesem Muster', links(users.map(u => u.id))),
       e.context.constraints.length ? section('Hinweis', list(e.context.constraints)) : null);
+    asRecord(container, e);
     return;
   }
   const mapBox = h('div', {class: 'map-container'}), textList = h('ol', {class: 'map-text'});
@@ -615,13 +636,14 @@ function renderDetail(e) {
   if (e.relatedIds[0] && others.some(o => o.id === e.relatedIds[0])) compareSelect.value = e.relatedIds[0];
   const compareOut = h('div', {id: 'libComparison'});
   replaceChildren(container, head,
-    h('div', {class: 'actions'}, h('button', {type: 'button', class: 'primary', id: 'useAsDraft', onclick: () => useAsDraft(e)}, 'Als eigenen Entwurf verwenden'), h('span', {class: 'micro'}, 'Öffnet eine Kopie in «Mein Prozess». Der Bibliothekseintrag bleibt unverändert.')),
+    h('div', {class: 'pietro-action'}, h('button', {type: 'button', class: 'primary', id: 'useAsDraft', onclick: () => useAsDraft(e)}, icon('i-branch'), 'Als eigenen Entwurf verwenden'), h('span', {class: 'micro'}, 'Pietro öffnet eine Kopie als persönlichen Entwurf. Der Bibliothekseintrag bleibt unverändert.')),
     section('Ablauf', mapBox, h('h3', {}, 'Ablauf als Text'), textList),
     section('Lokale Unterschiede und Bedingungen', list(e.context.constraints)),
     section('Offene Fragen', list(e.openQuestions || [])),
     section('Verwandte Muster', links(e.patternIds)),
     section('Verwandte Beispiele', links(e.relatedIds)),
     section('Vergleichen', h('form', {class: 'inline-form', onsubmit: ev => { ev.preventDefault(); renderComparison(compareOut, e, byId(compareSelect.value)); }}, h('label', {}, 'Vergleichen mit', compareSelect), h('button', {type: 'submit'}, 'Vergleichen')), compareOut));
+  asRecord(container, e);
 }
 
 async function useAsDraft(entry) {
