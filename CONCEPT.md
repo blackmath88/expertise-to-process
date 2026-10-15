@@ -64,3 +64,63 @@ Drei Eigenschaften bleiben bewusst getrennt, damit ein Beispiel nicht versehentl
 - Ein Rückweg im Ablauf ist nicht automatisch Verschwendung – er ist eine Frage.
 - Persönliche Entwürfe bleiben im Browser. Beiträge werden heruntergeladen, nicht gesendet.
 - Vereinfachte Ablaufkarten, kein formales BPMN 2.0.
+
+
+## Organisatorische Vision: entdecken, verbinden, verbessern
+
+**Von individueller Expertise zu einer gemeinsam lernenden Organisation.**
+
+Zuerst machen wir sichtbar, wie Arbeit gelingt. Dann verbinden wir Erfahrungen und verstehen Gemeinsamkeiten und Unterschiede. Auf dieser Grundlage verbessern wir gezielt: mit passenden Werkzeugen, übertragbaren Lösungen und gemeinsamen Standards dort, wo sie nachweislich helfen. Verantwortung und fachlicher Kontext bleiben sichtbar.
+
+| Phase | Schwerpunkt | Ergebnis und nächste Entscheidung |
+| --- | --- | --- |
+| **1 · Entdecken und verstehen** | Prozessdenken lernen, eine gemeinsame Sprache entwickeln und den Bestand erkunden: Welche Abläufe, Werkzeuge, Dokumentationen und Ansprechstellen gibt es bereits? | Ein erster Überblick und nachvollziehbare Beschreibungen. Beteiligte prüfen Verständlichkeit und wählen nützliche Fälle für die gemeinsame Bibliothek. |
+| **2 · Teilen und verbinden** | Eine kuratierte Bibliothek aufbauen; lokale Varianten, Unterschiede und gemeinsame Muster verstehen; hilfreiches Wissen übernehmen und anpassen. | Prozessfamilien mit verantwortlichen Teams und nachvollziehbarer Herkunft. Wiederverwendung wird praktisch erprobt. |
+| **3 · Gezielt verbessern** | Passende Werkzeuge auswählen, unnötigen Aufwand reduzieren und prüfen, wo gemeinsame Dienste oder zentrale Standards einen Vorteil bringen. | Getestete Verbesserungen und begründete Entscheidungen. Lokale Lösungen bleiben bestehen, wo sie fachlich sinnvoll sind. |
+
+Die Phasen beschreiben den Aufbau organisationaler Fähigkeiten. Einzelne Teams können bereits früher Verbesserungen erproben; eine vollständige Inventarisierung ist keine Voraussetzung. Standardisierung ist eine mögliche, gesondert beschlossene Folge des gemeinsamen Verständnisses.
+
+## Prozessbibliothek: verwandte Varianten mit eigener Verantwortung
+
+Eine Prozessbeschreibung kann Ausgangspunkt für die Arbeit eines anderen Teams sein. Dieses erstellt eine eigene Variante, erklärt seine Anpassungen und übernimmt die Verantwortung für den lokalen Geltungsbereich. Die Verbindung zur Ausgangsversion bleibt sichtbar. Verbesserungen können zurück vorgeschlagen und bewusst übernommen werden. Es braucht keinen für alle verbindlichen Ursprungsprozess.
+
+Die Versionsverwaltung liefert dafür ein Vorbild; die Oberfläche spricht die Sprache der Mitarbeitenden:
+
+| Technisches Vorbild | Formulierung in der Oberfläche |
+| --- | --- |
+| Fork | Für unser Team anpassen |
+| Owner | Verantwortliches Team |
+| Versionshistorie | Entwicklung des Ablaufs |
+| Diff | Unterschiede verstehen |
+| Pull Request | Verbesserung vorschlagen |
+| Merge | Änderung geprüft übernehmen |
+
+**Beispiel (fiktiv):** Zwei Institute nutzen verwandte Abläufe zur Veranstaltungsankündigung. Eines ergänzt eine Raumfreigabe, das andere eine Übersetzungsprüfung. Beide behalten ihre Zuständigkeiten und begründen die Unterschiede. Eine bessere Checkliste für Veranstaltungsangaben kann beiden helfen.
+
+Die geplante Datenstruktur hält Prozess-ID, Versions-ID, gegebenenfalls Ausgangsprozess und Ausgangsversion, verantwortliches Team, Geltungsbereich und Anpassungsgrund fest. Abstammung ist eine explizite Beziehung; ähnliche Tags allein belegen keine gemeinsame Herkunft. Eine neue Ausgangsversion überschreibt keine lokale Variante. Fachliche Prüfung, Wirkung und Verbindlichkeit gelten für die jeweilige Version und werden nicht automatisch vererbt.
+
+## Technische Entwicklung: Unterstützung passend zur Reife
+
+| Stufe | Technische Unterstützung | Menschliche Entscheidung |
+| --- | --- | --- |
+| **1 · Geführte Erfassung** | Fragen und optional KI-gestützte Eingabe helfen beim Beschreiben. Bearbeitbare Karte, Prozess-Check und Export geben unmittelbar Nutzen. Gründe, Fehlerquellen und Ausnahmen werden mit erfasst. | Mitarbeitende prüfen und korrigieren Vorschläge. |
+| **2 · KI-unterstützte Wissensbasis** | KI schlägt Einordnungen, verwandte Prozesse, Unterschiede und Pflegehinweise vor. Versionierte Daten und nachvollziehbare Beziehungen tragen die Bibliothek. | Beteiligte bestätigen Herkunft, Kontext und Inhalte; Kuration entscheidet über Aufnahme und Pflege. |
+| **3 · Kontextbezogene Verbesserungshilfe** | Unterstützung berücksichtigt die tatsächliche Werkzeug-, Service- und Prozesslandschaft der Universität und verweist auf passende Quellen und Beispiele. | Zuständige Stellen prüfen Anwendbarkeit, Aufwand und Wirkung und entscheiden über Umsetzung oder gemeinsame Standards. |
+
+Die organisatorischen Phasen benötigen keine bestimmte KI-Ausbaustufe. Die Wissensbasis lässt sich zunächst manuell kuratieren. KI unterstützt Strukturierung und Navigation; sie erhält keine Befugnis, Prozesse freizugeben oder Standards festzulegen.
+
+### Heute umgesetzt und spätere Entwicklung
+
+Die heutige Demo bietet geführte Fragen, regelbasierten Prozess-Check, Vergleich über Tags und eine statische Bibliothek mit fiktiven Beispielen. Beiträge werden als Dateien zur Prüfung heruntergeladen. Optionaler Live-Chat erfordert einen separat betriebenen Mistral-Proxy; er verändert den Entwurf nicht.
+
+Versionierte Prozessfamilien mit expliziter Abstammung, Rückmeldungen zwischen Varianten, KI-Orchestrierung der Bibliothek und Empfehlungen aus einer realen universitären Werkzeuglandschaft sind **Zielbild**, noch keine umgesetzten Funktionen.
+
+GitHub mit JSON-Dateien genügt für die öffentliche Konzeptdemo. Prozessversionen und Herkunft werden fachlich als Daten modelliert, unabhängig von Git-Commits. Ein späterer abgestimmter, selbst gehosteter Betrieb kann dieselben Beziehungen übernehmen. Interne Inhalte gehören erst in eine dafür freigegebene Umgebung.
+
+## Pilot und Wirtschaftlichkeit
+
+Vorschlag: zwölf Wochen mit drei freiwilligen Teams und wenigen klar abgegrenzten Prozessen. Bestehende Dokumentationen und Angebote werden zuerst gesichtet. Beteiligte erfassen Beispiele, lassen sie von anderen verstehen und erproben eine Anpassung an einen zweiten Kontext.
+
+Gemessen werden Verständnis, erfolgreiche Wiederverwendung, Rückfragen und Suchaufwand sowie Erfassungs-, Prüf- und Pflegeaufwand. Ein gutes Formular ohne Tutor kann als Vergleich dienen. Frei werdende Arbeitszeit wird von tatsächlich realisierbaren Budgeteinsparungen unterschieden.
+
+Vor dem Start werden ein begrenztes Zeitbudget, Betreuung, fachliche Prüfung und Pflegeverantwortung vereinbart. Bestehende Ressourcen oder Kostenstellen sind zu prüfen, nicht als zugesagt darzustellen. Auch interne Arbeit und selbst gehosteter Betrieb verursachen Aufwand. Eine Fortführung setzt eine tragfähige Kosten-Nutzen-Bilanz und eine geklärte Finanzierung laufender Kosten voraus.

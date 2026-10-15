@@ -10,6 +10,15 @@ Pietro is a small, dependency-free web app that helps non-specialists learn a sh
 The demo is set at the **fictional Universität Musterstadt**. All processes, roles and library entries are invented. User interface in German (Swiss spelling).
 
 → Concept (German): [CONCEPT.md](CONCEPT.md)
+→ Website update handoff: [planning/CLAUDE_WEBSITE_HANDOFF.md](planning/CLAUDE_WEBSITE_HANDOFF.md)
+
+## Development vision
+
+The organisational journey is **discover and understand → share and connect → improve deliberately**. Teams learn a shared language, discover existing expertise, build a library of contextual variants and then evaluate tools, shared services or agreed standards where useful.
+
+The technical journey is **guided capture → AI-assisted process knowledge base → assistance tailored to the institution’s actual tools and services**. AI proposes; people validate and decide. Process families should retain explicit parent-version links, local ownership and adaptation rationale, independently of Git storage.
+
+Process lineage, cross-variant change proposals and AI library orchestration are planned capabilities, not features of the current demo. See the concept for phase outcomes, pilot evaluation and operating assumptions.
 
 ## Try it
 
