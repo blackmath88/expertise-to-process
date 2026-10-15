@@ -5,6 +5,8 @@
 
 Pietro is a small, dependency-free web app that helps non-specialists learn a shared process language, describe their own work as a process, get deterministic sparring feedback, compare it with related examples from a process library, and prepare a reviewed contribution.
 
+**Gemeinsam verstehen. Eigenständig gestalten.** Pietro makes local processes understandable and discussable across teams. A shared process language connects individual expertise while preserving context, local responsibility and meaningful differences. Library examples are adaptable references; publishing or reviewing one does not make it a mandatory standard. Any later harmonisation requires a separate decision by the responsible people.
+
 The demo is set at the **fictional Universität Musterstadt**. All processes, roles and library entries are invented. User interface in German (Swiss spelling).
 
 → Concept (German): [CONCEPT.md](CONCEPT.md)
