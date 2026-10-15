@@ -120,6 +120,15 @@ try {
     await page.click('#tab-family');
     await page.click('.view-btn[data-view="diff"]');
     assert.ok(await noOverflow(page), 'landing family overflow at 390px');
+    assert.equal(await page.locator('.family-desktop-comparison').isVisible(), false);
+    assert.equal(await page.locator('.family-mobile-comparison').isVisible(), true);
+    assert.match(await page.textContent('.family-mobile-comparison'), /Raumfreigabe einholen[\s\S]*Übersetzung prüfen/);
+    assert.ok(await page.locator('.comparison-step dd.added').count() >= 2);
+    for (const width of [320, 640]) {
+      await page.setViewportSize({width, height: 844});
+      assert.ok(await noOverflow(page), 'family comparison overflow at ' + width);
+    }
+    await page.setViewportSize({width: 390, height: 844});
     await page.screenshot({path: `${shots}/mobile-landing-family.png`, fullPage: true});
     await page.setViewportSize({width: 1440, height: 1000});
     await page.click('.site-header a:has-text("App öffnen")');

@@ -66,7 +66,9 @@ async function uniDemo() {
     if (!response.ok) throw Error(String(response.status));
     data = await response.json();
   } catch {
-    replaceChildren($('uniSummary'), 'Die Beispieldaten konnten nicht geladen werden.');
+    replaceChildren($('uniSummary'), 'Die Beispieldaten konnten nicht geladen werden. Bitte lade die Seite erneut.');
+    replaceChildren($('familyIntro'), 'Die Beispieldaten konnten nicht geladen werden. Bitte lade die Seite erneut.');
+    document.querySelectorAll('.view-btn').forEach(button => { button.disabled = true; });
     return;
   }
   const unit = id => data.units.find(u => u.id === id)?.label || id;
@@ -144,8 +146,14 @@ function familyDemo(family) {
       all.sort((a, b) => Math.min(...order.map(o => o.indexOf(a) < 0 ? 99 : o.indexOf(a))) - Math.min(...order.map(o => o.indexOf(b) < 0 ? 99 : o.indexOf(b))));
       return [
         h('p', {class: 'view-lead'}, 'Gemeinsame Schritte und begründete Unterschiede stehen nebeneinander. Eine Abweichung ist kein Mangel – sie hat einen Grund und eine Verantwortung.'),
-        h('p', {class: 'scroll-hint small muted'}, 'Tabelle seitlich verschieben, um alle Varianten zu sehen.'),
-        h('div', {class: 'matrix-wrap'}, h('table', {class: 'diff-table'},
+        h('div', {class: 'family-mobile-comparison'}, all.map(label => h('article', {class: 'comparison-step'},
+          h('h4', {}, label),
+          h('dl', {}, family.versions.map(v => {
+            const st = v.steps.find(x => x.label === label);
+            return [h('dt', {}, v.team + ' · ' + v.version), h('dd', {class: st?.added ? 'added' : ''},
+              st ? (st.added ? 'Ergänzt' : 'Gemeinsam') + (st.note ? ' · ' + st.note : '') : 'Nicht enthalten')];
+          }))))),
+        h('div', {class: 'matrix-wrap family-desktop-comparison'}, h('table', {class: 'diff-table'},
           h('caption', {class: 'sr-only'}, 'Schritte der Varianten im Vergleich (fiktiv)'),
           h('thead', {}, h('tr', {}, h('th', {scope: 'col'}, 'Schritt'), family.versions.map(v => h('th', {scope: 'col'}, v.team, h('span', {class: 'v-tag'}, v.version))))),
           h('tbody', {}, all.map(label => h('tr', {}, h('th', {scope: 'row'}, label), family.versions.map(v => {
