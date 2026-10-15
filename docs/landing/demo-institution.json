@@ -2,31 +2,433 @@
   "schemaVersion": 1,
   "note": "Illustrative Dummy-Daten der erfundenen Universität Musterstadt. Keine Messwerte, keine echten Einheiten, keine echten Personen. Alle Zahlen auf der Seite sind Zählungen dieser Datei.",
   "units": [
-    {"id": "personal", "label": "Personalabteilung"},
-    {"id": "geografie", "label": "Institut für Geografie"},
-    {"id": "forschung", "label": "Forschungsadministration"},
-    {"id": "kommunikation", "label": "Kommunikation"},
-    {"id": "studium", "label": "Studiensekretariat"}
+    {
+      "id": "personal",
+      "label": "Personalabteilung"
+    },
+    {
+      "id": "geografie",
+      "label": "Institut für Geografie"
+    },
+    {
+      "id": "forschung",
+      "label": "Forschungsadministration"
+    },
+    {
+      "id": "kommunikation",
+      "label": "Kommunikation"
+    },
+    {
+      "id": "studium",
+      "label": "Studiensekretariat"
+    }
   ],
   "patterns": [
-    {"tag": "completeness-check", "label": "Vollständigkeit prüfen", "pattern": "Vollständigkeit vor der Übergabe prüfen"},
-    {"tag": "request-missing-information", "label": "Fehlendes nachfordern", "pattern": null},
-    {"tag": "explicit-handover", "label": "Übergabe mit Verantwortung", "pattern": "Übergabe mit klarer Verantwortung"},
-    {"tag": "approval", "label": "Prüfen & freigeben", "pattern": null},
-    {"tag": "data-entry", "label": "Daten erfassen", "pattern": null}
+    {
+      "tag": "completeness-check",
+      "label": "Vollständigkeit prüfen",
+      "pattern": "Vollständigkeit vor der Übergabe prüfen"
+    },
+    {
+      "tag": "request-missing-information",
+      "label": "Fehlendes nachfordern",
+      "pattern": null
+    },
+    {
+      "tag": "explicit-handover",
+      "label": "Übergabe mit Verantwortung",
+      "pattern": "Übergabe mit klarer Verantwortung"
+    },
+    {
+      "tag": "approval",
+      "label": "Prüfen & freigeben",
+      "pattern": null
+    },
+    {
+      "tag": "data-entry",
+      "label": "Daten erfassen",
+      "pattern": null
+    }
   ],
   "processes": [
-    {"id": "p1", "unit": "personal", "title": "Neue Mitarbeitende aufnehmen", "tags": ["completeness-check", "request-missing-information", "explicit-handover", "data-entry"], "local": "Kriterien: Vertrag, Personalien, Bankverbindung", "review": "reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wie oft fehlen Unterlagen beim ersten Einreichen?"]},
-    {"id": "p2", "unit": "personal", "title": "Arbeitszeugnis ausstellen", "tags": ["explicit-handover", "approval"], "local": "Freigabe durch die vorgesetzte Person", "review": "pending-review", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wer verfasst den Entwurf, wenn die vorgesetzte Person gewechselt hat?"]},
-    {"id": "p3", "unit": "geografie", "title": "Spesen nach einer Dienstreise abrechnen", "tags": ["completeness-check", "request-missing-information", "approval", "data-entry"], "local": "Kriterien: Originalbelege, Reisezweck, Visum der vorgesetzten Person", "review": "pending-review", "effectiveness": "untested", "authority": "none", "openQuestions": ["Werden Beträge aus dem PDF ins Finanzsystem abgetippt?"]},
-    {"id": "p4", "unit": "geografie", "title": "Exkursion für Studierende planen", "tags": ["explicit-handover", "approval"], "local": "Versicherungsfragen klärt die Institutsleitung", "review": "not-reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wer ist während der Exkursion erreichbar?"]},
-    {"id": "p5", "unit": "geografie", "title": "Gastvortrag organisieren", "tags": ["explicit-handover", "data-entry"], "local": "Honorar braucht eine Vereinbarung vor dem Termin", "review": "not-reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": []},
-    {"id": "p6", "unit": "forschung", "title": "Forschungsförderungsantrag vorbereiten", "tags": ["completeness-check", "request-missing-information", "approval", "explicit-handover"], "local": "Kriterien je Ausschreibung: Budget, Lebenslauf, Datenmanagementplan", "review": "reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wie viele Tage braucht die interne Prüfung vor der Frist?"]},
-    {"id": "p7", "unit": "forschung", "title": "Projektbericht an Förderorganisation", "tags": ["completeness-check", "approval"], "local": "Formvorgaben der Förderorganisation", "review": "pending-review", "effectiveness": "untested", "authority": "none", "openQuestions": ["Gibt es eine Vorlage pro Förderorganisation?"]},
-    {"id": "p8", "unit": "kommunikation", "title": "Veranstaltung ankündigen", "tags": ["explicit-handover", "approval", "data-entry"], "local": "Ankündigung spätestens drei Wochen vor dem Termin", "review": "reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wer gibt frei, wenn die organisierende Person abwesend ist?"]},
-    {"id": "p9", "unit": "kommunikation", "title": "Webseite eines Instituts aktualisieren", "tags": ["explicit-handover", "approval"], "local": "Inhalte verantwortet das Institut, Technik die Kommunikation", "review": "not-reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": []},
-    {"id": "p10", "unit": "studium", "title": "Nachteilsausgleich beantragen", "tags": ["completeness-check", "request-missing-information", "explicit-handover"], "local": "Kriterien: ärztliches Zeugnis, Antrag, Angaben zur Prüfung", "review": "reviewed", "effectiveness": "untested", "authority": "local-practice", "openQuestions": ["Wie werden Dozierende informiert, ohne Diagnosen weiterzugeben?"]},
-    {"id": "p11", "unit": "studium", "title": "Anerkennung externer Leistungen", "tags": ["completeness-check", "request-missing-information", "approval", "data-entry"], "local": "Kriterien: Transcript, Modulbeschreibungen, Notenumrechnung", "review": "pending-review", "effectiveness": "untested", "authority": "none", "openQuestions": ["Wer entscheidet bei unklarer Gleichwertigkeit?"]},
-    {"id": "p12", "unit": "studium", "title": "Prüfungsanmeldung nach Frist", "tags": ["approval", "data-entry"], "local": "Ausnahme nur mit Begründung", "review": "not-reviewed", "effectiveness": "untested", "authority": "none", "openQuestions": []}
-  ]
+    {
+      "id": "p1",
+      "unit": "personal",
+      "title": "Neue Mitarbeitende aufnehmen",
+      "tags": [
+        "completeness-check",
+        "request-missing-information",
+        "explicit-handover",
+        "data-entry"
+      ],
+      "local": "Kriterien: Vertrag, Personalien, Bankverbindung",
+      "review": "reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wie oft fehlen Unterlagen beim ersten Einreichen?"
+      ]
+    },
+    {
+      "id": "p2",
+      "unit": "personal",
+      "title": "Arbeitszeugnis ausstellen",
+      "tags": [
+        "explicit-handover",
+        "approval"
+      ],
+      "local": "Freigabe durch die vorgesetzte Person",
+      "review": "pending-review",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wer verfasst den Entwurf, wenn die vorgesetzte Person gewechselt hat?"
+      ]
+    },
+    {
+      "id": "p3",
+      "unit": "geografie",
+      "title": "Spesen nach einer Dienstreise abrechnen",
+      "tags": [
+        "completeness-check",
+        "request-missing-information",
+        "approval",
+        "data-entry"
+      ],
+      "local": "Kriterien: Originalbelege, Reisezweck, Visum der vorgesetzten Person",
+      "review": "pending-review",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Werden Beträge aus dem PDF ins Finanzsystem abgetippt?"
+      ]
+    },
+    {
+      "id": "p4",
+      "unit": "geografie",
+      "title": "Exkursion für Studierende planen",
+      "tags": [
+        "explicit-handover",
+        "approval"
+      ],
+      "local": "Versicherungsfragen klärt die Institutsleitung",
+      "review": "not-reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wer ist während der Exkursion erreichbar?"
+      ]
+    },
+    {
+      "id": "p5",
+      "unit": "geografie",
+      "title": "Gastvortrag organisieren",
+      "tags": [
+        "explicit-handover",
+        "data-entry"
+      ],
+      "local": "Honorar braucht eine Vereinbarung vor dem Termin",
+      "review": "not-reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": []
+    },
+    {
+      "id": "p6",
+      "unit": "forschung",
+      "title": "Forschungsförderungsantrag vorbereiten",
+      "tags": [
+        "completeness-check",
+        "request-missing-information",
+        "approval",
+        "explicit-handover"
+      ],
+      "local": "Kriterien je Ausschreibung: Budget, Lebenslauf, Datenmanagementplan",
+      "review": "reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wie viele Tage braucht die interne Prüfung vor der Frist?"
+      ]
+    },
+    {
+      "id": "p7",
+      "unit": "forschung",
+      "title": "Projektbericht an Förderorganisation",
+      "tags": [
+        "completeness-check",
+        "approval"
+      ],
+      "local": "Formvorgaben der Förderorganisation",
+      "review": "pending-review",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Gibt es eine Vorlage pro Förderorganisation?"
+      ]
+    },
+    {
+      "id": "p8",
+      "unit": "kommunikation",
+      "title": "Veranstaltung ankündigen",
+      "tags": [
+        "explicit-handover",
+        "approval",
+        "data-entry"
+      ],
+      "local": "Ankündigung spätestens drei Wochen vor dem Termin",
+      "review": "reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wer gibt frei, wenn die organisierende Person abwesend ist?"
+      ]
+    },
+    {
+      "id": "p9",
+      "unit": "kommunikation",
+      "title": "Webseite eines Instituts aktualisieren",
+      "tags": [
+        "explicit-handover",
+        "approval"
+      ],
+      "local": "Inhalte verantwortet das Institut, Technik die Kommunikation",
+      "review": "not-reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": []
+    },
+    {
+      "id": "p10",
+      "unit": "studium",
+      "title": "Nachteilsausgleich beantragen",
+      "tags": [
+        "completeness-check",
+        "request-missing-information",
+        "explicit-handover"
+      ],
+      "local": "Kriterien: ärztliches Zeugnis, Antrag, Angaben zur Prüfung",
+      "review": "reviewed",
+      "effectiveness": "untested",
+      "authority": "local-practice",
+      "openQuestions": [
+        "Wie werden Dozierende informiert, ohne Diagnosen weiterzugeben?"
+      ]
+    },
+    {
+      "id": "p11",
+      "unit": "studium",
+      "title": "Anerkennung externer Leistungen",
+      "tags": [
+        "completeness-check",
+        "request-missing-information",
+        "approval",
+        "data-entry"
+      ],
+      "local": "Kriterien: Transcript, Modulbeschreibungen, Notenumrechnung",
+      "review": "pending-review",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": [
+        "Wer entscheidet bei unklarer Gleichwertigkeit?"
+      ]
+    },
+    {
+      "id": "p12",
+      "unit": "studium",
+      "title": "Prüfungsanmeldung nach Frist",
+      "tags": [
+        "approval",
+        "data-entry"
+      ],
+      "local": "Ausnahme nur mit Begründung",
+      "review": "not-reviewed",
+      "effectiveness": "untested",
+      "authority": "none",
+      "openQuestions": []
+    }
+  ],
+  "family": {
+    "note": "Fiktive Illustration des Zielbilds. Keine Funktion der heutigen App.",
+    "title": "Veranstaltung ankündigen",
+    "sharedSteps": [
+      "Angaben zusammenstellen",
+      "Angaben an Kommunikation übergeben",
+      "Ankündigung erstellen",
+      "Inhalt freigeben?",
+      "Ankündigung veröffentlichen"
+    ],
+    "versions": [
+      {
+        "id": "ank-zentral",
+        "title": "Veranstaltung ankündigen",
+        "team": "Kommunikation",
+        "scope": "Öffentliche Veranstaltungen der Universität",
+        "version": "v3",
+        "parent": null,
+        "reason": null,
+        "history": [
+          {
+            "version": "v1",
+            "change": "Erste Beschreibung"
+          },
+          {
+            "version": "v2",
+            "change": "Inhaltliche Freigabe durch die organisierende Person ergänzt"
+          },
+          {
+            "version": "v3",
+            "change": "Checkliste für Veranstaltungsangaben vor der Übergabe ergänzt"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Angaben zusammenstellen",
+            "shared": true
+          },
+          {
+            "label": "Checkliste für Angaben prüfen",
+            "added": true,
+            "note": "neu in v3"
+          },
+          {
+            "label": "Angaben an Kommunikation übergeben",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung erstellen",
+            "shared": true
+          },
+          {
+            "label": "Inhalt freigeben?",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung veröffentlichen",
+            "shared": true
+          }
+        ],
+        "review": "Fachlich geprüft für den eigenen Geltungsbereich (v3)"
+      },
+      {
+        "id": "ank-geografie",
+        "title": "Veranstaltung ankündigen – Institut für Geografie",
+        "team": "Sekretariat Institut für Geografie",
+        "scope": "Veranstaltungen in Institutsräumen",
+        "version": "v2.1",
+        "parent": {
+          "id": "ank-zentral",
+          "version": "v2"
+        },
+        "reason": "Institutsräume müssen vor der Ankündigung von der Raumverwaltung freigegeben werden; sonst wird ein Raum doppelt angekündigt.",
+        "history": [
+          {
+            "version": "v2.0",
+            "change": "Für das Institut angepasst (Ausgangsversion v2)"
+          },
+          {
+            "version": "v2.1",
+            "change": "Raumfreigabe vor die Übergabe verschoben"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Angaben zusammenstellen",
+            "shared": true
+          },
+          {
+            "label": "Raumfreigabe einholen",
+            "added": true,
+            "note": "Raumverwaltung"
+          },
+          {
+            "label": "Angaben an Kommunikation übergeben",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung erstellen",
+            "shared": true
+          },
+          {
+            "label": "Inhalt freigeben?",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung veröffentlichen",
+            "shared": true
+          }
+        ],
+        "review": "Fachlich geprüft für Institutsveranstaltungen (v2.1)"
+      },
+      {
+        "id": "ank-romanistik",
+        "title": "Veranstaltung ankündigen – Romanisches Seminar",
+        "team": "Sekretariat Romanisches Seminar",
+        "scope": "Zweisprachige Ankündigungen (Deutsch und Französisch)",
+        "version": "v1",
+        "parent": {
+          "id": "ank-zentral",
+          "version": "v3"
+        },
+        "reason": "Ankündigungen erscheinen zweisprachig; eine Fachperson prüft die Übersetzung, bevor freigegeben wird.",
+        "history": [
+          {
+            "version": "v1",
+            "change": "Für das Seminar angepasst (Ausgangsversion v3)"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Angaben zusammenstellen",
+            "shared": true
+          },
+          {
+            "label": "Checkliste für Angaben prüfen",
+            "shared": true,
+            "note": "aus v3 übernommen"
+          },
+          {
+            "label": "Angaben an Kommunikation übergeben",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung erstellen",
+            "shared": true
+          },
+          {
+            "label": "Übersetzung prüfen",
+            "added": true,
+            "note": "Fachperson Französisch"
+          },
+          {
+            "label": "Inhalt freigeben?",
+            "shared": true
+          },
+          {
+            "label": "Ankündigung veröffentlichen",
+            "shared": true
+          }
+        ],
+        "review": "Prüfung ausstehend (v1)"
+      }
+    ],
+    "proposal": {
+      "from": "ank-zentral",
+      "title": "Checkliste für Veranstaltungsangaben",
+      "change": "Vor der Übergabe an die Kommunikation werden Datum, Ort, Zielgruppe, Ansprechperson und Bildrechte anhand einer Checkliste geprüft.",
+      "why": "Die Kommunikation soll Angaben vollständiger erhalten. Ob das Rückfragen tatsächlich reduziert, ist nicht gemessen – das wäre Teil der Prüfung.",
+      "decisions": [
+        {
+          "target": "ank-geografie",
+          "status": "Vorgeschlagen – Entscheid des Instituts ausstehend",
+          "detail": "Das Institut prüft, ob die Checkliste zur Raumfreigabe passt. Übernimmt es sie, entsteht v2.2 mit eigener fachlicher Prüfung."
+        },
+        {
+          "target": "ank-romanistik",
+          "status": "Bereits enthalten",
+          "detail": "Die Variante basiert auf v3 und hat die Checkliste beim Anpassen bewusst übernommen."
+        }
+      ]
+    }
+  }
 }

@@ -303,3 +303,4 @@ dialog p{font-size:14px;color:var(--ink-2)}
 @media print{.site-header,.work-tabs,button,footer,.assist,#toast,.col-capture,.skip,.demo-band{display:none!important}.tabpanel{border:0}}
 .subhead button{white-space:nowrap}
 h1,h2,h3{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.scope-note{max-width:820px;margin-top:28px}

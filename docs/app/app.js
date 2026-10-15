@@ -46,7 +46,8 @@ function ask(title, text, buttons) {
     $('confirmTitle').textContent = title;
     $('confirmText').textContent = text;
     replaceChildren($('confirmActions'), buttons.map(b => h('button', {type: 'button', class: b.primary ? 'primary' : '', onclick: () => { dialog.close(); resolve(b.value); }}, b.label)));
-    dialog.onclose = () => resolve('cancel');
+    // A close event from a previous dialog can arrive after this one opened; only a real close cancels.
+    dialog.onclose = () => { if (!dialog.open) resolve('cancel'); };
     dialog.showModal();
     $('confirmActions').querySelector('button')?.focus();
   });
