@@ -80,7 +80,7 @@ Zuerst machen wir sichtbar, wie Arbeit tatsächlich gelingt. Dann lernen Teams v
 
 Die Phasen beschreiben wachsende organisationale Fähigkeiten, keine starren Tore. Ein Team kann eine Übergabe bereits beim Entdecken vereinfachen und muss dafür nicht auf eine universitätsweite Prozessbibliothek warten; eine vollständige Inventarisierung ist keine Voraussetzung.
 
-Institutionalisieren heisst nicht vereinheitlichen. Lokale Praxis braucht keine zentrale Freigabe; Teams verantworten ihre Varianten, und jede Variante wird für sich geprüft. Gemeinsame Standards werden nur dort vereinbart, wo sie helfen – durch eine gesonderte Entscheidung der zuständigen Stellen.
+Institutionalisieren heisst nicht vereinheitlichen. Teams gestalten und verantworten ihre Varianten im Rahmen bestehender Zuständigkeiten und Vorgaben; jede Variante wird für sich geprüft. Gemeinsame Standards werden nur dort vereinbart, wo sie helfen – durch eine gesonderte Entscheidung der zuständigen Stellen.
 
 **Durchgehendes Beispiel (fiktiv):** Die Kommunikation beschreibt «Veranstaltung ankündigen» und ergänzt nach dem Prozess-Check eine Checkliste für die Übergabe. Das Institut für Geografie übernimmt die Beschreibung und ergänzt eine Raumfreigabe; das Romanische Seminar übernimmt die Checkliste und ergänzt eine Übersetzungsprüfung. Die verantwortlichen Teams verankern, was sich bewährt: ein Formular mit Pflichtangaben, Aufgaben mit zuständiger Person und Frist, Pflegeverantwortung und eine Messgrösse. Ob das Institut die Checkliste übernimmt, entscheidet es selbst.
 
@@ -91,7 +91,7 @@ Aus einer verstandenen Reibung kann ein kleiner, prüfbarer Schritt werden: beob
 - **Unvollständige Anfragen** → Formular mit Pflichtangaben (z. B. Microsoft Forms). Regelbasiert.
 - **Weiterleiten und Nachfassen** → Aufgabe mit zuständiger Person und Frist (Planner), Benachrichtigung (Teams) und Erinnerung, verbunden über Power Automate. Regelbasiert.
 - **Wiederholtes Abtippen** → Angaben einmal erfassen (z. B. SharePoint-Liste) und weitergeben. Regelbasiert.
-- **Freitextanfragen lesen und einordnen** → ein Sprachmodell (z. B. Mistral) schlägt Kategorie und Kurzfassung vor; unsichere Fälle prüft immer eine Person. Nur hier ist Sprachverständnis nötig.
+- **Freitextanfragen lesen und einordnen** → ein Sprachmodell (z. B. Mistral) schlägt Kategorie und Kurzfassung vor; Menschen prüfen die Vorschläge anhand festgelegter Kriterien. Unklare oder heikle Fälle werden gesondert fachlich geprüft. Eine Selbsteinschätzung des Modells gilt nicht als verlässlicher Nachweis. Nur hier ist Sprachverständnis nötig.
 
 Regelbasierte Automatisierung liefert bei gleicher Eingabe dasselbe Ergebnis und ist leicht zu prüfen. Ein Sprachmodell liefert Vorschläge mit Unsicherheit; es braucht menschliche Prüfung, eine Klärung des Datenschutzes und laufende Qualitätskontrolle. Forms, Planner, Teams und SharePoint sind in Power Automate Standard-Connectors; ein Sprachmodell lässt sich nur über einen Premium- oder benutzerdefinierten Connector einbinden und braucht eine entsprechende Lizenz sowie einen API-Zugang. Mistral ist dabei eine mögliche Modellkomponente, kein Workflow-Produkt. Ob Werkzeuge an einer Hochschule – etwa an der Universität Basel – lizenziert, eingerichtet und freigegeben sind, ist vor jedem Vorschlag zu klären. Wirkung wird gemessen, nicht angenommen; frei werdende Arbeitszeit ist keine Budgeteinsparung.
 
