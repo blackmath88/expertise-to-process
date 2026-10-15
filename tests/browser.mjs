@@ -68,7 +68,33 @@ try {
     assert.equal(await page.locator('#wissenschaft article').count(), 7);
     assert.equal(await page.locator('.phases > li').count(), 3);
     const journey = await page.textContent('#weg');
-    for (const phase of ['Entdecken und verstehen', 'Teilen und verbinden', 'Gezielt verbessern']) assert.ok(journey.includes(phase), phase);
+    for (const phase of ['Entdecken', 'Wissen sichtbar machen', 'Teilen', 'Voneinander lernen', 'Institutionalisieren', 'Verbesserungen im Alltag verankern']) assert.ok(journey.includes(phase), phase);
+    assert.doesNotMatch(await page.textContent('main'), /Gezielt verbessern/);
+    assert.match(await page.textContent('.hero'), /Abläufe verstehen\. Gute Lösungen teilen\. Verbesserungen dauerhaft verankern\./);
+    assert.match(await page.textContent('#heroTitle'), /Was Einzelne wissen, soll die Institution können\./);
+    // phases come directly after the hero and before the technical track
+    const order = await page.$$eval('main > section', ss => ss.map(s => s.id));
+    assert.equal(order[1], 'weg');
+    assert.ok(order.indexOf('weg') < order.indexOf('technik') && order.indexOf('praxis') < order.indexOf('technik'));
+    for (const li of await page.locator('.phase-band > li').all()) {
+      const t = await li.textContent();
+      for (const row of ['Was Menschen tun', 'Was verfügbar wird', 'Nächster Schritt']) assert.ok(t.includes(row), row);
+    }
+    assert.match(journey, /muss dafür nicht auf eine universitätsweite Prozessbibliothek warten/);
+    assert.match(journey, /im Rahmen bestehender Zuständigkeiten und Vorgaben/);
+    const story = await page.textContent('.journey');
+    assert.match(story, /Veranstaltung ankündigen[\s\S]*Raumfreigabe einholen[\s\S]*Übersetzung prüfen[\s\S]*Formular mit Pflichtangaben/);
+    assert.match(story, /Fiktive Beispieluniversität/);
+    const praxis = await page.textContent('#praxis');
+    assert.match(praxis, /Prozess verstanden\.\s*Ersten Schritt vereinfacht\./);
+    assert.equal(await page.locator('#praxis .opp').count(), 4);
+    assert.equal(await page.locator('#praxis .opp .kind.rule').count(), 3);
+    assert.equal(await page.locator('#praxis .opp.llm .kind.model').count(), 1);
+    for (const stage of ['Beobachtete Reibung', 'Vorgeschlagener Ablauf', 'Menschliche Verantwortung', 'Prüfen, ob es hilft']) assert.ok(praxis.includes(stage), stage);
+    assert.match(praxis, /keine laufende Integration/);
+    assert.match(praxis, /je Hochschule zu klären/);
+    assert.match(praxis, /kein fertiges Workflow-Produkt/);
+    assert.doesNotMatch(praxis, /\d+\s*%|CHF|Stunden gespart|Einsparung von/);
     assert.match(await page.textContent('#technik'), /KI-unterstützte Wissensbasis[\s\S]*Kontextbezogene Verbesserungshilfe/);
     assert.match(await page.textContent('#technik'), /keine bestimmte KI-Ausbaustufe/);
     for (const chip of ['Heute in der Demo', 'Nächster Pilot', 'Zielbild']) assert.ok((await page.textContent('#stand')).includes(chip), chip);
