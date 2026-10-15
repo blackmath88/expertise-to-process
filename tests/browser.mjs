@@ -59,6 +59,38 @@ try {
     assert.ok(requests.some(u => u === appUrl + 'data/processes/funding.json'));
   });
 
+  await step('landing page: story, science, dummy-data demo for individual and university', async () => {
+    const landing = origin + PREFIX + '/';
+    await page.goto(landing);
+    await page.locator('#personMap svg').waitFor();
+    assert.match(await page.textContent('#personCheck'), /Rückweg/);
+    assert.match(await page.textContent('#personCheck'), /ohne KI/);
+    assert.equal(await page.locator('#wissenschaft article').count(), 6);
+    await page.screenshot({path: `${shots}/desktop-landing.png`, fullPage: true});
+    await page.click('#tab-uni');
+    await page.locator('#matrix tbody tr').first().waitFor();
+    assert.match(await page.textContent('#uniSummary'), /12 Prozessbeschreibungen aus 5 Einheiten/);
+    assert.match(await page.textContent('#patternDetail'), /Vollständigkeit prüfen/);
+    await page.click('.pattern-btn[data-tag="explicit-handover"]');
+    assert.match(await page.textContent('#patternDetail'), /Übergabe mit Verantwortung/);
+    const text = await page.textContent('#panel-uni');
+    assert.doesNotMatch(text, /\d+\s*%|CHF|Stunden|gespart|Einsparung von/);
+    await page.screenshot({path: `${shots}/desktop-landing-uni.png`, fullPage: true});
+    await page.focus('#tab-uni');
+    await page.keyboard.press('ArrowLeft');
+    assert.equal(await page.getAttribute('#tab-person', 'aria-selected'), 'true');
+    await page.setViewportSize({width: 390, height: 844});
+    assert.ok(await noOverflow(page), 'landing overflow at 390px');
+    await page.screenshot({path: `${shots}/mobile-landing.png`, fullPage: true});
+    await page.click('#tab-uni');
+    assert.ok(await noOverflow(page), 'landing uni overflow at 390px');
+    await page.screenshot({path: `${shots}/mobile-landing-uni.png`, fullPage: true});
+    await page.setViewportSize({width: 1440, height: 1000});
+    await page.click('.site-header a:has-text("App öffnen")');
+    await page.locator('#entryExample').waitFor();
+    assert.equal(page.url(), appUrl);
+  });
+
   await step('learning: decision vs activity is explained for each answer', async () => {
     await page.click('[data-route="lernen"]');
     await page.click('#exerciseNav button:has-text("Entscheidung")');

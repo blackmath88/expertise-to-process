@@ -13,7 +13,11 @@ The demo is set at the **fictional Universität Musterstadt**. All processes, ro
 
 ## Try it
 
-Live demo (after GitHub Pages is enabled): `https://blackmath88.github.io/expertise-to-process/app/`
+After GitHub Pages is enabled:
+- **Landing page** – story, how it works, scientific background, and a dummy-data demo for an individual and for the university: `https://blackmath88.github.io/expertise-to-process/`
+- **App**: `https://blackmath88.github.io/expertise-to-process/app/`
+
+The landing demo's *Für Einzelne* view runs the app's own map and process-check modules on the prepared example. The *Für die Universität* view only counts what is in `docs/landing/demo-institution.json` (12 invented process descriptions, 5 invented units); it shows no time, cost or performance figures.
 
 Locally (Node.js ≥ 22, no API key):
 
@@ -47,6 +51,7 @@ Not included: speech input, structured AI proposals, a central database, formal 
 Static HTML/CSS/vanilla ES modules served from `docs/` (GitHub Pages). No build step, no CDN, no external fonts.
 
 ```
+docs/index.html        landing page (docs/landing/: styles, script, dummy institution data)
 docs/app/
   index.html  style.css  app.js  model.js     v1 process model
   lib/storage.js       read-only static library + explicit browser draft storage
