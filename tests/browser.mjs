@@ -261,6 +261,8 @@ try {
     await writeFile(file, JSON.stringify(evil));
     await page.setInputFiles('#importFile', file);
     await page.click('#confirmActions button:has-text("Ersetzen")');
+    // The import resolves asynchronously after the dialog closes; wait for it instead of racing it.
+    await page.waitForFunction(title => document.getElementById('draftHeading').textContent === title, evil.title);
     assert.equal(await page.textContent('#draftHeading'), evil.title);
     for (const tab of ['#tab-ablauf', '#tab-check', '#tab-mitnehmen']) await page.click(tab);
     assert.equal(await page.evaluate(() => window.__xss), undefined);
