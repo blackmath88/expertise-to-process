@@ -1,6 +1,18 @@
+<!-- BEGIN public-repo-header -->
+<div align="center">
+
 # Pietro
 
-### Wissen teilen. Abläufe vereinfachen.
+**Wissen teilen. Abläufe vereinfachen.**
+
+<a href="https://github.com/blackmath88/expertise-to-process/actions/workflows/check.yml"><img alt="Checks" src="https://github.com/blackmath88/expertise-to-process/actions/workflows/check.yml/badge.svg?branch=main"></a>
+<a href="https://github.com/blackmath88/expertise-to-process/blob/main/AGENTS.md"><img alt="Competition demo: frozen" src="https://img.shields.io/badge/demo-frozen-806743?style=flat"></a>
+<a href="https://github.com/blackmath88/expertise-to-process"><img alt="Primary language: JavaScript" src="https://img.shields.io/badge/language-JavaScript-526078?style=flat"></a>
+<a href="https://github.com/blackmath88/expertise-to-process/tree/main/docs"><img alt="Documentation" src="https://img.shields.io/badge/docs-guide-16796f?style=flat"></a>
+<a href="https://github.com/blackmath88/expertise-to-process/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/blackmath88/expertise-to-process?style=flat&amp;color=737373"></a>
+
+</div>
+<!-- END public-repo-header -->
 
 Turn everyday expertise into a process other people can understand, discuss and improve. Pietro helps teams describe their work, inspect handovers and compare useful patterns while preserving local responsibility.
 
